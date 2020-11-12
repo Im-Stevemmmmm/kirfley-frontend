@@ -1,37 +1,13 @@
 import { useFormik } from 'formik';
-import { useMutation, gql } from '@apollo/client';
-
-const REGISTER_USER = gql`
-  mutation registerUser($email: String!, $password: String!) {
-    registerUser(email: $email, password: $password) {
-      email
-      password
-    }
-  }
-`;
-
-interface User {
-  email: string;
-  password: string;
-}
 
 export default function SignUp() {
-  const [registerUser] = useMutation<{ registeredUser: User }, User>(
-    REGISTER_USER
-  );
-
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: values => {
-      registerUser({
-        variables: {
-          email: values.email,
-          password: values.password,
-        },
-      });
+      console.log(values.password);
     },
   });
 
@@ -40,7 +16,7 @@ export default function SignUp() {
       <div id='card'>
         <div id='left-column'>
           <form onSubmit={formik.handleSubmit}>
-            <h1>Sign Up</h1>
+            <h1>Sign In</h1>
             <label htmlFor='email'>Email</label>
             <input
               name='email'
@@ -55,7 +31,7 @@ export default function SignUp() {
               onChange={formik.handleChange}
               value={formik.values.password}
             />
-            <button type='submit'>Sign Up</button>
+            <button type='submit'>Sign In</button>
           </form>
         </div>
         <div id='right-column' />
