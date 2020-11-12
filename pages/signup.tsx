@@ -1,24 +1,20 @@
+import { gql, useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
-import { useMutation, gql } from '@apollo/client';
+import { User } from '../components/entities';
 
 const REGISTER_USER = gql`
-  mutation registerUser($email: String!, $password: String!) {
-    registerUser(email: $email, password: $password) {
-      email
-      password
+  mutation RegisterUser($email: String!, $password: String!) {
+    registerUser(options: { email: $email, password: $password }) {
+      user {
+        email
+        password
+      }
     }
   }
 `;
 
-interface User {
-  email: string;
-  password: string;
-}
-
 export default function SignUp() {
-  const [registerUser] = useMutation<{ registeredUser: User }, User>(
-    REGISTER_USER
-  );
+  const [registerUser] = useMutation<User, User>(REGISTER_USER);
 
   const formik = useFormik({
     initialValues: {
@@ -44,7 +40,7 @@ export default function SignUp() {
             <label htmlFor='email'>Email</label>
             <input
               name='email'
-              type='test'
+              type='text'
               onChange={formik.handleChange}
               value={formik.values.email}
             />
