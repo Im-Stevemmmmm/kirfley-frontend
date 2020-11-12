@@ -1,13 +1,37 @@
+import { gql, useApolloClient } from '@apollo/client';
 import { useFormik } from 'formik';
+import { User } from '../components/entities';
 
-export default function SignUp() {
+const AUTHENTICATE_USER = gql`
+  query AuthenticateUser($email: String!, $password: String!) {
+    login(options: { email: $email, password: $password }) {
+      successful
+    }
+  }
+`;
+
+interface UserData {
+  login: { authenticated: boolean };
+}
+
+export default function SignIn() {
+  const client = useApolloClient();
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    onSubmit: values => {
-      console.log(values.password);
+    onSubmit: async values => {
+      const { data } = await client.query<UserData, User>({
+        query: AUTHENTICATE_USER,
+        variables: {
+          email: values.email,
+          password: values.password,
+        },
+      });
+
+      console.log(data.login.authenticated);
     },
   });
 
@@ -20,7 +44,7 @@ export default function SignUp() {
             <label htmlFor='email'>Email</label>
             <input
               name='email'
-              type='test'
+              type='text'
               onChange={formik.handleChange}
               value={formik.values.email}
             />
@@ -70,7 +94,6 @@ export default function SignUp() {
 
         #right-column {
           background-image: url('/cards.svg');
-          object-fit: scale-down;
           height: 100%;
         }
 
