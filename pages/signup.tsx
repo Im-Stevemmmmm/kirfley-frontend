@@ -6,7 +6,9 @@ export default function SignUp() {
       email: '',
       password: '',
     },
-    onSubmit: values => {},
+    onSubmit: values => {
+      console.log(values.password);
+    },
   });
 
   return (
@@ -18,11 +20,11 @@ export default function SignUp() {
             <label htmlFor='email'>Email</label>
             <input
               name='email'
-              type='email'
+              type='test'
               onChange={formik.handleChange}
               value={formik.values.email}
             />
-            <label htmlFor='lastName'>Password</label>
+            <label htmlFor='password'>Password</label>
             <input
               name='password'
               type='password'
@@ -42,6 +44,7 @@ export default function SignUp() {
           align-items: center;
 
           height: 100vh;
+          background-image: linear-gradient(35deg, #c2f3fc, #bfa4f5);
         }
 
         #card {
@@ -52,30 +55,33 @@ export default function SignUp() {
           width: 80%;
           height: 85%;
 
+          background-color: white;
+
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
             0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        form {
-          display: inline-flex;
-          flex-direction: column;
-          margin: 0px 200px;
-          width: 200px;
-        }
-
         #left-column,
         #right-column {
+          background-color: white;
           float: left;
           width: 50%;
         }
 
         #right-column {
-          background-image: url('/axiom-pattern.png');
+          background-image: url('/cards.svg');
+          object-fit: scale-down;
           height: 100%;
         }
 
-        .field {
-          margin: 20px 0px;
+        body {
+        }
+
+        form {
+          display: inline-flex;
+          flex-direction: column;
+          margin: 0px 25%;
+          width: 200px;
         }
 
         label,
