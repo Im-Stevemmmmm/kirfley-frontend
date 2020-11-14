@@ -3,10 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  height: 100vh;
   background-image: url('/background.jpg');
   background-size: cover;
+  height: 100vh;
 }
 
 #root h1 {
