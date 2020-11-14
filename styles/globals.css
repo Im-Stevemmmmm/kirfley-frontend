@@ -1,5 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat&display=swap&family=Source+Code+Pro&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&display=swap');
+
+:root {
+  --text-color: black;
+}
 
 html,
 body {
@@ -16,21 +19,46 @@ a {
   box-sizing: border-box;
 }
 
+h1,
+h2,
+p {
+  margin: 5px 40px;
+}
+
 h1 {
   font-family: 'Poppins', sans-serif;
 }
 
+h1,
 h2,
 p,
-button {
+button,
+label,
+input,
+span {
   font-family: 'Roboto Slab', serif;
+  color: var(--text-color);
+}
+
+input:focus {
+  outline: none;
+}
+
+input {
+  background-color: transparent;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1.5px solid black;
+  margin: 10px 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
 }
 
 button {
   display: block;
   background-color: transparent;
   padding: 10px 20px;
-  border: 1px solid black;
+  border: 1px solid var(--text-color);
   font-size: 1em;
   cursor: pointer;
   margin: 10px;

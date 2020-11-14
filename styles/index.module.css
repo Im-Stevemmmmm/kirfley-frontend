@@ -1,0 +1,25 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  background-image: url('/background.jpg');
+  background-size: cover;
+}
+
+#root h1 {
+  font-size: 3em;
+}
+
+#root h2 {
+  font-size: 1.5em;
+  max-width: 40ch;
+  word-wrap: break-word;
+}
+
+.wrapped {
+  text-align: center;
+  max-width: 80ch;
+}
