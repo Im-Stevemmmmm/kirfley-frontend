@@ -33,7 +33,6 @@ export default function Homepage() {
         }
 
         h1 {
-          font-family: 'Montserrat', sans-serif;
           font-size: 3em;
         }
 
@@ -47,25 +46,6 @@ export default function Homepage() {
           text-align: center;
           font-size: 1.2em;
           max-width: 80ch;
-        }
-
-        button {
-          display: block;
-          font-family: 'Lato', sans-serif;
-          background-color: white;
-          padding: 10px 20px;
-          border: 1px solid black;
-          border-radius: 64px;
-          font-size: 16px;
-          cursor: pointer;
-          margin: 10px auto;
-          transform: scale(1);
-          transition: 0.15s background-color ease-in, 0.15s color ease-in;
-        }
-
-        button:hover {
-          background-color: black;
-          color: white;
         }
       `}</style>
     </div>

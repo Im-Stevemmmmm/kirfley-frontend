@@ -15,25 +15,10 @@ const REGISTER_USER = gql`
   }
 `;
 
-function PasswordValidationCard({ error }: { error: string }) {
-  return (
-    <div>
-      <p>{error}</p>
-    </div>
-  );
-}
-
 export default function SignUp() {
-  const [isFocused, setFocused] = useState(false);
-
   const SignupSchema = object().shape({
     email: string().email('Invalid email').required('Required'),
-    password: string()
-      .required('Required')
-      .matches(
-        /^(?=.*\d{2})(?=.*[a-z])(?=.*[a-zA-Z]).{6,}$/,
-        'Must have atleast 6 characters and 2 numbers'
-      ),
+    password: string().required('Required').min(4).max(26),
     confirmPassword: string()
       .required('Required')
       .test('password-match', 'Passwords do not match', function (value) {
@@ -70,44 +55,43 @@ export default function SignUp() {
           <h1>Sign Up</h1>
           <label htmlFor='email'>
             Email
-            <span>{errors.email && ' *' + errors.email}</span>
+            {errors.email && <span>{' *' + errors.email}</span>}
           </label>
           <input
             name='email'
             type='text'
+            placeholder='example@domain.com'
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
+            autoFocus
           />
           <label htmlFor='password'>
             Password
-            <span>{errors.password && ' *' + errors.password}</span>
-            {isFocused && <PasswordValidationCard error={errors.password} />}
+            {errors.password && <span>{' *' + errors.password}</span>}
           </label>
           <input
             name='password'
             type='password'
+            placeholder='atleast 4 characters long'
             onChange={handleChange}
+            onBlur={handleBlur}
             value={values.password}
-            onFocus={() => {
-              setFocused(true);
-            }}
-            onBlur={e => {
-              handleBlur(e);
-              setFocused(false);
-            }}
+            autoFocus
           />
           <label htmlFor='confirmPassword'>
             Confirm Password
-            <span>
-              {errors.confirmPassword && ' *' + errors.confirmPassword}
-            </span>
+            {errors.confirmPassword && (
+              <span>{' *' + errors.confirmPassword}</span>
+            )}
           </label>
           <input
             name='confirmPassword'
             type='password'
             onChange={handleChange}
+            onBlur={handleBlur}
             value={values.confirmPassword}
+            autoFocus
           />
           <button type='submit'>Sign Up</button>
         </form>
@@ -145,13 +129,16 @@ export default function SignUp() {
         #left-column {
           display: flex;
           align-items: center;
+          background-color: #9ad3bc;
         }
 
         #right-column {
-          background-image: url('/cards.svg');
+          // background-image: url('/cards.svg');
+          background-color: #f3eac2;
         }
 
         form {
+          position: relative;
           display: inline-flex;
           flex-direction: column;
           margin: 0px 25%;
@@ -164,7 +151,7 @@ export default function SignUp() {
         h1,
         p,
         span {
-          font-family: 'Lato', sans-serif;
+          font-family: 'Roboto Slab', serif;
           color: black;
         }
 
@@ -185,7 +172,6 @@ export default function SignUp() {
         }
 
         button {
-          width: 100px;
           margin: 10px auto;
         }
 
@@ -203,8 +189,8 @@ export default function SignUp() {
 
           #background {
             position: absolute;
-            background-image: url('/cards.svg');
-            filter: blur(8px);
+            // background-image: url('/cards.svg');
+            // filter: blur(8px);
             width: 100%;
             height: 100%;
             z-index: -1;
