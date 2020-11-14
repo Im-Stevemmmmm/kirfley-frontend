@@ -12,7 +12,7 @@ const AUTHENTICATE_USER = gql`
 `;
 
 interface UserData {
-  login: { authenticated: boolean };
+  login: { successful: boolean };
 }
 
 export default function SignIn() {
@@ -32,7 +32,7 @@ export default function SignIn() {
         },
       });
 
-      console.log(data.login.authenticated);
+      console.log(data.login.successful);
     },
   });
 
