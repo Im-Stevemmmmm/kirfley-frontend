@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   background-color: #9ad3bc;
+  overflow-y: auto;
 }
 
 #rightColumn {
