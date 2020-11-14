@@ -1,6 +1,6 @@
 import { gql, useApolloClient } from '@apollo/client';
 import { useFormik } from 'formik';
-import { User } from '../components/entities';
+import { User } from '../components/gqlentities';
 import styles from '../styles/authentication.module.css';
 
 const AUTHENTICATE_USER = gql`

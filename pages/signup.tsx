@@ -1,7 +1,7 @@
 import { gql, useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
-import { User } from '../components/entities';
+import { User } from '../components/gqlentities';
 import styles from '../styles/authentication.module.css';
 
 const REGISTER_USER = gql`
