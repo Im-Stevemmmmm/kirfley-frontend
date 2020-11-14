@@ -41,6 +41,9 @@ export default function SignIn() {
 
       console.log(data.login.successful);
     },
+    validationSchema: SignupSchema,
+    validateOnChange: false,
+    validateOnBlur: false,
   });
 
   return (
