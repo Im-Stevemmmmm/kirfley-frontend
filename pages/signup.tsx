@@ -1,6 +1,7 @@
 import { gql, useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
+import formatError from '../components/authFormatError';
 import { User } from '../components/gqlentities';
 import styles from '../styles/authentication.module.css';
 
@@ -29,7 +30,7 @@ export default function SignUp() {
 
   const [registerUser] = useMutation<User, User>(REGISTER_USER);
 
-  const { handleSubmit, handleChange, handleBlur, values, errors } = useFormik({
+  const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -45,7 +46,7 @@ export default function SignUp() {
     },
     validationSchema: SignupSchema,
     validateOnChange: false,
-    validateOnBlur: true,
+    validateOnBlur: false,
   });
 
   return (
@@ -55,41 +56,38 @@ export default function SignUp() {
           <h1>Sign Up</h1>
           <label htmlFor='email'>
             Email
-            {errors.email && <span>{' *' + errors.email}</span>}
+            {errors.email && <span>{formatError(errors.email)}</span>}
           </label>
           <input
             name='email'
             type='text'
             placeholder='example@domain.com'
             onChange={handleChange}
-            onBlur={handleBlur}
             value={values.email}
             autoFocus
           />
           <label htmlFor='password'>
             Password
-            {errors.password && <span>{' *' + errors.password}</span>}
+            {errors.password && <span>{formatError(errors.password)}</span>}
           </label>
           <input
             name='password'
             type='password'
             placeholder='atleast 4 characters long'
             onChange={handleChange}
-            onBlur={handleBlur}
             value={values.password}
             autoFocus
           />
           <label htmlFor='confirmPassword'>
             Confirm Password
             {errors.confirmPassword && (
-              <span>{' *' + errors.confirmPassword}</span>
+              <span>{formatError(errors.confirmPassword)}</span>
             )}
           </label>
           <input
             name='confirmPassword'
             type='password'
             onChange={handleChange}
-            onBlur={handleBlur}
             value={values.confirmPassword}
             autoFocus
           />

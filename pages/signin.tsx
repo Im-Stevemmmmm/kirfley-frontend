@@ -1,5 +1,7 @@
 import { gql, useApolloClient } from '@apollo/client';
 import { useFormik } from 'formik';
+import { object, string } from 'yup';
+import formatError from '../components/authFormatError';
 import { User } from '../components/gqlentities';
 import styles from '../styles/authentication.module.css';
 
@@ -16,9 +18,14 @@ interface UserData {
 }
 
 export default function SignIn() {
+  const SignupSchema = object().shape({
+    email: string().email('Invalid email').required('Required'),
+    password: string().required('Required').min(4).max(26),
+  });
+
   const client = useApolloClient();
 
-  const { handleSubmit, handleChange, handleBlur, values, errors } = useFormik({
+  const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -41,14 +48,20 @@ export default function SignIn() {
       <div id={styles.leftColumn}>
         <form onSubmit={handleSubmit}>
           <h1>Sign In</h1>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>
+            Email
+            {errors.email && <span>{formatError(errors.email)}</span>}
+          </label>
           <input
             name='email'
             type='text'
             onChange={handleChange}
             value={values.email}
           />
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'>
+            Password
+            {errors.password && <span>{formatError(errors.password)}</span>}
+          </label>
           <input
             name='password'
             type='password'
