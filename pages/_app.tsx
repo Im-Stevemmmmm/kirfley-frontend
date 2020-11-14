@@ -1,4 +1,4 @@
-import '../globals.css';
+import '../styles/globals.css';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
