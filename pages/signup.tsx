@@ -16,7 +16,7 @@ const REGISTER_USER = gql`
   }
 `;
 
-export default function SignUp() {
+export default function Signup() {
   const SignupSchema = object().shape({
     email: string().email('Invalid email').required('Required'),
     password: string().required('Required').min(4).max(26),

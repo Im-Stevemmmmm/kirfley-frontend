@@ -17,7 +17,7 @@ interface UserData {
   login: { successful: boolean };
 }
 
-export default function SignIn() {
+export default function Login() {
   const SignupSchema = object().shape({
     email: string().email('Invalid email').required('Required'),
     password: string().required('Required').min(4).max(26),
@@ -50,7 +50,7 @@ export default function SignIn() {
     <div id={styles.root}>
       <div id={styles.leftColumn}>
         <form onSubmit={handleSubmit}>
-          <h1>Sign In</h1>
+          <h1>Log In</h1>
           <label htmlFor='email'>
             Email
             {errors.email && <span>{formatError(errors.email)}</span>}
@@ -71,7 +71,7 @@ export default function SignIn() {
             onChange={handleChange}
             value={values.password}
           />
-          <button type='submit'>Sign In</button>
+          <button type='submit'>Log In</button>
         </form>
         <div id={styles.background} />
       </div>
