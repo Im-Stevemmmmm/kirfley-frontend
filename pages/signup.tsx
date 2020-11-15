@@ -1,14 +1,21 @@
-import { gql, useMutation } from '@apollo/client';
+import { gql, useApolloClient, useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
-import formatError from '../components/authFormatError';
-import { User } from '../components/gqlentities';
+import formatError from '../utils/auth-format-error';
+import { User, UserResponse } from '../utils/gqlentities';
 import styles from '../styles/authentication.module.css';
 
 const REGISTER_USER = gql`
-  mutation RegisterUser($email: String!, $password: String!) {
-    registerUser(options: { email: $email, password: $password }) {
+  mutation RegisterUser(
+    $username: String!
+    $email: String!
+    $password: String!
+  ) {
+    registerUser(
+      options: { username: $username, email: $email, password: $password }
+    ) {
       user {
+        username
         email
         password
       }
@@ -16,10 +23,62 @@ const REGISTER_USER = gql`
   }
 `;
 
+const CHECK_FIELD_AVAILABILITY = gql`
+  query CheckFieldAvailabilty($field: String!, $value: String!) {
+    checkFieldAvailability(field: $field, value: $value) {
+      successful
+    }
+  }
+`;
+
+interface CheckFieldAvailabiltyData {
+  checkFieldAvailability: UserResponse;
+}
+
+interface CheckFieldAvailabiltyVars {
+  field: string;
+  value: string;
+}
+
 export default function Signup() {
+  const client = useApolloClient();
+
+  const checkFieldAvailability = async (
+    field: string,
+    value: string
+  ): Promise<boolean> => {
+    const { data } = await client.query<
+      CheckFieldAvailabiltyData,
+      CheckFieldAvailabiltyVars
+    >({
+      query: CHECK_FIELD_AVAILABILITY,
+      variables: {
+        field,
+        value,
+      },
+    });
+
+    return data.checkFieldAvailability.successful;
+  };
+
   const SignupSchema = object().shape({
-    email: string().email('Invalid email').required('Required'),
-    password: string().required('Required').min(4).max(26),
+    username: string()
+      .required('Required')
+      .min(4, 'Must be atleast 4 characters long')
+      .max(26, 'Must be less than 26 characters long')
+      .test('username-available', 'Username is already taken', async value => {
+        return await checkFieldAvailability('username', value);
+      }),
+    email: string()
+      .email('Invalid email')
+      .required('Required')
+      .test('email-available', 'Email is already registered', async value => {
+        return await checkFieldAvailability('email', value);
+      }),
+    password: string()
+      .required('Required')
+      .min(4, 'Must be atleast 4 characters long')
+      .max(26, 'Must be less than 26 characters long'),
     confirmPassword: string()
       .required('Required')
       .test('password-match', 'Passwords do not match', function (value) {
@@ -32,6 +91,7 @@ export default function Signup() {
 
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
+      username: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -39,6 +99,7 @@ export default function Signup() {
     onSubmit: values => {
       registerUser({
         variables: {
+          username: values.username,
           email: values.email,
           password: values.password,
         },
@@ -54,6 +115,18 @@ export default function Signup() {
       <div id={styles.leftColumn}>
         <form onSubmit={handleSubmit}>
           <h1>Sign Up</h1>
+          <label htmlFor='username'>
+            Username
+            {errors.username && <span>{formatError(errors.username)}</span>}
+          </label>
+          <input
+            name='username'
+            type='text'
+            placeholder='atleast 4 characters long'
+            onChange={handleChange}
+            value={values.username}
+            autoFocus
+          />
           <label htmlFor='email'>
             Email
             {errors.email && <span>{formatError(errors.email)}</span>}

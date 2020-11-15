@@ -1,8 +1,8 @@
 import { gql, useApolloClient } from '@apollo/client';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
-import formatError from '../components/authFormatError';
-import { User } from '../components/gqlentities';
+import formatError from '../utils/auth-format-error';
+import { User, UserResponse } from '../utils/gqlentities';
 import styles from '../styles/authentication.module.css';
 
 const AUTHENTICATE_USER = gql`
@@ -13,8 +13,8 @@ const AUTHENTICATE_USER = gql`
   }
 `;
 
-interface UserData {
-  login: { successful: boolean };
+interface AuthenticateUserData {
+  login: UserResponse;
 }
 
 export default function Login() {
@@ -31,7 +31,7 @@ export default function Login() {
       password: '',
     },
     onSubmit: async values => {
-      const { data } = await client.query<UserData, User>({
+      const { data } = await client.query<AuthenticateUserData, User>({
         query: AUTHENTICATE_USER,
         variables: {
           email: values.email,
