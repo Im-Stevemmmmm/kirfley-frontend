@@ -5,12 +5,17 @@ export default function Homepage() {
   return (
     <div id={styles.root}>
       <h1>Fern</h1>
-      <h2 className={styles.wrapped}>
+      <h2 className={styles.wrappedText}>
         A free platform where you can pretty much say anything.
       </h2>
-      <Link href='/signup'>
-        <button>Sign Up</button>
-      </Link>
+      <div id={styles.authButtons}>
+        <Link href='/signup'>
+          <button>Sign Up</button>
+        </Link>
+        <Link href='/login'>
+          <button>Log In</button>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('/background.jpg');
+  /* background-image: url('/background.jpg'); */
+  background-color: #e2d4b7;
   background-size: cover;
   height: 100vh;
 }
@@ -18,7 +19,11 @@
   word-wrap: break-word;
 }
 
-.wrapped {
+.wrappedText {
   text-align: center;
   max-width: 80ch;
+}
+
+#authButtons {
+  display: flex;
 }
