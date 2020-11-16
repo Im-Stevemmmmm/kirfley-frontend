@@ -1,9 +1,10 @@
 import { gql, useApolloClient, useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
+import { useRouter } from 'next/router';
+import styles from '../styles/authentication.module.css';
 import formatError from '../utils/auth-format-error';
 import { User, UserResponse } from '../utils/gqlentities';
-import styles from '../styles/authentication.module.css';
 
 const REGISTER_USER = gql`
   mutation RegisterUser(
@@ -42,6 +43,7 @@ interface CheckFieldAvailabiltyVars {
 
 export default function Signup() {
   const client = useApolloClient();
+  const router = useRouter();
 
   const checkFieldAvailability = async (
     field: string,
@@ -100,14 +102,16 @@ export default function Signup() {
       password: '',
       confirmPassword: '',
     },
-    onSubmit: values => {
-      registerUser({
+    onSubmit: async values => {
+      await registerUser({
         variables: {
           username: values.username,
           email: values.email,
           password: values.password,
         },
       });
+
+      router.push('/home');
     },
     validationSchema: SignupSchema,
     validateOnChange: false,
