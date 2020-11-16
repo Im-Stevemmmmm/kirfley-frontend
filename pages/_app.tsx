@@ -6,7 +6,7 @@ const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
 });
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return (
     <div>
       <ApolloProvider client={client}>
@@ -14,4 +14,6 @@ export default function App({ Component, pageProps }) {
       </ApolloProvider>
     </div>
   );
-}
+};
+
+export default App;

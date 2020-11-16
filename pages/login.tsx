@@ -17,7 +17,7 @@ interface AuthenticateUserData {
   login: UserResponse;
 }
 
-export default function Login() {
+const Login = () => {
   const SignupSchema = object().shape({
     email: string().email('Invalid email').required('Required'),
     password: string().required('Required').min(4).max(26),
@@ -78,4 +78,6 @@ export default function Login() {
       <div id={styles.rightColumn} />
     </div>
   );
-}
+};
+
+export default Login;

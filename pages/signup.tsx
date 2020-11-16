@@ -41,7 +41,7 @@ interface CheckFieldAvailabiltyVars {
   value: string;
 }
 
-export default function Signup() {
+const Signup = () => {
   const client = useApolloClient();
   const router = useRouter();
 
@@ -179,4 +179,6 @@ export default function Signup() {
       <div id={styles.rightColumn} />
     </div>
   );
-}
+};
+
+export default Signup;
