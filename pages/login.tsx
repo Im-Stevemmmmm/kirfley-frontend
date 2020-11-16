@@ -57,7 +57,7 @@ export default function Login() {
           </label>
           <input
             name='email'
-            type='text'
+            type='email'
             onChange={handleChange}
             value={values.email}
           />

@@ -141,7 +141,7 @@ export default function Signup() {
           </label>
           <input
             name='email'
-            type='text'
+            type='email'
             placeholder='example@domain.com'
             onChange={handleChange}
             value={values.email}
