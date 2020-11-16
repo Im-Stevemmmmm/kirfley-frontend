@@ -66,14 +66,18 @@ export default function Signup() {
       .required('Required')
       .min(4, 'Must be atleast 4 characters long')
       .max(26, 'Must be less than 26 characters long')
-      .test('username-available', 'Username is already taken', async value => {
-        return await checkFieldAvailability('username', value);
-      }),
+      .test(
+        'username-available',
+        'Username is already taken',
+        async username => {
+          return await checkFieldAvailability('username', username);
+        }
+      ),
     email: string()
       .email('Invalid email')
       .required('Required')
-      .test('email-available', 'Email is already registered', async value => {
-        return await checkFieldAvailability('email', value);
+      .test('email-available', 'Email is already registered', async email => {
+        return await checkFieldAvailability('email', email);
       }),
     password: string()
       .required('Required')
