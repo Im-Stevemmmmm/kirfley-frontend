@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sign up form renders properly 1`] = `
+<div>
+  <div
+    id="root"
+  >
+    <div
+      id="leftColumn"
+    >
+      <form
+        aria-label="form"
+      >
+        <h1>
+          Sign Up
+        </h1>
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          name="username"
+          placeholder="atleast 4 characters long"
+          type="text"
+          value=""
+        />
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          name="email"
+          placeholder="example@domain.com"
+          type="email"
+          value=""
+        />
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          name="password"
+          placeholder="atleast 4 characters long"
+          type="password"
+          value=""
+        />
+        <label
+          for="confirmPassword"
+        >
+          Confirm Password
+        </label>
+        <input
+          name="confirmPassword"
+          type="password"
+          value=""
+        />
+        <button
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </form>
+      <div
+        id="background"
+      />
+    </div>
+    <div
+      id="rightColumn"
+    />
+  </div>
+</div>
+`;

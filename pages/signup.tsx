@@ -121,7 +121,7 @@ const Signup = () => {
   return (
     <div id={styles.root}>
       <div id={styles.leftColumn}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} aria-label='form'>
           <h1>Sign Up</h1>
           <label htmlFor='username'>
             Username
@@ -145,7 +145,6 @@ const Signup = () => {
             placeholder='example@domain.com'
             onChange={handleChange}
             value={values.email}
-            autoFocus
           />
           <label htmlFor='password'>
             Password
@@ -157,7 +156,6 @@ const Signup = () => {
             placeholder='atleast 4 characters long'
             onChange={handleChange}
             value={values.password}
-            autoFocus
           />
           <label htmlFor='confirmPassword'>
             Confirm Password
@@ -170,7 +168,6 @@ const Signup = () => {
             type='password'
             onChange={handleChange}
             value={values.confirmPassword}
-            autoFocus
           />
           <button type='submit'>Sign Up</button>
         </form>
