@@ -1,6 +1,9 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Homepage from '../../pages';
 
-test('hello world!', () => {
-  const wrapper = render(<Homepage />);
+test('homepage is rendered', () => {
+  render(<Homepage />);
+
+  const title = screen.getByText('Fern');
+  expect(title).toBeInTheDocument();
 });
