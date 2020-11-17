@@ -1,9 +1,14 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import styles from '../styles/index.module.css';
 
 const Homepage = () => {
   return (
     <div id={styles.root}>
+      <Head>
+        <title>Fern</title>
+      </Head>
+
       <h1>Fern</h1>
       <h2 className={styles.wrappedText}>
         A free platform where you can pretty much say anything.

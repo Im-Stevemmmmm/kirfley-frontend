@@ -2,11 +2,14 @@ import { render, screen } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 import Homepage from '../../pages/index';
 
-jest.mock('next/link', () => {
+const getChildren = () => {
   return ({ children }) => {
     return children;
   };
-});
+};
+
+jest.mock('next/link', () => getChildren());
+jest.mock('next/head', () => getChildren());
 
 it('renders correctly', () => {
   const container = document.createElement('div');
@@ -15,11 +18,11 @@ it('renders correctly', () => {
   expect(container).toMatchSnapshot();
 });
 
-describe('index page', () => {
+describe('page content', () => {
   beforeEach(() => render(<Homepage />));
 
   it('displays a greeting message', () => {
-    expect(screen.getByText('Fern')).toBeInTheDocument;
+    expect(screen.getByText('Fern', { selector: 'h1' })).toBeInTheDocument;
     expect(
       screen.getByText(
         'A free platform where you can pretty much say anything.'

@@ -5,6 +5,9 @@ exports[`renders correctly 1`] = `
   <div
     id="root"
   >
+    <title>
+      Fern
+    </title>
     <h1>
       Fern
     </h1>
