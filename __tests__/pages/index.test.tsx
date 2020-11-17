@@ -1,12 +1,7 @@
-import * as React from 'react';
-import { mount } from 'enzyme';
-import Homepage from '../../pages/home';
+import Something from '../../pages/something';
+import { render } from '@testing-library/react';
+import Homepage from '../../pages';
 
-describe('Pages', () => {
-  describe('Index', () => {
-    it('should render without throwing an error', () => {
-      const wrap = mount(<Homepage />);
-      expect(wrap.find('h1').text()).toBe('Fern');
-    });
-  });
+test('hello world!', () => {
+  const wrapper = render(<Homepage />);
 });
