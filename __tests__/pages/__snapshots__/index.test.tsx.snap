@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    id="root"
+  >
+    <h1>
+      Fern
+    </h1>
+    <h2
+      class="wrappedText"
+    >
+      A free platform where you can pretty much say anything.
+    </h2>
+    <div
+      id="authButtons"
+    >
+      <button>
+        Sign Up
+      </button>
+      <button>
+        Log In
+      </button>
+    </div>
+  </div>
+</div>
+`;

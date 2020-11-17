@@ -49,7 +49,7 @@ const Login = () => {
   return (
     <div id={styles.root}>
       <div id={styles.leftColumn}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} aria-label='form'>
           <h1>Log In</h1>
           <label htmlFor='email'>
             Email
