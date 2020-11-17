@@ -1,8 +1,7 @@
 import { gql } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
 import Signup from '../../pages/signup';
 
 const REGISTER_USER = gql`
@@ -91,7 +90,7 @@ describe('sign up form', () => {
   it('renders properly', () => {
     const container = document.createElement('div');
 
-    renderer.act(() => {
+    act(() => {
       ReactDOM.render(
         <MockedProvider mocks={mocks} addTypename={false}>
           <Signup />
