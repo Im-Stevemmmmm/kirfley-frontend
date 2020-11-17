@@ -1,4 +1,3 @@
-import Something from '../../pages/something';
 import { render } from '@testing-library/react';
 import Homepage from '../../pages';
 
