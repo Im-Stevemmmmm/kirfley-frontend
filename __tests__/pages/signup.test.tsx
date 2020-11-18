@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import { act, render, screen, fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import Signup from '../../../pages/signup';
+import Signup from '../../pages/signup';
 
 const REGISTER_USER = gql`
   mutation RegisterUser(
