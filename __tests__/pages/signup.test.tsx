@@ -34,6 +34,9 @@ describe('sign up form', () => {
     let password: HTMLElement;
     let confirmPassword: HTMLElement;
 
+    const setValue = (field: HTMLElement, value: string) =>
+      fireEvent.change(field, { target: { value } });
+
     beforeEach(() => {
       render(
         <MockedProvider mocks={mocks} addTypename={false}>
@@ -50,9 +53,6 @@ describe('sign up form', () => {
       password = screen.getByLabelText('Password');
       confirmPassword = screen.getByLabelText('Confirm Password');
     });
-
-    const setValue = (field: HTMLElement, value: string) =>
-      fireEvent.change(field, { target: { value } });
 
     it('constrains the username length between 4 and 26 chars', async () => {
       setValue(username, FieldValues.USERNAME_BAD_SHORT);
