@@ -3,7 +3,7 @@ import { MockedProvider } from '@apollo/client/testing';
 import { act, render } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 import Login from '../../pages/login';
-import { GQLMocks } from '../__utils__/apollo';
+import { ApolloMock } from '../__utils__/apollo';
 
 describe('login form', () => {
   it('renders properly', () => {
@@ -45,7 +45,7 @@ enum FieldValues {
   PASSWORD = '1234',
 }
 
-const mocks: GQLMocks[] = [
+const mocks: ApolloMock[] = [
   {
     request: {
       query: AUTHENTICATE_USER,

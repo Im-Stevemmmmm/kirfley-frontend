@@ -9,7 +9,7 @@ import {
 } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 import Signup from '../../pages/signup';
-import { GQLMocks } from '../__utils__/apollo';
+import { ApolloMock } from '../__utils__/apollo';
 
 describe('sign up form', () => {
   it('renders properly', () => {
@@ -192,7 +192,7 @@ enum Fields {
   EMAIL = 'email',
 }
 
-const mocks: GQLMocks[] = [
+const mocks: ApolloMock[] = [
   {
     request: {
       query: REGISTER_USER,
