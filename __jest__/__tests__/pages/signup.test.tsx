@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import { act, render } from '@testing-library/react';
+import { act, render, screen, fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import Signup from '../../pages/signup';
+import Signup from '../../../pages/signup';
 
 const REGISTER_USER = gql`
   mutation RegisterUser(
@@ -113,21 +113,18 @@ describe('sign up form', () => {
 
     it('does not submit if the email or username is already registered', () => {});
 
-    // it('signs a user up on submit', async () => {
-    //   const submitButton = screen.getByText('Sign Up', {
-    //     selector: 'button',
-    //   });
+    it('signs a user up on submit', async () => {
+      const submitButton = screen.getByText('Sign Up', {
+        selector: 'button',
+      });
 
-    //   const username = screen.getByText('Username');
-    //   username.textContent = 'steve';
+      const username = screen.getByLabelText('Username');
+      fireEvent.change(username, { target: { value: 'steve' } });
 
-    //   const email = screen.getByText('Email');
-    //   email.textContent = 'example@email.com';
+      const email = screen.getByLabelText('Email');
+      fireEvent.change(email, { target: { value: 'example@email.com' } });
 
-    //   const password = screen.getByText('Password');
-    //   password.textContent = '1234';
-
-    //   fireEvent.click(submitButton);
-    // });
+      fireEvent.click(submitButton);
+    });
   });
 });

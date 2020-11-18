@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import Homepage from '../../pages/index';
+import Homepage from '../../../pages/index';
 
 const getChildren = () => {
   return ({ children }) => {

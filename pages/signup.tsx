@@ -121,13 +121,14 @@ const Signup = () => {
   return (
     <div id={styles.root}>
       <div id={styles.leftColumn}>
-        <form onSubmit={handleSubmit} aria-label='form'>
+        <form onSubmit={handleSubmit}>
           <h1>Sign Up</h1>
           <label htmlFor='username'>
             Username
             {errors.username && <span>{formatError(errors.username)}</span>}
           </label>
           <input
+            id='username'
             name='username'
             type='text'
             placeholder='atleast 4 characters long'
@@ -140,6 +141,7 @@ const Signup = () => {
             {errors.email && <span>{formatError(errors.email)}</span>}
           </label>
           <input
+            id='email'
             name='email'
             type='email'
             placeholder='example@domain.com'
@@ -151,6 +153,7 @@ const Signup = () => {
             {errors.password && <span>{formatError(errors.password)}</span>}
           </label>
           <input
+            id='password'
             name='password'
             type='password'
             placeholder='atleast 4 characters long'
@@ -164,6 +167,7 @@ const Signup = () => {
             )}
           </label>
           <input
+            id='confirmPassword'
             name='confirmPassword'
             type='password'
             onChange={handleChange}
