@@ -10,6 +10,7 @@ import {
 import ReactDOM from 'react-dom';
 import Signup from '../../pages/signup';
 import { ApolloMock } from '../__utils__/apollo';
+import { setValue } from '../__utils__/form';
 
 describe('sign up form', () => {
   it('renders properly', () => {
@@ -33,9 +34,6 @@ describe('sign up form', () => {
     let email: HTMLElement;
     let password: HTMLElement;
     let confirmPassword: HTMLElement;
-
-    const setValue = (field: HTMLElement, value: string) =>
-      fireEvent.change(field, { target: { value } });
 
     beforeEach(() => {
       render(
