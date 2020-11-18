@@ -18,9 +18,12 @@ interface AuthenticateUserData {
 }
 
 const Login = () => {
-  const SignupSchema = object().shape({
+  const LoginSchema = object().shape({
     email: string().email('Invalid email').required('Required'),
-    password: string().required('Required').min(4).max(26),
+    password: string()
+      .required('Required')
+      .min(4, 'Must be atleast 4 characters long')
+      .max(26, 'Must be less than 26 characters long'),
   });
 
   const client = useApolloClient();
@@ -41,7 +44,7 @@ const Login = () => {
 
       console.log(data.login.successful);
     },
-    validationSchema: SignupSchema,
+    validationSchema: LoginSchema,
     validateOnChange: false,
     validateOnBlur: false,
   });
