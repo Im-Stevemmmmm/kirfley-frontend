@@ -134,7 +134,6 @@ const Signup = () => {
             placeholder='atleast 4 characters long'
             onChange={handleChange}
             value={values.username}
-            autoFocus
           />
           <label htmlFor='email'>
             Email

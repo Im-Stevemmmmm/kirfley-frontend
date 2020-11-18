@@ -56,6 +56,7 @@ const Login = () => {
             {errors.email && <span>{formatError(errors.email)}</span>}
           </label>
           <input
+            id='email'
             name='email'
             type='email'
             onChange={handleChange}
@@ -66,6 +67,7 @@ const Login = () => {
             {errors.password && <span>{formatError(errors.password)}</span>}
           </label>
           <input
+            id='password'
             name='password'
             type='password'
             onChange={handleChange}
