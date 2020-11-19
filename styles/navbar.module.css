@@ -1,0 +1,29 @@
+#links,
+#logo {
+  --margin-end: 20px;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 65px;
+}
+
+#links {
+  justify-content: flex-end;
+}
+
+#links button {
+  margin-right: var(--margin-end);
+}
+
+#logo {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#fernImg {
+  margin: var(--margin-end);
+}
+
+#logo h2 {
+  margin: 0 5px;
+}
