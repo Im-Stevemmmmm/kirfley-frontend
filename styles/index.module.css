@@ -1,22 +1,43 @@
-#root {
+#head {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  /* background-image: url('/background.jpg'); */
-  background-color: #e2d4b7;
-  background-size: cover;
+  /* background-color: #e2d4b7; */
+  background-color: #aee6a3;
   height: 100vh;
 }
 
-#root h1 {
+#text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#horizontalBar {
+  width: 700px;
+  height: 2px;
+  background-color: black;
+}
+
+#head h1 {
   font-size: 3em;
 }
 
-#root h2 {
+#head h2 {
   font-size: 1.5em;
   max-width: 40ch;
   word-wrap: break-word;
+}
+
+.fernImg {
+  margin: 0px 50px;
+  position: absolute;
+}
+
+.mirrorHorizontal {
+  transform: scaleX(-1);
 }
 
 .wrappedText {
