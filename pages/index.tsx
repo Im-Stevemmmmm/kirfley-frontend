@@ -1,44 +1,62 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import Head from 'next/head';
+import Image from 'next/image';
+import { CSSProperties } from 'react';
+import Navbar from '../components/navbar';
 import styles from '../styles/index.module.css';
+
+const OffsetLogo = ({ mirrored }: { mirrored?: boolean }) => {
+  interface StyleProperties {
+    classString: string;
+    styles: CSSProperties;
+  }
+
+  const distance = '-200px';
+
+  const styleMap: StyleProperties[] = [
+    {
+      classString: `${styles.fernImg}`,
+      styles: { left: distance },
+    },
+    {
+      classString: `${styles.fernImg} ${styles.mirrorHorizontal}`,
+      styles: { right: distance },
+    },
+  ];
+
+  const styleProperties = styleMap[mirrored ? 1 : 0];
+
+  return (
+    <div className={styleProperties.classString} style={styleProperties.styles}>
+      <Image src='/fern.svg' width={100} height={100} alt='Fern Picture' />
+    </div>
+  );
+};
 
 const Homepage = () => {
   return (
-    <div id={styles.head}>
-      <Head>
-        <title>Fern</title>
-      </Head>
+    <div id={styles.root}>
+      <Navbar />
+      <div id={styles.banner}>
+        <Head>
+          <title>Fern</title>
+        </Head>
 
-      <h1>Fern</h1>
+        <h1>Fern</h1>
 
-      <div id={styles.text}>
-        <div
-          className={`${styles.fernImg} ${styles.mirrorHorizontal}`}
-          style={{ left: '-200px' }}
-        >
-          <Image src='/fern.svg' width={100} height={100} alt='Fern Picture' />
+        <div id={styles.horizontalBarContainer}>
+          <OffsetLogo mirrored />
+          <div id={styles.horizontalBar} />
+          <OffsetLogo />
         </div>
 
-        <div id={styles.horizontalBar} />
+        <h2 className={styles.wrappedText}>
+          A free platform where you can pretty much say anything.
+        </h2>
 
-        <div className={styles.fernImg} style={{ right: '-200px' }}>
-          <Image src='/fern.svg' width={100} height={100} alt='Fern Picture' />
-        </div>
+        <div id={styles.authButtons}></div>
       </div>
 
-      <h2 className={styles.wrappedText}>
-        A free platform where you can pretty much say anything.
-      </h2>
-
-      <div id={styles.authButtons}>
-        <Link href='/signup'>
-          <button>Sign Up</button>
-        </Link>
-        <Link href='/login'>
-          <button>Log In</button>
-        </Link>
-      </div>
+      <div id={styles.sectionOne}>{/* <h1>Connecting the World</h1> */}</div>
     </div>
   );
 };
