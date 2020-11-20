@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap');
+
+:root {
+  --gradient: linear-gradient(45deg, #aae7df, #83e9a5);
+  --text-horizontal-margin: 40px;
+}
 
 * {
   box-sizing: border-box;
@@ -18,11 +23,13 @@ a {
 h1,
 h2,
 p {
-  margin: 5px 40px;
+  margin: 5px var(--text-horizontal-margin);
+  color: black;
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
 }
 
 h1,
@@ -32,7 +39,8 @@ button,
 label,
 input,
 span {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   color: black;
 }
 
