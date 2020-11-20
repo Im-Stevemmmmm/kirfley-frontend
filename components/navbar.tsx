@@ -8,7 +8,7 @@ const Navbar = () => {
     <div>
       <div id={styles.logo}>
         <div id={styles.fernImg}>
-          <Image src='/fern.svg' width={60} height={60} alt='Fern Picture' />
+          <Image src='/fern.svg' width={50} height={50} alt='Fern Picture' />
         </div>
         <h2>Fern</h2>
       </div>

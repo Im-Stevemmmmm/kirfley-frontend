@@ -18,6 +18,7 @@
 #logo {
   justify-content: flex-start;
   align-items: center;
+  font-size: 0.75em;
 }
 
 #fernImg {
@@ -25,5 +26,5 @@
 }
 
 #logo h2 {
-  margin: 0 5px;
+  margin: 0 2px;
 }
