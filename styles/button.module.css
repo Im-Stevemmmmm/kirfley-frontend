@@ -1,5 +1,6 @@
 .standard,
-.inverted {
+.inverted,
+.inline {
   display: block;
   padding: 10px 20px;
   border: none;
@@ -22,6 +23,8 @@
 .inverted {
   background-color: black;
   color: white;
+  transition: 0.15;
+  border: 1px solid black;
 }
 
 .inverted:hover {
@@ -31,4 +34,9 @@
 
 .highlighted {
   border: 1px solid black;
+}
+
+.inline {
+  background-image: var(--gradient);
+  border-radius: 16px;
 }
