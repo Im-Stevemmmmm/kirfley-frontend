@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { CSSProperties } from 'react';
 import Navbar from '../components/navbar';
+import buttonStyles from '../styles/button.module.css';
 import styles from '../styles/index.module.css';
 
 const OffsetLogo = ({ mirrored }: { mirrored?: boolean }) => {
@@ -32,10 +33,24 @@ const OffsetLogo = ({ mirrored }: { mirrored?: boolean }) => {
   );
 };
 
+const TrendingCard = ({
+  trend: heading,
+  children,
+}: {
+  trend: string;
+  children: React.ReactNode;
+}) => (
+  <div className={styles.card}>
+    <h1>{'#' + heading}</h1>
+    <p>{children}</p>
+  </div>
+);
+
 const Homepage = () => {
   return (
-    <div id={styles.root}>
+    <div>
       <Navbar />
+
       <div id={styles.banner}>
         <Head>
           <title>Fern</title>
@@ -50,13 +65,36 @@ const Homepage = () => {
         </div>
 
         <h2 className={styles.wrappedText}>
-          A free platform where you can pretty much say anything.
+          The Unbiased Social Media Platform
         </h2>
 
-        <div id={styles.authButtons}></div>
+        <div id={styles.authButtons} />
       </div>
 
-      <div id={styles.sectionOne}>{/* <h1>Connecting the World</h1> */}</div>
+      <div id={styles.sectionOne}>
+        <div id={styles.rightColumn}>
+          <div id={styles.authCard}>
+            <h1>Log In or Sign Up</h1>
+          </div>
+        </div>
+        <div id={styles.leftColumnContainer}>
+          <div id={styles.leftColumn}>
+            <h1>The Unbiased Social Media Platform</h1>
+            <p>
+              Enjoy a free application where you can communicate with others
+              without fear of your ideas being censored. Or some other random
+              description like this. This is a placeholder!
+            </p>
+            <button className={buttonStyles.inline}>
+              Expirement
+              <span>
+                {' '}
+                <Image src='/arrow.svg' width={10} height={10} alt='Arrow' />
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

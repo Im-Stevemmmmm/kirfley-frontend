@@ -3,15 +3,15 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(45deg, #aae7df, #83e9a5);
+  background-image: var(--gradient);
   height: 300px;
 }
 
-#root h1 {
+#banner h1 {
   font-size: 3em;
 }
 
-#root h2 {
+#banner h2 {
   font-size: 1.5em;
   word-wrap: break-word;
 }
@@ -43,44 +43,128 @@
   transform: scaleX(-1);
 }
 
-#authButtons {
-  display: flex;
+#sectionOne {
+  height: 700px;
+  padding: 20px 0px;
+  background-image: url('/texture.png');
 }
 
 #sectionOne h1 {
+  font-weight: 500;
+}
+
+#rightColumn,
+#leftColumnContainer {
+  width: 50%;
+}
+
+#rightColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  float: right;
+}
+
+#leftColumnContainer {
+  display: flex;
+  justify-content: center;
+  float: left;
+  height: 100%;
+}
+
+#leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+#leftColumn button {
+  width: 200px;
+  margin: 10px var(--text-horizontal-margin);
+}
+
+.card,
+#authCard {
+  --transition-time: 0.75s;
+  --easing: cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: white;
+  box-shadow: 0 4px 30px rgba(11, 33, 74, 0.11),
+    0 -2px 5px rgba(11, 33, 74, 0.03);
+  margin: 20px;
+  border: 1px solid transparent;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  transition: var(--transition-time) transform var(--easing);
+}
+
+.card h1,
+#authCard h1 {
+  text-align: center;
+  font-size: 2.15em;
+  font-weight: 500;
+}
+
+.card p,
+#authCard p {
   text-align: center;
 }
 
-@media only screen and (max-width: 1075px) {
+#authCard {
+  max-width: 500px;
+  height: 500px;
+  width: 100%;
+  border-radius: 21px;
+  background-image: var(--gradient);
+}
+
+.card:hover {
+  transform: scale(1.025);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1075px) {
   .fernImg {
     display: none;
   }
 }
 
-@media only screen and (max-width: 750px) {
-  #root {
-    --first-width-size: 500px;
+@media screen and (max-width: 835px) {
+  #rightColumn,
+  #leftColumnContainer {
+    width: 100%;
   }
 
-  #horizontalBar {
-    width: var(--first-width-size);
-  }
-
-  .wrappedText {
-    max-width: var(--first-width-size);
+  #rightColumn {
+    float: none;
   }
 }
 
-@media only screen and (max-width: 575px) {
-  #root {
-    --second-width-size: 300px;
-  }
-
+@media screen and (max-width: 750px) {
   #horizontalBar {
-    width: var(--second-width-size);
+    width: 500px;
   }
 
   .wrappedText {
-    max-width: var(--second-width-size);
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  #horizontalBar {
+    width: 300px;
+  }
+
+  .wrappedText {
+    max-width: 300px;
+  }
+
+  .card {
+    flex: 100%;
   }
 }
