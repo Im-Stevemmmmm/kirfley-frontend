@@ -13,7 +13,7 @@ spec:
         app: nextjs
     spec:
       containers:
-        - name: frontend_nextjs
+        - name: nextjs
           image: ferndocker.azurecr.io/frontend_nextjs
           ports:
             - containerPort: 3000
