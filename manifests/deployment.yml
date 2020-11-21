@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: imstevemmmmmfernfrontend 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: imstevemmmmmfernfrontend
+  template:
+    metadata:
+      labels:
+        app: imstevemmmmmfernfrontend 
+    spec:
+      containers:
+        - name: imstevemmmmmfernfrontend 
+          image: ferndocker.azurecr.io/imstevemmmmmfernfrontend
+          ports:
+          - containerPort: 3000
