@@ -2,9 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div>
-  <div
-    id="root"
-  >
+  <div>
     <div>
       <div
         id="logo"
@@ -22,7 +20,7 @@ exports[`renders correctly 1`] = `
                 alt=""
                 aria-hidden="true"
                 role="presentation"
-                src="data:image/svg+xml;charset=utf-8,<svg width=\\"60\\" height=\\"60\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                src="data:image/svg+xml;charset=utf-8,<svg width=\\"50\\" height=\\"50\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
                 style="max-width: 100%; display: block;"
               />
             </div>
@@ -127,7 +125,7 @@ exports[`renders correctly 1`] = `
       <h2
         class="wrappedText"
       >
-        A free platform where you can pretty much say anything.
+        The Unbiased Social Media Platform
       </h2>
       <div
         id="authButtons"
@@ -135,7 +133,63 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       id="sectionOne"
-    />
+    >
+      <div
+        id="rightColumn"
+      >
+        <div
+          id="authCard"
+        >
+          <h1>
+            Log In or Sign Up
+          </h1>
+        </div>
+      </div>
+      <div
+        id="leftColumnContainer"
+      >
+        <div
+          id="leftColumn"
+        >
+          <h1>
+            The Unbiased Social Media Platform
+          </h1>
+          <p>
+            Enjoy a free application where you can communicate with others without fear of your ideas being censored. Or some other random description like this. This is a placeholder!
+          </p>
+          <button
+            class="inline"
+          >
+            Expirement
+            <span>
+               
+              <div
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              >
+                <div
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;charset=utf-8,<svg width=\\"10\\" height=\\"10\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                    style="max-width: 100%; display: block;"
+                  />
+                </div>
+                <img
+                  alt="Arrow"
+                  decoding="async"
+                  src="/_next/image?url=%2Farrow.svg&w=320&q=75"
+                  srcset="/_next/image?url=%2Farrow.svg&w=320&q=75 1x"
+                  style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+              </div>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
