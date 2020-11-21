@@ -5,6 +5,7 @@ resources:
 - repo: self
 
 variables:
+  projectName: 'frontend'
   nextjsRepository: 'nextjs'
   nginxRepository: 'nginx'
 
@@ -13,7 +14,6 @@ variables:
   imagePullSecret: 'ferndocker1265143b-auth'
 
   vmImageName: 'ubuntu-latest'
-  projectName: 'frontend'
   
 
 stages:
