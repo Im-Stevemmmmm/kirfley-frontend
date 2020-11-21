@@ -5,12 +5,16 @@ resources:
 - repo: self
 
 variables:
+  nextjsRepository: 'imstevemmmmmfernfrontend_nextjs'
+  nginxRepository: 'imstevemmmmmfernfrontend_nginx'
+  
   dockerRegistryServiceConnection: '9ba409da-5fed-467e-bb2b-adb45b06c174'
   imageRepository: 'imstevemmmmmfernfrontend'
   containerRegistry: 'ferndocker.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: 'latest'
+  tag: '${Build.BuildId}'
   imagePullSecret: 'ferndocker14531366-auth'
+
   vmImageName: 'ubuntu-latest'
   
 
@@ -29,7 +33,6 @@ stages:
         azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
         dockerComposeFile: '**/docker-compose.yml'
         action: 'Build services'
-        includeLatestTag: true
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
@@ -37,7 +40,6 @@ stages:
         azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
         dockerComposeFile: '**/docker-compose.yml'
         action: 'Push services'
-        includeLatestTag: true
     - upload: manifests
       artifact: manifests
 
@@ -72,5 +74,6 @@ stages:
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+                $(containerRegistry)/$(nextjsRepository):$(tag)
+                $(containerRegistry)/$(nginxRepository):$(tag)
 
