@@ -1,7 +1,3 @@
-# Deploy to Azure Kubernetes Service
-# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 trigger:
 - master
 
@@ -9,16 +5,13 @@ resources:
 - repo: self
 
 variables:
-
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'e3e6799a-1f72-4998-bfc2-7cdafd464719'
   nextjsRepository: 'nextjs'
   nginxRepository: 'nginx'
+
+  dockerRegistryServiceConnection: 'e3e6799a-1f72-4998-bfc2-7cdafd464719'
   containerRegistry: 'ferndocker.azurecr.io'
-  tag: '$(Build.BuildId)'
   imagePullSecret: 'ferndocker1265143b-auth'
 
-  # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
 
@@ -26,39 +19,34 @@ stages:
 - stage: Build
   displayName: Build stage
   jobs:  
-  - job: BuildNextJs
-    displayName: Build NextJS
+  - job: Build
+    displayName: Build NextJS and NGINX
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
+    - task: DockerCompose@0
       inputs:
-        command: buildAndPush
-        repository: $(nextjsRepository)
-        dockerfile: 'Dockerfile'
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
+        azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
+        dockerComposeFile: 'docker-compose.yml'
+        projectName: 
+        action: 'Build services'
+        includeLatestTag: true
+    - task: DockerCompose@0
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
+        azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
+        dockerComposeFile: 'docker-compose.yml'
+        projectName: 
+        action: 'Push services'
+        includeLatestTag: true
           
-    - upload: manifests/nextjs
+    - publish: manifests/nextjs
       artifact: manifests/nextjs
-  - job: BuildNginx
-    displayName: Build NGINX
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(nginxRepository)
-        dockerfile: 'nginx/Dockerfile'
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
-          
-    - upload: manifests/nginx
+      
+    - publish: manifests/nginx
       artifact: manifests/nginx
 
 - stage: Deploy
@@ -67,7 +55,7 @@ stages:
 
   jobs:
   - deployment: DeployNextJs
-    displayName: Deploy NextJS
+    displayName: Deploy NextJS and NGINX
     pool:
       vmImage: $(vmImageName)
     environment: 'ImStevemmmmmfernfrontend-4579.default'
@@ -89,34 +77,10 @@ stages:
               manifests: |
                 $(Pipeline.Workspace)/manifests/nextjs/deployment.yml
                 $(Pipeline.Workspace)/manifests/nextjs/service.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
-              containers: |
-                $(containerRegistry)/$(nextjsRepository):$(tag)
-  - deployment: DeployNginx
-    displayName: Deploy NGINX
-    pool:
-      vmImage: $(vmImageName)
-    environment: 'ImStevemmmmmfernfrontend-4579.default'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: KubernetesManifest@0
-            displayName: Create imagePullSecret
-            inputs:
-              action: createSecret
-              secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
-              
-          - task: KubernetesManifest@0
-            displayName: Deploy to Kubernetes cluster
-            inputs:
-              action: deploy
-              manifests: |
                 $(Pipeline.Workspace)/manifests/nginx/deployment.yml
                 $(Pipeline.Workspace)/manifests/nginx/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
-                $(containerRegistry)/$(nginxRepository):$(tag)
+                $(containerRegistry)/$(nextjsRepository):latest
+                $(containerRegistry)/$(nginxRepository):latest
