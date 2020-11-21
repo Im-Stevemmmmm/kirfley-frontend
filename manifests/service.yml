@@ -8,11 +8,3 @@ spec:
     - port: 3000 
     selector:
         app: nextjs
-metadata:
-    name: nginx
-spec:
-    type: LoadBalancer
-    ports:
-    - port: 80 
-    selector:
-        app: nginx
