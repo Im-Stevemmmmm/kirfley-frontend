@@ -44,7 +44,7 @@ stages:
     - upload: manifests/nextjs
       artifact: manifests/nextjs
   - job: BuildNginx
-    displayName: Build Nginx
+    displayName: Build NGINX
     pool:
       vmImage: $(vmImageName)
     steps:
@@ -67,7 +67,7 @@ stages:
 
   jobs:
   - deployment: DeployNextJs
-    displayName: Deploy NextJs
+    displayName: Deploy NextJS
     pool:
       vmImage: $(vmImageName)
     environment: 'ImStevemmmmmfernfrontend-4579.default'
@@ -94,7 +94,7 @@ stages:
               containers: |
                 $(containerRegistry)/$(nextjsRepository):$(tag)
   - deployment: DeployNginx
-    displayName: Deploy Nginx
+    displayName: Deploy NGINX
     pool:
       vmImage: $(vmImageName)
     environment: 'ImStevemmmmmfernfrontend-4579.default'
