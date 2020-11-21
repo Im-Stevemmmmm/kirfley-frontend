@@ -12,7 +12,8 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'dca33456-cc58-4731-be96-97adb9c0c686'
-  imageRepository: 'fernfrontend'
+  nextjsRepository: 'imstevemmmmmfernfrontend_nextjs'
+  nginxRepository: 'imstevemmmmmfernfrontend_nginx'
   containerRegistry: 'ferndocker.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -32,6 +33,7 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - task: DockerCompose@0
+      displayName: "DockerCompose Build"
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
@@ -39,6 +41,7 @@ stages:
         dockerComposeFile: '**/docker-compose.yml'
         action: 'Build services'
     - task: DockerCompose@0
+      displayName: "DockerCompose Push"
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
@@ -80,5 +83,6 @@ stages:
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+                $(containerRegistry)/$(nextjsRepository):$(tag)
+                $(containerRegistry)/$(nginxRepository):$(tag)
 
