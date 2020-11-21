@@ -1,5 +1,5 @@
 trigger:
-- master
+- none
 
 resources:
 - repo: self
@@ -13,6 +13,7 @@ variables:
   imagePullSecret: 'ferndocker1265143b-auth'
 
   vmImageName: 'ubuntu-latest'
+  projectName: 'frontend'
   
 
 stages:
@@ -30,7 +31,7 @@ stages:
         azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
         azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
         dockerComposeFile: 'docker-compose.yml'
-        projectName: 
+        projectName: $(projectName)
         action: 'Build services'
         includeLatestTag: true
     - task: DockerCompose@0
@@ -39,14 +40,14 @@ stages:
         azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
         azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
         dockerComposeFile: 'docker-compose.yml'
-        projectName: 
+        projectName: $(projectName)
         action: 'Push services'
         includeLatestTag: true
           
-    - publish: manifests/nextjs
+    - upload: manifests/nextjs
       artifact: manifests/nextjs
       
-    - publish: manifests/nginx
+    - upload: manifests/nginx
       artifact: manifests/nginx
 
 - stage: Deploy
