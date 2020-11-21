@@ -1,5 +1,5 @@
 trigger:
-- none
+- master
 
 resources:
 - repo: self
@@ -14,7 +14,6 @@ variables:
   imagePullSecret: 'ferndocker1265143b-auth'
 
   vmImageName: 'ubuntu-latest'
-  
 
 stages:
 - stage: Build
@@ -35,6 +34,7 @@ stages:
         projectName: $(projectName)
         action: 'Build services'
         includeLatestTag: true
+        
     - task: DockerCompose@0
       displayName: Push docker images
       inputs:
@@ -45,13 +45,13 @@ stages:
         projectName: $(projectName)
         action: 'Push services'
         includeLatestTag: true
-          
+        
     - upload: manifests/nextjs
-      displayName: Publish NextJS manifests
+      displayName: Publish NextJS artifacts
       artifact: manifests/nextjs
-      
+
     - upload: manifests/nginx
-      displayName: Publish NGINX manifests
+      displayName: Publish NGINX artifacts
       artifact: manifests/nginx
 
 - stage: Deploy
