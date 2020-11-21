@@ -13,7 +13,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - name: frontend_nginx
+        - name: nginx
           image: ferndocker.azurecr.io/frontend_nginx
           ports:
             - containerPort: 80
