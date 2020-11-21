@@ -1,19 +1,23 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: nextjs 
+  name: frontend 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nextjs
+      app: frontend
   template:
     metadata:
       labels:
-        app: nextjs 
+        app: frontend 
     spec:
       containers:
         - name: nextjs 
           image: ferndocker.azurecr.io/nextjs
           ports:
           - containerPort: 3000
+        - name: nginx 
+          image: ferndocker.azurecr.io/nginx
+          ports:
+          - containerPort: 80
