@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: nginx 
+  name: frontend_nginx 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: frontend_nginx
   template:
     metadata:
       labels:
-        app: nginx 
+        app: frontend_nginx 
     spec:
       containers:
-        - name: nginx 
-          image: ferndocker.azurecr.io/nginx
+        - name: frontend_nginx 
+          image: ferndocker.azurecr.io/frontend_nginx
           ports:
           - containerPort: 80
