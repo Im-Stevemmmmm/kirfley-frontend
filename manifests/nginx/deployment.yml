@@ -1,7 +1,7 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: frontend_nginx 
+  name: nginx 
 spec:
   replicas: 1
   selector:
