@@ -1,0 +1,122 @@
+# Deploy to Azure Kubernetes Service
+# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'e3e6799a-1f72-4998-bfc2-7cdafd464719'
+  nextjsRepository: 'nextjs'
+  nginxRepository: 'nginx'
+  containerRegistry: 'ferndocker.azurecr.io'
+  tag: '$(Build.BuildId)'
+  imagePullSecret: 'ferndocker1265143b-auth'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+  
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: BuildNextJs
+    displayName: Build NextJS
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(nextjsRepository)
+        dockerfile: 'Dockerfile'
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+          
+    - upload: manifests/nextjs
+      artifact: manifests/nextjs
+  - job: BuildNginx
+    displayName: Build Nginx
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(nginxRepository)
+        dockerfile: 'nginx/Dockerfile'
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+          
+    - upload: manifests/nginx
+      artifact: manifests/nginx
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: DeployNextJs
+    displayName: Deploy NextJs
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'ImStevemmmmmfernfrontend-4579.default'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            displayName: Create imagePullSecret
+            inputs:
+              action: createSecret
+              secretName: $(imagePullSecret)
+              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+              
+          - task: KubernetesManifest@0
+            displayName: Deploy to Kubernetes cluster
+            inputs:
+              action: deploy
+              manifests: |
+                $(Pipeline.Workspace)/manifests/nextjs/deployment.yml
+                $(Pipeline.Workspace)/manifests/nextjs/service.yml
+              imagePullSecrets: |
+                $(imagePullSecret)
+              containers: |
+                $(containerRegistry)/$(nextjsRepository):$(tag)
+  - deployment: DeployNginx
+    displayName: Deploy Nginx
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'ImStevemmmmmfernfrontend-4579.default'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            displayName: Create imagePullSecret
+            inputs:
+              action: createSecret
+              secretName: $(imagePullSecret)
+              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+              
+          - task: KubernetesManifest@0
+            displayName: Deploy to Kubernetes cluster
+            inputs:
+              action: deploy
+              manifests: |
+                $(Pipeline.Workspace)/manifests/nginx/deployment.yml
+                $(Pipeline.Workspace)/manifests/nginx/service.yml
+              imagePullSecrets: |
+                $(imagePullSecret)
+              containers: |
+                $(containerRegistry)/$(nginxRepository):$(tag)
