@@ -1,11 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: frontend
+    name: nextjs
 spec:
     type: LoadBalancer
     ports:
     - port: 3000 
-    - port: 80
     selector:
-        app: frontend
+        app: nextjs
+metadata:
+    name: nginx
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80 
+    selector:
+        app: nginx
