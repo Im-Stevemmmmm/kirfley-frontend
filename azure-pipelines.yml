@@ -26,6 +26,7 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - task: DockerCompose@0
+      displayName: Build docker images
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
@@ -35,6 +36,7 @@ stages:
         action: 'Build services'
         includeLatestTag: true
     - task: DockerCompose@0
+      displayName: Push docker images
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
@@ -55,7 +57,7 @@ stages:
   dependsOn: Build
 
   jobs:
-  - deployment: DeployNextJs
+  - deployment: Deploy
     displayName: Deploy NextJS and NGINX
     pool:
       vmImage: $(vmImageName)
