@@ -47,9 +47,11 @@ stages:
         includeLatestTag: true
           
     - upload: manifests/nextjs
+      displayName: Publish NextJS manifests
       artifact: manifests/nextjs
       
     - upload: manifests/nginx
+      displayName: Publish NGINX manifests
       artifact: manifests/nginx
 
 - stage: Deploy
