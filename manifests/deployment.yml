@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: fernfrontend 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fernfrontend
+  template:
+    metadata:
+      labels:
+        app: fernfrontend 
+    spec:
+      containers:
+        - name: fernfrontend 
+          image: ferndocker.azurecr.io/fernfrontend
+          ports:
+          - containerPort: 3000
