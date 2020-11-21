@@ -41,8 +41,8 @@ stages:
         tags: |
           $(tag)
           
-    - upload: manifests
-      artifact: manifests
+    - upload: manifests/nextjs
+      artifact: manifests/nextjs
   - job: BuildNginx
     displayName: Build Nginx
     pool:
@@ -58,8 +58,8 @@ stages:
         tags: |
           $(tag)
           
-    - upload: manifests
-      artifact: manifests
+    - upload: manifests/nginx
+      artifact: manifests/nginx
 
 - stage: Deploy
   displayName: Deploy stage
@@ -87,8 +87,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/manifests/nextjs/deployment.yml
+                $(Pipeline.Workspace)/manifests/nextjs/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
@@ -114,8 +114,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/manifests/nginx/deployment.yml
+                $(Pipeline.Workspace)/manifests/nginx/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
