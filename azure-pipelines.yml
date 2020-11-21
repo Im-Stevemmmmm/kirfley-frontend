@@ -34,9 +34,12 @@ stages:
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
+        azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
         dockerComposeFile: '**/docker-compose.yml'
         action: 'Run a Docker Compose command'
-          
+        dockerComposeCommand: 'build'
+        
     - upload: manifests
       artifact: manifests
 
