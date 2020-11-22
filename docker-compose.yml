@@ -5,7 +5,7 @@ services:
     image: ferndocker.azurecr.io/frontend_nextjs
     build: ./
   nginx:
-    image: ferndocker.azurecr.io/nginx_nextjs
+    image: ferndocker.azurecr.io/frontend_nginx
     build: ./nginx
     ports:
       - 80:80

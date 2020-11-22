@@ -19,9 +19,4 @@ describe('navbar', () => {
     expect(screen.getByRole('button', { name: 'Sign Up' })).toBeInTheDocument;
     expect(screen.getByRole('button', { name: 'Log In' })).toBeInTheDocument;
   });
-
-  it('renders the fern logo', () => {
-    expect(screen.getByRole('heading').textContent).toBe('Fern');
-    expect(screen.getByAltText('Fern Picture')).toBeInTheDocument;
-  });
 });

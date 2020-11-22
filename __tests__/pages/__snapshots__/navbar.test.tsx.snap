@@ -24,7 +24,6 @@ exports[`renders correctly 1`] = `
             />
           </div>
           <img
-            alt="Fern Picture"
             decoding="async"
             src="/_next/image?url=%2Ffern.svg&w=320&q=75"
             srcset="/_next/image?url=%2Ffern.svg&w=320&q=75 1x"
