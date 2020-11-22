@@ -2,8 +2,10 @@ version: '3'
 
 services:
   nextjs:
-    build: .
+    image: ferndocker.azurecr.io/frontend_nextjs
+    build: ./
   nginx:
+    image: ferndocker.azurecr.io/nginx_nextjs
     build: ./nginx
     ports:
       - 80:80
