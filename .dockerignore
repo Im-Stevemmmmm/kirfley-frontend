@@ -3,6 +3,4 @@
 .next/
 node_modules/
 nginx/
-setup-tests.js
 azure-pipelines.yml
-.babelrc
