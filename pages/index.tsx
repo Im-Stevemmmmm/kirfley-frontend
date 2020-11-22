@@ -28,7 +28,13 @@ const OffsetLogo = ({ mirrored }: { mirrored?: boolean }) => {
 
   return (
     <div className={styleProperties.classString} style={styleProperties.styles}>
-      <Image src='/fern.svg' width={100} height={100} alt='Fern Picture' />
+      <Image
+        src='/fern.svg'
+        width={100}
+        height={100}
+        alt='Fern Picture'
+        priority
+      />
     </div>
   );
 };
@@ -89,7 +95,13 @@ const Homepage = () => {
               Expirement
               <span>
                 {' '}
-                <Image src='/arrow.svg' width={10} height={10} alt='Arrow' />
+                <Image
+                  src='/arrow.svg'
+                  width={10}
+                  height={10}
+                  alt='Arrow'
+                  priority
+                />
               </span>
             </button>
           </div>
