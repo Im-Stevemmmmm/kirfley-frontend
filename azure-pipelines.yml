@@ -33,6 +33,7 @@ stages:
               dockerComposeFile: 'docker-compose.yml'
               projectName: $(projectName)
               action: 'Build services'
+              includeSourceTags: true
               includeLatestTag: true
           - task: DockerCompose@0
             displayName: Push docker images
@@ -43,6 +44,7 @@ stages:
               dockerComposeFile: 'docker-compose.yml'
               projectName: $(projectName)
               action: 'Push services'
+              includeSourceTags: true
               includeLatestTag: true
 
           - upload: manifests/nextjs
