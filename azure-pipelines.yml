@@ -14,6 +14,7 @@ variables:
   imagePullSecret: 'ferndocker1265143b-auth'
 
   vmImageName: 'ubuntu-latest'
+  tag: $(Build.BuildId)
 
 stages:
   - stage: Build
@@ -44,8 +45,6 @@ stages:
               dockerComposeFile: '**/docker-compose.yml'
               projectName: $(projectName)
               action: 'Push services'
-              includeLatestTag: true
-              includeSourceTags: true
 
           - upload: manifests/nextjs
             displayName: Publish NextJS manifests
