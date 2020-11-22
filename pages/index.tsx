@@ -28,13 +28,7 @@ const OffsetLogo = ({ mirrored }: { mirrored?: boolean }) => {
 
   return (
     <div className={styleProperties.classString} style={styleProperties.styles}>
-      <Image
-        src='/fern.svg'
-        width={100}
-        height={100}
-        alt='Fern Picture'
-        priority
-      />
+      <Image src='/fern.svg' width={100} height={100} priority />
     </div>
   );
 };
@@ -47,7 +41,7 @@ const TrendingCard = ({
   children: React.ReactNode;
 }) => (
   <div className={styles.card}>
-    <h1>{'#' + heading}</h1>
+    <h1>#{heading}</h1>
     <p>{children}</p>
   </div>
 );
@@ -95,13 +89,7 @@ const Homepage = () => {
               Expirement
               <span>
                 {' '}
-                <Image
-                  src='/arrow.svg'
-                  width={10}
-                  height={10}
-                  alt='Arrow'
-                  priority
-                />
+                <Image src='/arrow.svg' width={10} height={10} priority />
               </span>
             </button>
           </div>
