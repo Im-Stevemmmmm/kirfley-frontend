@@ -1,5 +1,5 @@
 trigger:
-  - master
+  - deployment
 
 resources:
   - repo: self
