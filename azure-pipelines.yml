@@ -13,6 +13,7 @@ variables:
   containerRegistry: 'ferndocker.azurecr.io'
   imagePullSecret: 'ferndocker1265143b-auth'
 
+  tag: $(Build.BuildId)
   vmImageName: 'ubuntu-latest'
 
 stages:
@@ -33,8 +34,6 @@ stages:
               dockerComposeFile: 'docker-compose.yml'
               projectName: $(projectName)
               action: 'Build services'
-              includeSourceTags: true
-              includeLatestTag: true
           - task: DockerCompose@0
             displayName: Push docker images
             inputs:
@@ -44,8 +43,6 @@ stages:
               dockerComposeFile: 'docker-compose.yml'
               projectName: $(projectName)
               action: 'Push services'
-              includeSourceTags: true
-              includeLatestTag: true
 
           - upload: manifests/nextjs
             displayName: Publish NextJS manifests
@@ -88,5 +85,5 @@ stages:
                     imagePullSecrets: |
                       $(imagePullSecret)
                     containers: |
-                      $(containerRegistry)/$(nextjsRepository):latest
-                      $(containerRegistry)/$(nginxRepository):latest
+                      $(containerRegistry)/$(nextjsRepository):$(tag)
+                      $(containerRegistry)/$(nginxRepository):$(tag)
