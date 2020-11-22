@@ -1,23 +1,18 @@
-import { gql, useApolloClient } from '@apollo/client';
+import { useApolloClient } from '@apollo/client';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
-import formatError from '../utils/auth-format-error';
-import { User, UserResponse } from '../utils/gqlentities';
+import {
+  AuthenticateUserDocument,
+  AuthenticateUserQuery,
+  AuthenticateUserQueryVariables,
+} from '../generated/graphql-types';
 import styles from '../styles/authentication.module.css';
-
-const AUTHENTICATE_USER = gql`
-  query AuthenticateUser($email: String!, $password: String!) {
-    login(options: { email: $email, password: $password }) {
-      successful
-    }
-  }
-`;
-
-interface AuthenticateUserData {
-  login: UserResponse;
-}
+import formatError from '../utils/auth-format-error';
+import { UserResponse } from '../utils/gqlentities';
 
 const Login = () => {
+  const client = useApolloClient();
+
   const LoginSchema = object().shape({
     email: string().email('Invalid email').required('Required'),
     password: string()
@@ -26,16 +21,17 @@ const Login = () => {
       .max(26, 'Must be less than 26 characters long'),
   });
 
-  const client = useApolloClient();
-
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: async values => {
-      const { data } = await client.query<AuthenticateUserData, User>({
-        query: AUTHENTICATE_USER,
+      const { data } = await client.query<
+        AuthenticateUserQuery,
+        AuthenticateUserQueryVariables
+      >({
+        query: AuthenticateUserDocument,
         variables: {
           email: values.email,
           password: values.password,

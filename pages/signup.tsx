@@ -1,45 +1,15 @@
-import { gql, useApolloClient, useMutation } from '@apollo/client';
+import { useApolloClient } from '@apollo/client';
 import { useFormik } from 'formik';
-import { object, string } from 'yup';
 import { useRouter } from 'next/router';
+import { object, string } from 'yup';
+import {
+  CheckFieldAvailabiltyDocument,
+  CheckFieldAvailabiltyQuery,
+  CheckFieldAvailabiltyQueryVariables,
+  useRegisterUserMutation,
+} from '../generated/graphql-types';
 import styles from '../styles/authentication.module.css';
 import formatError from '../utils/auth-format-error';
-import { User, UserResponse } from '../utils/gqlentities';
-
-const REGISTER_USER = gql`
-  mutation RegisterUser(
-    $username: String!
-    $email: String!
-    $password: String!
-  ) {
-    registerUser(
-      options: { username: $username, email: $email, password: $password }
-    ) {
-      user {
-        username
-        email
-        password
-      }
-    }
-  }
-`;
-
-const CHECK_FIELD_AVAILABILITY = gql`
-  query CheckFieldAvailabilty($field: String!, $value: String!) {
-    checkFieldAvailability(field: $field, value: $value) {
-      successful
-    }
-  }
-`;
-
-interface CheckFieldAvailabiltyData {
-  checkFieldAvailability: UserResponse;
-}
-
-interface CheckFieldAvailabiltyVars {
-  field: string;
-  value: string;
-}
 
 const Signup = () => {
   const client = useApolloClient();
@@ -50,10 +20,10 @@ const Signup = () => {
     value: string
   ): Promise<boolean> => {
     const { data } = await client.query<
-      CheckFieldAvailabiltyData,
-      CheckFieldAvailabiltyVars
+      CheckFieldAvailabiltyQuery,
+      CheckFieldAvailabiltyQueryVariables
     >({
-      query: CHECK_FIELD_AVAILABILITY,
+      query: CheckFieldAvailabiltyDocument,
       variables: {
         field,
         value,
@@ -87,13 +57,17 @@ const Signup = () => {
       .max(26, 'Must be less than 26 characters long'),
     confirmPassword: string()
       .required('Required')
-      .test('password-match', 'Passwords do not match', function (value) {
-        const { password } = this.parent;
-        return password === value;
-      }),
+      .test(
+        'password-match',
+        'Passwords do not match',
+        function (confirmPassword) {
+          const { password } = this.parent;
+          return password === confirmPassword;
+        }
+      ),
   });
 
-  const [registerUser] = useMutation<User, User>(REGISTER_USER);
+  const [registerUser] = useRegisterUserMutation();
 
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
