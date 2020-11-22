@@ -33,8 +33,8 @@ stages:
               dockerComposeFile: '**/docker-compose.yml'
               projectName: $(projectName)
               action: 'Build services'
-              includeLatestTag: true
-              includeSourceTags: true
+              additionalImageTags: |
+                $(tag)
           - task: DockerCompose@0
             displayName: Push docker images
             inputs:
@@ -88,5 +88,5 @@ stages:
                     imagePullSecrets: |
                       $(imagePullSecret)
                     containers: |
-                      $(containerRegistry)/$(projectName)_$(nextjsRepository):latest
-                      $(containerRegistry)/$(projectName)_$(nginxRepository):latest
+                      $(containerRegistry)/$(projectName)_$(nextjsRepository):$(tag)
+                      $(containerRegistry)/$(projectName)_$(nginxRepository):$(tag)
