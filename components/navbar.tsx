@@ -5,23 +5,25 @@ import styles from '../styles/navbar.module.css';
 
 const Navbar = () => {
   return (
-    <div>
-      <div id={styles.logo}>
-        <div id={styles.fernImg}>
-          <Image src='/fern.svg' width={50} height={50} priority />
-        </div>
-        <h2>Fern</h2>
-      </div>
-
-      <div id={styles.links}>
-        <Link href='/login'>
-          <button className={buttonStyles.standard}>Log In</button>
-        </Link>
-        <Link href='/signup'>
-          <button className={buttonStyles.inverted}>Sign Up</button>
-        </Link>
-      </div>
-    </div>
+    <nav id={styles.navbar}>
+      <ul id={styles.navbarNav}>
+        <li>
+          <div id={styles.logo}>
+            <Image src='/fern.svg' width={50} height={50} priority />
+          </div>
+        </li>
+        <li>
+          <Link href='/login'>
+            <button className={buttonStyles.standard}>Log In</button>
+          </Link>
+        </li>
+        <li>
+          <Link href='/signup'>
+            <button className={buttonStyles.inverted}>Sign Up</button>
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
