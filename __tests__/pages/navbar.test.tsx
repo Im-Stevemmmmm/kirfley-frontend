@@ -1,19 +1,19 @@
 import { act, render, screen } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import Navbar from '../../components/navbar';
+import IndexNavbar from '../../components/index-navbar';
 
 it('renders correctly', () => {
   const container = document.createElement('div');
 
   act(() => {
-    ReactDOM.render(<Navbar />, container);
+    ReactDOM.render(<IndexNavbar isVisible={true} />, container);
   });
 
   expect(container).toMatchSnapshot();
 });
 
 describe('navbar', () => {
-  beforeEach(() => render(<Navbar />));
+  beforeEach(() => render(<IndexNavbar isVisible={true} />));
 
   it('renders the sign up and log in buttons', () => {
     expect(screen.getByRole('button', { name: 'Sign Up' })).toBeInTheDocument;

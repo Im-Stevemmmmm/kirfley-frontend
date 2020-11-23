@@ -37,9 +37,9 @@
 
 .inline {
   background-image: var(--gradient);
-  border-radius: 16px;
   transform: scale(1);
   transition: 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-radius: 32px;
 }
 
 .inline:hover {

@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { CSSProperties } from 'react';
-import Navbar from '../components/navbar';
+import { CSSProperties, useState } from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
+import IndexNavbar from '../components/index-navbar';
 import buttonStyles from '../styles/button.module.css';
 import styles from '../styles/index.module.css';
+import { motion } from 'framer-motion';
 
 const OffsetLogo = ({ mirrored }: { mirrored?: boolean }) => {
   interface StyleProperties {
@@ -39,17 +41,34 @@ const TrendingCard = ({
 }: {
   trend: string;
   children: React.ReactNode;
-}) => (
-  <div className={styles.card}>
-    <h1>#{heading}</h1>
-    <p>{children}</p>
-  </div>
-);
+}) => {
+  return (
+    <div className={styles.card}>
+      <h1>#{heading}</h1>
+      <p>{children}</p>
+    </div>
+  );
+};
 
 const Homepage = () => {
+  const [loginBoxIsVisible, setLoginBoxIsVisible] = useState(false);
+
   return (
     <div>
-      <Navbar />
+      <motion.div
+        initial='hidden'
+        animate={loginBoxIsVisible ? 'visible' : 'hidden'}
+        variants={{
+          hidden: {
+            opacity: 0,
+          },
+          visible: {
+            opacity: 1,
+          },
+        }}
+      >
+        <IndexNavbar />
+      </motion.div>
 
       <div id={styles.banner}>
         <Head>
@@ -64,31 +83,90 @@ const Homepage = () => {
           <OffsetLogo />
         </div>
 
-        <h2 className={styles.wrappedText}>
-          The Unbiased Social Media Platform
-        </h2>
-
-        <div id={styles.authButtons} />
+        <h2 className={styles.wrappedText}>The Open Social Media Platform</h2>
       </div>
 
       <div id={styles.sectionOne}>
         <div id={styles.rightColumn}>
-          <div id={styles.authCard}>
-            <h1>Log In or Sign Up</h1>
-          </div>
+          <VisibilitySensor
+            onChange={visible => {
+              setLoginBoxIsVisible(!visible);
+            }}
+            partialVisibility
+          >
+            <div id={styles.authCard}>
+              <h1>Log In or Sign Up</h1>
+            </div>
+          </VisibilitySensor>
         </div>
+
         <div id={styles.leftColumnContainer}>
           <div id={styles.leftColumn}>
-            <h1>The Unbiased Social Media Platform</h1>
+            <h1>The Open Social Media Platform</h1>
+
             <p>
               Enjoy a free application where you can communicate with others
               without fear of your ideas being censored. Or some other random
               description like this. This is a placeholder!
             </p>
+
             <button className={buttonStyles.inline}>
-              Expirement
+              Expirement{' '}
               <span>
-                {' '}
+                <Image src='/arrow.svg' width={10} height={10} priority />
+              </span>
+            </button>
+          </div>
+        </div>
+        <div id={styles.leftColumnContainer}>
+          <div id={styles.leftColumn}>
+            <h1>The Open Social Media Platform</h1>
+
+            <p>
+              Enjoy a free application where you can communicate with others
+              without fear of your ideas being censored. Or some other random
+              description like this. This is a placeholder!
+            </p>
+
+            <button className={buttonStyles.inline}>
+              Expirement{' '}
+              <span>
+                <Image src='/arrow.svg' width={10} height={10} priority />
+              </span>
+            </button>
+          </div>
+        </div>
+        <div id={styles.leftColumnContainer}>
+          <div id={styles.leftColumn}>
+            <h1>The Open Social Media Platform</h1>
+
+            <p>
+              Enjoy a free application where you can communicate with others
+              without fear of your ideas being censored. Or some other random
+              description like this. This is a placeholder!
+            </p>
+
+            <button className={buttonStyles.inline}>
+              Expirement{' '}
+              <span>
+                <Image src='/arrow.svg' width={10} height={10} priority />
+              </span>
+            </button>
+          </div>
+        </div>
+        <div id={styles.leftColumnContainer}>
+          <div id={styles.leftColumn}>
+            <h1>The Open Social Media Platform</h1>
+
+            <p>
+              Enjoy a free application where you can communicate with others
+              without fear of your ideas being censored. Or some other random
+              description like this. This is a placeholder!
+            </p>
+
+            <button className={buttonStyles.inline}>
+              Expirement{' '}
+              <span>
                 <Image src='/arrow.svg' width={10} height={10} priority />
               </span>
             </button>

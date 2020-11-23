@@ -3,7 +3,7 @@ import Image from 'next/image';
 import buttonStyles from '../styles/button.module.css';
 import styles from '../styles/navbar.module.css';
 
-const Navbar = () => {
+const IndexNavbar = () => {
   return (
     <nav id={styles.navbar}>
       <ul id={styles.navbarNav}>
@@ -27,4 +27,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default IndexNavbar;

@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   background-image: var(--gradient);
-  height: 300px;
+  height: 225px;
 }
 
 #banner h1 {
@@ -119,8 +119,8 @@
   max-width: 500px;
   height: 500px;
   width: 100%;
-  border-radius: 21px;
   background-image: var(--gradient);
+  border-radius: 32px;
 }
 
 .card:hover {
@@ -138,30 +138,21 @@
   #rightColumn,
   #leftColumnContainer {
     width: 100%;
-  }
-
-  #rightColumn {
     float: none;
   }
 }
 
 @media screen and (max-width: 750px) {
-  #horizontalBar {
-    width: 500px;
-  }
-
+  #horizontalBar,
   .wrappedText {
-    max-width: 500px;
+    width: 500px;
   }
 }
 
 @media screen and (max-width: 575px) {
-  #horizontalBar {
-    width: 300px;
-  }
-
+  #horizontalBar,
   .wrappedText {
-    max-width: 300px;
+    width: 300px;
   }
 
   .card {

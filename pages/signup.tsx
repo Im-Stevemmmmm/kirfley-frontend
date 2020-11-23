@@ -12,8 +12,10 @@ import styles from '../styles/authentication.module.css';
 import formatError from '../utils/auth-format-error';
 
 const Signup = () => {
-  const client = useApolloClient();
   const router = useRouter();
+
+  const client = useApolloClient();
+  const [registerUser] = useRegisterUserMutation();
 
   const checkFieldAvailability = async (
     field: string,
@@ -66,8 +68,6 @@ const Signup = () => {
         }
       ),
   });
-
-  const [registerUser] = useRegisterUserMutation();
 
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
