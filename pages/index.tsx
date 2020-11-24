@@ -1,11 +1,13 @@
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
-import { CSSProperties, useState } from 'react';
+import { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 import IndexNavbar from '../components/index-navbar';
+import LoginForm from '../components/login-form';
 import buttonStyles from '../styles/button.module.css';
 import styles from '../styles/index.module.css';
-import { motion } from 'framer-motion';
 
 const TrendingCard = ({
   trend: heading,
@@ -59,7 +61,7 @@ const Homepage = () => {
             partialVisibility
           >
             <div id={styles.authCard}>
-              <h1>Log In or Sign Up</h1>
+              <LoginForm />
             </div>
           </VisibilitySensor>
         </div>
@@ -81,12 +83,9 @@ const Homepage = () => {
               description like this. This is a placeholder!
             </p>
 
-            <button className={buttonStyles.inline}>
-              Expirement{' '}
-              <span>
-                <Image src='/arrow.svg' width={10} height={10} priority />
-              </span>
-            </button>
+            <Link href='/signup'>
+              <button className={buttonStyles.inverted}>Sign Up ➤</button>
+            </Link>
           </div>
         </div>
       </div>

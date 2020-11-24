@@ -8,7 +8,7 @@ import {
   CheckFieldAvailabiltyQueryVariables,
   useRegisterUserMutation,
 } from '../generated/graphql-types';
-import styles from '../styles/authentication.module.css';
+import styles from '../styles/auth-forms.module.css';
 import formatError from '../utils/auth-format-error';
 
 const Signup = () => {
@@ -94,63 +94,61 @@ const Signup = () => {
 
   return (
     <div id={styles.root}>
-      <div id={styles.leftColumn}>
-        <form onSubmit={handleSubmit}>
-          <h1>Sign Up</h1>
-          <label htmlFor='username'>
-            Username
-            {errors.username && <span>{formatError(errors.username)}</span>}
-          </label>
-          <input
-            id='username'
-            name='username'
-            type='text'
-            placeholder='atleast 4 characters long'
-            onChange={handleChange}
-            value={values.username}
-          />
-          <label htmlFor='email'>
-            Email
-            {errors.email && <span>{formatError(errors.email)}</span>}
-          </label>
-          <input
-            id='email'
-            name='email'
-            type='email'
-            placeholder='example@domain.com'
-            onChange={handleChange}
-            value={values.email}
-          />
-          <label htmlFor='password'>
-            Password
-            {errors.password && <span>{formatError(errors.password)}</span>}
-          </label>
-          <input
-            id='password'
-            name='password'
-            type='password'
-            placeholder='atleast 4 characters long'
-            onChange={handleChange}
-            value={values.password}
-          />
-          <label htmlFor='confirmPassword'>
-            Confirm Password
-            {errors.confirmPassword && (
-              <span>{formatError(errors.confirmPassword)}</span>
-            )}
-          </label>
-          <input
-            id='confirmPassword'
-            name='confirmPassword'
-            type='password'
-            onChange={handleChange}
-            value={values.confirmPassword}
-          />
-          <button type='submit'>Sign Up</button>
-        </form>
-        <div id={styles.background} />
-      </div>
-      <div id={styles.rightColumn} />
+      <form onSubmit={handleSubmit}>
+        <h1>Sign Up</h1>
+        <label htmlFor='username'>
+          Username
+          {errors.username && (
+            <span className={styles.error}>{formatError(errors.username)}</span>
+          )}
+        </label>
+        <input
+          id='username'
+          name='username'
+          type='text'
+          placeholder='atleast 4 characters long'
+          onChange={handleChange}
+          value={values.username}
+        />
+        <label htmlFor='email'>
+          Email
+          {errors.email && <span>{formatError(errors.email)}</span>}
+        </label>
+        <input
+          id='email'
+          name='email'
+          type='email'
+          placeholder='example@domain.com'
+          onChange={handleChange}
+          value={values.email}
+        />
+        <label htmlFor='password'>
+          Password
+          {errors.password && <span>{formatError(errors.password)}</span>}
+        </label>
+        <input
+          id='password'
+          name='password'
+          type='password'
+          placeholder='atleast 4 characters long'
+          onChange={handleChange}
+          value={values.password}
+        />
+        <label htmlFor='confirmPassword'>
+          Confirm Password
+          {errors.confirmPassword && (
+            <span>{formatError(errors.confirmPassword)}</span>
+          )}
+        </label>
+        <input
+          id='confirmPassword'
+          name='confirmPassword'
+          type='password'
+          onChange={handleChange}
+          value={values.confirmPassword}
+        />
+        <button type='submit'>Sign Up</button>
+      </form>
     </div>
   );
 };

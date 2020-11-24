@@ -38,7 +38,7 @@
 #sectionOne {
   height: 700px;
   padding: 20px 0px;
-  background-image: url('/texture.png');
+  background-image: url('/triangle-mosaic.png');
 }
 
 #sectionOne h1 {
@@ -108,8 +108,9 @@
 }
 
 #authCard {
-  max-width: 500px;
-  height: 500px;
+  --size: 425px;
+  max-width: var(--size);
+  height: var(--size);
   width: 100%;
   background-image: var(--gradient);
   border-radius: 32px;
@@ -126,7 +127,7 @@
   }
 }
 
-@media screen and (max-width: 835px) {
+@media screen and (max-width: 925px) {
   #rightColumn,
   #leftColumnContainer {
     width: 100%;

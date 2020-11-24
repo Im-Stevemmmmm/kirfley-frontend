@@ -6,9 +6,8 @@ import {
   AuthenticateUserQuery,
   AuthenticateUserQueryVariables,
 } from '../generated/graphql-types';
-import styles from '../styles/authentication.module.css';
+import styles from '../styles/auth-forms.module.css';
 import formatError from '../utils/auth-format-error';
-import { UserResponse } from '../utils/gqlentities';
 
 const Login = () => {
   const client = useApolloClient();

@@ -1,0 +1,24 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#root form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#title {
+  margin-bottom: 25px;
+}
+
+#submitButton {
+  margin: 20px 0;
+}
+
+.error {
+  color: red;
+}
