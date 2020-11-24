@@ -8,59 +8,30 @@
   margin-left: 25px;
 }
 
-.wrappedText {
-  text-align: center;
-  max-width: 40ch;
-}
-
-#horizontalBarContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-#horizontalBar {
-  width: 100%;
-  height: 2px;
-  background-color: black;
-}
-
-.fernImg {
-  position: absolute;
-  margin: 0px 50px;
-}
-
-.mirrorHorizontal {
-  transform: scaleX(-1);
-}
-
-#sectionOne {
+#banner {
   height: 700px;
   padding: 20px 0px;
   background-image: url('/triangle-mosaic.png');
 }
 
-#sectionOne h1 {
+#banner h1 {
   font-weight: 500;
 }
 
 #rightColumn,
 #leftColumnContainer {
+  display: flex;
+  justify-content: center;
   width: 50%;
 }
 
 #rightColumn {
-  display: flex;
-  justify-content: center;
   align-items: center;
   height: 100%;
   float: right;
 }
 
 #leftColumnContainer {
-  display: flex;
-  justify-content: center;
   float: left;
   height: 100%;
 }
@@ -78,77 +49,36 @@
   margin: 10px var(--text-horizontal-margin);
 }
 
-.card,
 #authCard {
   --transition-time: 0.75s;
   --easing: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --size: 425px;
+  width: 100%;
+  max-width: var(--size);
+  height: var(--size);
+  background-image: var(--gradient);
   background-color: white;
   box-shadow: 0 4px 30px rgba(11, 33, 74, 0.11),
     0 -2px 5px rgba(11, 33, 74, 0.03);
   margin: 20px;
   border: 1px solid transparent;
+  border-radius: 32px;
 }
 
-.card {
-  width: 300px;
-  height: 300px;
-  transition: var(--transition-time) transform var(--easing);
-}
-
-.card h1,
 #authCard h1 {
   text-align: center;
   font-size: 2.15em;
   font-weight: 500;
 }
 
-.card p,
 #authCard p {
   text-align: center;
 }
 
-#authCard {
-  --size: 425px;
-  max-width: var(--size);
-  height: var(--size);
-  width: 100%;
-  background-image: var(--gradient);
-  border-radius: 32px;
-}
-
-.card:hover {
-  transform: scale(1.025);
-  cursor: pointer;
-}
-
-@media screen and (max-width: 1075px) {
-  .fernImg {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 925px) {
+@media screen and (max-width: 835px) {
   #rightColumn,
   #leftColumnContainer {
     width: 100%;
     float: none;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  #horizontalBar,
-  .wrappedText {
-    width: 500px;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  #horizontalBar,
-  .wrappedText {
-    width: 300px;
-  }
-
-  .card {
-    flex: 100%;
   }
 }

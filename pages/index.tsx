@@ -1,28 +1,13 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 import IndexNavbar from '../components/index-navbar';
 import LoginForm from '../components/login-form';
 import buttonStyles from '../styles/button.module.css';
 import styles from '../styles/index.module.css';
-
-const TrendingCard = ({
-  trend: heading,
-  children,
-}: {
-  trend: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <div className={styles.card}>
-      <h1>#{heading}</h1>
-      <p>{children}</p>
-    </div>
-  );
-};
 
 const Homepage = () => {
   const [loginBoxIsVisible, setLoginBoxVisibility] = useState(false);
@@ -52,7 +37,7 @@ const Homepage = () => {
         <IndexNavbar />
       </motion.div>
 
-      <div id={styles.sectionOne}>
+      <div id={styles.banner}>
         <div id={styles.rightColumn}>
           <VisibilitySensor
             onChange={visible => {
