@@ -1,0 +1,5 @@
+query CheckFieldAvailabilty($field: String!, $value: String!) {
+  checkFieldAvailability(field: $field, value: $value) {
+    successful
+  }
+}
