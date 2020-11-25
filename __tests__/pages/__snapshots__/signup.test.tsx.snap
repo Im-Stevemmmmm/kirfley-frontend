@@ -5,73 +5,63 @@ exports[`sign up form renders properly 1`] = `
   <div
     id="root"
   >
-    <div
-      id="leftColumn"
-    >
-      <form>
-        <h1>
-          Sign Up
-        </h1>
-        <label
-          for="username"
-        >
-          Username
-        </label>
-        <input
-          id="username"
-          name="username"
-          placeholder="atleast 4 characters long"
-          type="text"
-          value=""
-        />
-        <label
-          for="email"
-        >
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          placeholder="example@domain.com"
-          type="email"
-          value=""
-        />
-        <label
-          for="password"
-        >
-          Password
-        </label>
-        <input
-          id="password"
-          name="password"
-          placeholder="atleast 4 characters long"
-          type="password"
-          value=""
-        />
-        <label
-          for="confirmPassword"
-        >
-          Confirm Password
-        </label>
-        <input
-          id="confirmPassword"
-          name="confirmPassword"
-          type="password"
-          value=""
-        />
-        <button
-          type="submit"
-        >
-          Sign Up
-        </button>
-      </form>
-      <div
-        id="background"
+    <form>
+      <h1>
+        Sign Up
+      </h1>
+      <label
+        for="username"
+      >
+        Username
+      </label>
+      <input
+        id="username"
+        name="username"
+        placeholder="atleast 4 characters long"
+        type="text"
+        value=""
       />
-    </div>
-    <div
-      id="rightColumn"
-    />
+      <label
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        id="email"
+        name="email"
+        placeholder="example@domain.com"
+        type="email"
+        value=""
+      />
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        name="password"
+        placeholder="atleast 4 characters long"
+        type="password"
+        value=""
+      />
+      <label
+        for="confirmPassword"
+      >
+        Confirm Password
+      </label>
+      <input
+        id="confirmPassword"
+        name="confirmPassword"
+        type="password"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Sign Up
+      </button>
+    </form>
   </div>
 </div>
 `;

@@ -6,14 +6,14 @@ it('renders correctly', () => {
   const container = document.createElement('div');
 
   act(() => {
-    ReactDOM.render(<IndexNavbar isVisible={true} />, container);
+    ReactDOM.render(<IndexNavbar />, container);
   });
 
   expect(container).toMatchSnapshot();
 });
 
 describe('navbar', () => {
-  beforeEach(() => render(<IndexNavbar isVisible={true} />));
+  beforeEach(() => render(<IndexNavbar />));
 
   it('renders the sign up and log in buttons', () => {
     expect(screen.getByRole('button', { name: 'Sign Up' })).toBeInTheDocument;
