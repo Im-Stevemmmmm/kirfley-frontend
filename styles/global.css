@@ -28,18 +28,13 @@ p {
   color: var(--text-color);
 }
 
-h1 {
-  font-family: 'Heebo', sans-serif;
-  font-weight: 400;
-}
-
 h1,
 h2,
 p,
 button,
 label,
 input,
-span {
+li {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   color: var(--text-color);
