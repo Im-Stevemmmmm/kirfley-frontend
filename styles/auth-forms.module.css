@@ -11,12 +11,16 @@
   justify-content: center;
 }
 
+#root label {
+  font-size: 1.1em;
+}
+
 #title {
   margin-bottom: 25px;
 }
 
-#submitButton {
-  margin: 20px 0;
+#loginButton {
+  margin-top: 20px;
 }
 
 .error {

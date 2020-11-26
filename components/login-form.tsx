@@ -1,5 +1,6 @@
 import { useApolloClient } from '@apollo/client';
 import { useFormik } from 'formik';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { object, string } from 'yup';
 import {
@@ -51,7 +52,6 @@ const LoginForm = () => {
   return (
     <div id={styles.root}>
       <form onSubmit={handleSubmit}>
-        <h1>Log In</h1>
         <label htmlFor='email'>
           Username or Email
           {errors.email && (
@@ -78,9 +78,17 @@ const LoginForm = () => {
           onChange={handleChange}
           value={values.password}
         />
-        <button type='submit' className={buttonStyles.inverted}>
+        <button
+          type='submit'
+          id={styles.loginButton}
+          className={buttonStyles.inverted}
+        >
           Log In
         </button>
+        <p>or</p>
+        <Link href='/signup'>
+          <button className={buttonStyles.inverted}>Create an Account</button>
+        </Link>
       </form>
     </div>
   );
