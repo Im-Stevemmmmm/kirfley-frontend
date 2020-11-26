@@ -7,6 +7,7 @@
   font-size: 1em;
   cursor: pointer;
   transition: 0.15s background-color ease-in, 0.15s color ease-in;
+  border-radius: 32px;
 }
 
 .standard {
