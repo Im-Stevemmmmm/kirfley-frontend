@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import buttonStyles from '../styles/button.module.css';
 import styles from '../styles/navbar.module.css';
 
@@ -9,7 +9,7 @@ const IndexNavbar = () => {
       <ul id={styles.navbarNav}>
         <li>
           <div id={styles.logo}>
-            <Image src='/fern.svg' width={50} height={50} priority />
+            <Image src='/fern.svg' width={50} height={50} alt='' priority />
           </div>
         </li>
         <li>
