@@ -1,12 +1,13 @@
-import styles from '../styles/home.module.css';
+import styles from '../styles/home.module.scss';
+import useSessionAuth from '../utils/use-session-auth';
 
-const Home = () => {
+export default function Home() {
+  useSessionAuth();
+
   return (
-    <div id={styles.root}>
+    <div id={styles['container']}>
       <h1>Welcome to Fern!</h1>
       <p>Recent posts...</p>
     </div>
   );
-};
-
-export default Home;
+}
