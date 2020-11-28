@@ -28,6 +28,10 @@ p {
   color: var(--text-color);
 }
 
+img:-moz-loading {
+  visibility: hidden;
+}
+
 h1,
 h2,
 p,
@@ -48,8 +52,8 @@ input {
   margin: 10px 0;
   border-radius: 0;
   -webkit-border-radius: 0;
-}
 
-input:focus {
-  outline: none;
+  :focus {
+    outline: none;
+  }
 }

@@ -1,86 +1,90 @@
-#backgroundTexture {
-  width: 100%;
-  height: 100vh;
+#container {
+  position: relative;
   background-image: url('/triangle-mosaic.png');
+
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
 }
 
-#title {
+.title {
   font-size: 5.5em;
   font-weight: 800 !important;
   text-align: center;
+
+  &__logo {
+    margin-left: 25px;
+  }
 }
 
-#title span {
-  margin-left: 25px;
-}
-
-#banner {
+#content {
   height: 700px;
   padding: 20px 0px;
 }
 
-#banner h1 {
-  font-weight: 500;
-}
-
-#rightColumn,
-#leftColumnContainer {
+@mixin column-container {
   display: flex;
   justify-content: center;
   width: 50%;
 }
 
-#rightColumn {
+#right-column {
+  @include column-container();
+
   align-items: center;
-  height: 100%;
   float: right;
-}
 
-#leftColumnContainer {
-  float: left;
   height: 100%;
 }
 
-#leftColumn {
+#left-column-container {
+  @include column-container();
+
+  height: 100%;
+  float: left;
+}
+
+#left-column {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
+
   width: 500px;
 }
 
-#leftColumn button {
-  width: 200px;
-  margin: 10px var(--text-horizontal-margin);
-}
+#auth-card {
+  $transition-time: 0.75s;
+  $easing: cubic-bezier(0.075, 0.82, 0.165, 1);
+  $size: 425px;
 
-#authCard {
-  --transition-time: 0.75s;
-  --easing: cubic-bezier(0.075, 0.82, 0.165, 1);
-  --size: 425px;
+  margin: 20px;
+
   width: 100%;
-  max-width: var(--size);
-  height: var(--size);
+  max-width: $size;
+  height: $size;
+
   background-image: var(--gradient);
   background-color: white;
   box-shadow: 0 4px 30px rgba(11, 33, 74, 0.11),
     0 -2px 5px rgba(11, 33, 74, 0.03);
-  margin: 20px;
+
   border: 1px solid transparent;
   border-radius: 32px;
-}
+  padding: 0 50px;
 
-#authCard p {
-  text-align: center;
+  p {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 835px) {
-  #banner {
+  #content {
     height: auto;
   }
 
-  #rightColumn,
-  #leftColumnContainer {
+  #right-column,
+  #left-column-container {
     width: 100%;
     float: none;
   }

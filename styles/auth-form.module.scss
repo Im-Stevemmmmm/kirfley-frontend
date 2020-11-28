@@ -1,0 +1,87 @@
+#animation-container {
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.form {
+  width: 275px;
+
+  &__label {
+    font-size: 1.1em;
+
+    &--error {
+      color: red;
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
+
+#title {
+  margin-bottom: 25px;
+}
+
+.button-container {
+  @extend .form;
+
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}
+
+/*** CSS Transitions ***/
+
+$distance: 110%;
+$time: 500ms;
+
+@mixin form-enter($direction) {
+  position: absolute;
+  transform: translateX($direction * $distance);
+}
+
+@mixin form-exit-active($direction) {
+  transform: translateX($direction * $distance);
+  transition: transform $time ease;
+}
+
+.form-primary-enter {
+  @include form-enter(1);
+}
+
+.form-primary-exit-active {
+  @include form-exit-active(1);
+}
+
+.form-secondary-enter {
+  @include form-enter(-1);
+}
+
+.form-secondary-exit-active {
+  @include form-exit-active(-1);
+}
+
+.form-enter-active {
+  transform: translateX(0);
+  transition: transform $time ease;
+}
+
+.form-exit {
+  position: absolute;
+}
