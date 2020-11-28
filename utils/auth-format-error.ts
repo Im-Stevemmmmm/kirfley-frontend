@@ -1,5 +1,3 @@
-const formatError = (error: string) => {
+export default function formatError(error: string) {
   return ' *' + error;
-};
-
-export default formatError;
+}
