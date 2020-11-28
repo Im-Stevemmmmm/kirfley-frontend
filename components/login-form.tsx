@@ -1,33 +1,28 @@
-import { useApolloClient } from '@apollo/client';
+import classNames from 'classnames';
 import { useFormik } from 'formik';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { object, string } from 'yup';
-import {
-  AuthenticateUserDocument,
-  AuthenticateUserQuery,
-  AuthenticateUserQueryVariables,
-} from '../generated/graphql-types';
-import styles from '../styles/auth-forms.module.css';
-import buttonStyles from '../styles/button.module.css';
-import formatError from '../utils/auth-format-error';
+import { useLoginMutation } from '../generated/graphql-types';
+import styles from '../styles/auth-form.module.scss';
+import buttonStyles from '../styles/buttons.module.scss';
+import AuthFormLabel from './forms/auth-form';
 
-const LoginForm = () => {
-  const client = useApolloClient();
+export default function LoginForm({
+  registerButtonClickCallback,
+}: {
+  registerButtonClickCallback: (value: boolean) => void;
+}) {
+  const [login] = useLoginMutation();
   const router = useRouter();
 
   const LoginSchema = object().shape({
-    email: string().email('Invalid email').required('Required'),
+    usernameOrEmail: string().required('Required'),
     password: string()
       .required('Required')
       .test('password-is-correct', 'Incorrect password', async _ => {
-        const { data } = await client.query<
-          AuthenticateUserQuery,
-          AuthenticateUserQueryVariables
-        >({
-          query: AuthenticateUserDocument,
+        const { data } = await login({
           variables: {
-            email: values.email,
+            usernameOrEmail: values.usernameOrEmail,
             password: values.password,
           },
         });
@@ -38,7 +33,7 @@ const LoginForm = () => {
 
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
-      email: '',
+      usernameOrEmail: '',
       password: '',
     },
     onSubmit: async _ => {
@@ -50,27 +45,22 @@ const LoginForm = () => {
   });
 
   return (
-    <div id={styles.root}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='email'>
+    <div id={styles['container']}>
+      <form className={styles['form']} onSubmit={handleSubmit}>
+        <AuthFormLabel name={'usernameOrEmail'} errors={errors}>
           Username or Email
-          {errors.email && (
-            <span className={styles.error}>{formatError(errors.email)}</span>
-          )}
-        </label>
+        </AuthFormLabel>
         <input
-          id='email'
-          name='email'
-          type='email'
+          id='usernameOrEmail'
+          name='usernameOrEmail'
+          type='text'
           onChange={handleChange}
-          value={values.email}
+          value={values.usernameOrEmail}
         />
-        <label htmlFor='password'>
+
+        <AuthFormLabel name={'password'} errors={errors}>
           Password
-          {errors.password && (
-            <span className={styles.error}>{formatError(errors.password)}</span>
-          )}
-        </label>
+        </AuthFormLabel>
         <input
           id='password'
           name='password'
@@ -78,20 +68,34 @@ const LoginForm = () => {
           onChange={handleChange}
           value={values.password}
         />
-        <button
-          type='submit'
-          id={styles.loginButton}
-          className={buttonStyles.inverted}
-        >
-          Log In
-        </button>
-        <p>or</p>
-        <Link href='/signup'>
-          <button className={buttonStyles.inverted}>Create an Account</button>
-        </Link>
+
+        <div className={styles['button-container']}>
+          <button
+            type='submit'
+            className={classNames(
+              styles['form__button'],
+              buttonStyles['inverted']
+            )}
+          >
+            Log In
+          </button>
+
+          <p>or</p>
+
+          <button
+            type='button'
+            className={classNames(
+              styles['form__button'],
+              buttonStyles['inverted']
+            )}
+            onClick={() => {
+              registerButtonClickCallback(true);
+            }}
+          >
+            Create an Account
+          </button>
+        </div>
       </form>
     </div>
   );
-};
-
-export default LoginForm;
+}
