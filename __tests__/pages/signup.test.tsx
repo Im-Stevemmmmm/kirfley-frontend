@@ -8,7 +8,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import Signup from '../../pages/signup';
+import SignupForm from '../../components/signup-form';
 import { ApolloMock } from '../__utils__/apollo';
 import { setValue } from '../__utils__/form';
 
@@ -19,7 +19,7 @@ describe('sign up form', () => {
     act(() => {
       ReactDOM.render(
         <MockedProvider mocks={mocks} addTypename={false}>
-          <Signup />
+          <SignupForm />
         </MockedProvider>,
         container
       );
@@ -38,7 +38,7 @@ describe('sign up form', () => {
     beforeEach(() => {
       render(
         <MockedProvider mocks={mocks} addTypename={false}>
-          <Signup />
+          <SignupForm />
         </MockedProvider>
       );
 
