@@ -1,34 +1,32 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Footer from '../components/footer';
-import LoginForm from '../components/login-form';
-import styles from '../styles/index.module.css';
+import AuthForm from '../components/forms/auth-form';
+import styles from '../styles/index.module.scss';
 
-const Homepage = () => {
+export default function Homepage() {
   return (
-    <div id={styles.backgroundTexture}>
+    <div id={styles['container']}>
       <Head>
         <title>Fern</title>
       </Head>
 
-      <div id={styles.banner}>
-        <div id={styles.rightColumn}>
-          <div id={styles.authCard}>
-            <LoginForm />
+      <div id={styles['content']}>
+        <div id={styles['right-column']}>
+          <div id={styles['auth-card']}>
+            <AuthForm />
           </div>
         </div>
 
-        <div id={styles.leftColumnContainer}>
-          <div id={styles.leftColumn}>
-            <h1 id={styles.title}>
+        <div id={styles['left-column-container']}>
+          <div id={styles['left-column']}>
+            <h1 className={styles['title']}>
               Fern
-              <span>
-                <Image
+              <span className={styles['title__logo']}>
+                <img
                   src='/fern.svg'
-                  width='100%'
+                  width='27.5%'
                   height='75px'
-                  alt='Fern'
-                  priority
+                  alt='Fern picture'
                 />
               </span>
             </h1>
@@ -47,6 +45,4 @@ const Homepage = () => {
       <Footer />
     </div>
   );
-};
-
-export default Homepage;
+}
