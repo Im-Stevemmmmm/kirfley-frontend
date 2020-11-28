@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import styles from '../../styles/auth-form.module.scss';
 import LoginForm from '../login-form';
 import SignupForm from '../signup-form';
-import styles from '../styles/auth-form.module.scss';
 
 export default function AuthForm() {
   const [isSigningUp, setSigningUp] = useState(false);
