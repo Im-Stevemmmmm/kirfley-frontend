@@ -1,12 +1,12 @@
-import classNames from 'classnames';
-import { useFormik } from 'formik';
-import { useRouter } from 'next/router';
-import { object, string } from 'yup';
-import { useLoginMutation } from '../generated/graphql-types';
-import styles from '../styles/auth-form.module.scss';
-import buttonStyles from '../styles/buttons.module.scss';
-import { AuthFormProps } from './forms/auth-form';
-import AuthFormLabel from './forms/auth-form-label';
+import classNames from "classnames";
+import { useFormik } from "formik";
+import { useRouter } from "next/router";
+import { object, string } from "yup";
+import { useLoginMutation } from "../generated/graphql-types";
+import styles from "../styles/auth-form.module.scss";
+import buttonStyles from "../styles/buttons.module.scss";
+import { AuthFormProps } from "./forms/auth-form";
+import AuthFormLabel from "./forms/auth-form-label";
 
 export default function LoginForm({
     formSwapHandler: swapForm,
@@ -15,10 +15,10 @@ export default function LoginForm({
     const router = useRouter();
 
     const LoginSchema = object().shape({
-        usernameOrEmail: string().required('Required'),
+        usernameOrEmail: string().required("Required"),
         password: string()
-            .required('Required')
-            .test('password-is-correct', 'Incorrect password', async _ => {
+            .required("Required")
+            .test("password-is-correct", "Incorrect password", async _ => {
                 const { data } = await login({
                     variables: {
                         usernameOrEmail: values.usernameOrEmail,
@@ -32,11 +32,11 @@ export default function LoginForm({
 
     const { handleSubmit, handleChange, values, errors } = useFormik({
         initialValues: {
-            usernameOrEmail: '',
-            password: '',
+            usernameOrEmail: "",
+            password: "",
         },
         onSubmit: async _ => {
-            router.push('/home');
+            router.push("/home");
         },
         validationSchema: LoginSchema,
         validateOnChange: false,
@@ -44,36 +44,36 @@ export default function LoginForm({
     });
 
     return (
-        <div id={styles['container']}>
-            <form className={styles['form']} onSubmit={handleSubmit}>
-                <AuthFormLabel name={'usernameOrEmail'} errors={errors}>
+        <div id={styles["container"]}>
+            <form className={styles["form"]} onSubmit={handleSubmit}>
+                <AuthFormLabel name={"usernameOrEmail"} errors={errors}>
                     Username or Email
                 </AuthFormLabel>
                 <input
-                    id='usernameOrEmail'
-                    name='usernameOrEmail'
-                    type='text'
+                    id="usernameOrEmail"
+                    name="usernameOrEmail"
+                    type="text"
                     onChange={handleChange}
                     value={values.usernameOrEmail}
                 />
 
-                <AuthFormLabel name={'password'} errors={errors}>
+                <AuthFormLabel name={"password"} errors={errors}>
                     Password
                 </AuthFormLabel>
                 <input
-                    id='password'
-                    name='password'
-                    type='password'
+                    id="password"
+                    name="password"
+                    type="password"
                     onChange={handleChange}
                     value={values.password}
                 />
 
-                <div className={styles['button-container']}>
+                <div className={styles["button-container"]}>
                     <button
-                        type='submit'
+                        type="submit"
                         className={classNames(
-                            styles['form__button'],
-                            buttonStyles['inverted']
+                            styles["form__button"],
+                            buttonStyles["inverted"]
                         )}
                     >
                         Log In
@@ -82,10 +82,10 @@ export default function LoginForm({
                     <p>or</p>
 
                     <button
-                        type='button'
+                        type="button"
                         className={classNames(
-                            styles['form__button'],
-                            buttonStyles['inverted']
+                            styles["form__button"],
+                            buttonStyles["inverted"]
                         )}
                         onClick={swapForm}
                     >

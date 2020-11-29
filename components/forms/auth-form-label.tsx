@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import styles from '../../styles/auth-form.module.scss';
+import classNames from "classnames";
+import styles from "../../styles/auth-form.module.scss";
 
 export default function AuthFormLabel({
     name,
@@ -12,8 +12,8 @@ export default function AuthFormLabel({
 }) {
     return (
         <label
-            className={classNames(styles['form__label'], {
-                [styles['form__label--error']]: errors[name],
+            className={classNames(styles["form__label"], {
+                [styles["form__label--error"]]: errors[name],
             })}
             htmlFor={name}
         >

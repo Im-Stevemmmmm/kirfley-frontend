@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useMeQuery } from '../generated/graphql-types';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useMeQuery } from "../generated/graphql-types";
 
 export default function useSessionAuth() {
     const { data, loading } = useMeQuery();
@@ -8,7 +8,7 @@ export default function useSessionAuth() {
 
     useEffect(() => {
         if (!loading && !data?.me) {
-            router.replace('/');
+            router.replace("/");
         }
     }, [loading, data, router]);
 }

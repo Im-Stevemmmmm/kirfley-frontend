@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import styles from '../../styles/auth-form.module.scss';
-import LoginForm from '../login-form';
-import SignupForm from '../signup-form';
+import { useState } from "react";
+import { CSSTransition } from "react-transition-group";
+import styles from "../../styles/auth-form.module.scss";
+import LoginForm from "../login-form";
+import SignupForm from "../signup-form";
 
 export interface AuthFormProps {
     formSwapHandler: () => void;
@@ -18,15 +18,15 @@ export default function AuthForm() {
         setSigningUp(!isSigningUp);
     }
 
-    function animationProps(id: 'primary' | 'secondary') {
+    function animationProps(id: "primary" | "secondary") {
         const timeout = 500;
 
         return {
-            in: id === 'primary' ? isSigningUp : !isSigningUp,
+            in: id === "primary" ? isSigningUp : !isSigningUp,
             classNames: {
                 enter: styles[`form-${id}-enter`],
-                enterActive: styles['form-enter-active'],
-                exit: styles['form-exit'],
+                enterActive: styles["form-enter-active"],
+                exit: styles["form-exit"],
                 exitActive: styles[`form-${id}-exit-active`],
             },
             unmountOnExit: true,
@@ -38,12 +38,12 @@ export default function AuthForm() {
     }
 
     return (
-        <div id={styles['animation-container']}>
-            <CSSTransition {...animationProps('primary')}>
+        <div id={styles["animation-container"]}>
+            <CSSTransition {...animationProps("primary")}>
                 <SignupForm formSwapHandler={handleFormSwap} />
             </CSSTransition>
 
-            <CSSTransition {...animationProps('secondary')}>
+            <CSSTransition {...animationProps("secondary")}>
                 <LoginForm formSwapHandler={handleFormSwap} />
             </CSSTransition>
         </div>

@@ -1,20 +1,20 @@
-import { gql } from '@apollo/client';
-import { MockedProvider } from '@apollo/client/testing';
+import { gql } from "@apollo/client";
+import { MockedProvider } from "@apollo/client/testing";
 import {
     act,
     fireEvent,
     render,
     screen,
     waitFor,
-} from '@testing-library/react';
-import ReactDOM from 'react-dom';
-import SignupForm from '../../components/signup-form';
-import { ApolloMock } from '../__utils__/apollo';
-import { setValue } from '../__utils__/form';
+} from "@testing-library/react";
+import ReactDOM from "react-dom";
+import SignupForm from "../../components/signup-form";
+import { ApolloMock } from "../__utils__/apollo";
+import { setValue } from "../__utils__/form";
 
-describe('sign up form', () => {
-    it('renders properly', () => {
-        const container = document.createElement('div');
+describe("sign up form", () => {
+    it("renders properly", () => {
+        const container = document.createElement("div");
 
         act(() => {
             ReactDOM.render(
@@ -28,7 +28,7 @@ describe('sign up form', () => {
         expect(container).toMatchSnapshot();
     });
 
-    describe('fields', () => {
+    describe("fields", () => {
         let submitButton: HTMLElement;
         let username: HTMLElement;
         let email: HTMLElement;
@@ -42,17 +42,17 @@ describe('sign up form', () => {
                 </MockedProvider>
             );
 
-            submitButton = screen.getByText('Sign Up', {
-                selector: 'button',
+            submitButton = screen.getByText("Sign Up", {
+                selector: "button",
             });
 
-            username = screen.getByLabelText('Username');
-            email = screen.getByLabelText('Email');
-            password = screen.getByLabelText('Password');
-            confirmPassword = screen.getByLabelText('Confirm Password');
+            username = screen.getByLabelText("Username");
+            email = screen.getByLabelText("Email");
+            password = screen.getByLabelText("Password");
+            confirmPassword = screen.getByLabelText("Confirm Password");
         });
 
-        it('constrains the username length between 4 and 26 chars', async () => {
+        it("constrains the username length between 4 and 26 chars", async () => {
             setValue(username, FieldValues.USERNAME_BAD_SHORT);
             setValue(email, FieldValues.EMAIL_GOOD);
 
@@ -75,7 +75,7 @@ describe('sign up form', () => {
             });
         });
 
-        it('constrains the password length between 4 and 26 chars', async () => {
+        it("constrains the password length between 4 and 26 chars", async () => {
             setValue(username, FieldValues.USERNAME_GOOD);
             setValue(email, FieldValues.EMAIL_GOOD);
             setValue(password, FieldValues.PASSWORD_BAD_SHORT);
@@ -101,7 +101,7 @@ describe('sign up form', () => {
             });
         });
 
-        it('checks for a valid email', async () => {
+        it("checks for a valid email", async () => {
             setValue(username, FieldValues.USERNAME_GOOD);
             setValue(email, FieldValues.EMAIL_BAD);
 
@@ -112,11 +112,11 @@ describe('sign up form', () => {
             });
         });
 
-        it('confirms the password ', async () => {
+        it("confirms the password ", async () => {
             setValue(username, FieldValues.USERNAME_GOOD);
             setValue(email, FieldValues.EMAIL_GOOD);
             setValue(password, FieldValues.PASSWORD_GOOD);
-            setValue(confirmPassword, '123456');
+            setValue(confirmPassword, "123456");
 
             fireEvent.click(submitButton);
 
@@ -137,7 +137,7 @@ describe('sign up form', () => {
             });
         });
 
-        it('signs the user up on and redirects to home on submit', async () => {
+        it("signs the user up on and redirects to home on submit", async () => {
             setValue(username, FieldValues.USERNAME_GOOD);
             setValue(email, FieldValues.EMAIL_GOOD);
             setValue(password, FieldValues.PASSWORD_GOOD);
@@ -179,19 +179,19 @@ const CHECK_FIELD_AVAILABILITY = gql`
 `;
 
 enum FieldValues {
-    USERNAME_GOOD = 'steve',
-    USERNAME_BAD_SHORT = 'stv',
-    USERNAME_BAD_LONG = 'stevestevestevestevestevesteve',
-    EMAIL_GOOD = 'example@email.com',
-    EMAIL_BAD = 'example@bad',
-    PASSWORD_GOOD = '1234',
-    PASSWORD_BAD_SHORT = '12',
-    PASSWORD_BAD_LONG = '123451234512345123451234512345',
+    USERNAME_GOOD = "steve",
+    USERNAME_BAD_SHORT = "stv",
+    USERNAME_BAD_LONG = "stevestevestevestevestevesteve",
+    EMAIL_GOOD = "example@email.com",
+    EMAIL_BAD = "example@bad",
+    PASSWORD_GOOD = "1234",
+    PASSWORD_BAD_SHORT = "12",
+    PASSWORD_BAD_LONG = "123451234512345123451234512345",
 }
 
 enum Fields {
-    USERNAME = 'username',
-    EMAIL = 'email',
+    USERNAME = "username",
+    EMAIL = "email",
 }
 
 const mocks: ApolloMock[] = [

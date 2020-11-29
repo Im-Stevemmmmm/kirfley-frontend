@@ -1,5 +1,5 @@
-import * as Apollo from '@apollo/client';
-import { gql } from '@apollo/client';
+import * as Apollo from "@apollo/client";
+import { gql } from "@apollo/client";
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
     [K in keyof T]: T[K];
@@ -14,24 +14,24 @@ export type Scalars = {
 };
 
 export type Error = {
-    __typename?: 'Error';
-    message: Scalars['String'];
-    target: Scalars['String'];
+    __typename?: "Error";
+    message: Scalars["String"];
+    target: Scalars["String"];
 };
 
 export type UserResponse = {
-    __typename?: 'UserResponse';
+    __typename?: "UserResponse";
     user?: Maybe<User>;
-    successful?: Maybe<Scalars['Boolean']>;
+    successful?: Maybe<Scalars["Boolean"]>;
     error?: Maybe<Error>;
 };
 
 export type User = {
-    __typename?: 'User';
-    id: Scalars['Int'];
-    username: Scalars['String'];
-    email: Scalars['String'];
-    password: Scalars['String'];
+    __typename?: "User";
+    id: Scalars["Int"];
+    username: Scalars["String"];
+    email: Scalars["String"];
+    password: Scalars["String"];
     posts?: Maybe<Array<Post>>;
 };
 
@@ -39,16 +39,16 @@ export type UserPostsArgs = {
     where?: Maybe<PostWhereInput>;
     orderBy?: Maybe<Array<PostOrderByInput>>;
     cursor?: Maybe<PostWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<PostDistinctFieldEnum>>;
 };
 
 export type Post = {
-    __typename?: 'Post';
-    id: Scalars['Int'];
-    content: Scalars['String'];
-    creatorId: Scalars['Int'];
+    __typename?: "Post";
+    id: Scalars["Int"];
+    content: Scalars["String"];
+    creatorId: Scalars["Int"];
     creator: User;
     comments?: Maybe<Array<Comment>>;
 };
@@ -57,16 +57,16 @@ export type PostCommentsArgs = {
     where?: Maybe<CommentWhereInput>;
     orderBy?: Maybe<Array<CommentOrderByInput>>;
     cursor?: Maybe<CommentWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<CommentDistinctFieldEnum>>;
 };
 
 export type Comment = {
-    __typename?: 'Comment';
-    id: Scalars['Int'];
-    content: Scalars['String'];
-    postId: Scalars['Int'];
+    __typename?: "Comment";
+    id: Scalars["Int"];
+    content: Scalars["String"];
+    postId: Scalars["Int"];
     post: Post;
 };
 
@@ -81,58 +81,58 @@ export type CommentWhereInput = {
 };
 
 export type IntFilter = {
-    equals?: Maybe<Scalars['Int']>;
-    in?: Maybe<Array<Scalars['Int']>>;
-    notIn?: Maybe<Array<Scalars['Int']>>;
-    lt?: Maybe<Scalars['Int']>;
-    lte?: Maybe<Scalars['Int']>;
-    gt?: Maybe<Scalars['Int']>;
-    gte?: Maybe<Scalars['Int']>;
+    equals?: Maybe<Scalars["Int"]>;
+    in?: Maybe<Array<Scalars["Int"]>>;
+    notIn?: Maybe<Array<Scalars["Int"]>>;
+    lt?: Maybe<Scalars["Int"]>;
+    lte?: Maybe<Scalars["Int"]>;
+    gt?: Maybe<Scalars["Int"]>;
+    gte?: Maybe<Scalars["Int"]>;
     not?: Maybe<NestedIntFilter>;
 };
 
 export type NestedIntFilter = {
-    equals?: Maybe<Scalars['Int']>;
-    in?: Maybe<Array<Scalars['Int']>>;
-    notIn?: Maybe<Array<Scalars['Int']>>;
-    lt?: Maybe<Scalars['Int']>;
-    lte?: Maybe<Scalars['Int']>;
-    gt?: Maybe<Scalars['Int']>;
-    gte?: Maybe<Scalars['Int']>;
+    equals?: Maybe<Scalars["Int"]>;
+    in?: Maybe<Array<Scalars["Int"]>>;
+    notIn?: Maybe<Array<Scalars["Int"]>>;
+    lt?: Maybe<Scalars["Int"]>;
+    lte?: Maybe<Scalars["Int"]>;
+    gt?: Maybe<Scalars["Int"]>;
+    gte?: Maybe<Scalars["Int"]>;
     not?: Maybe<NestedIntFilter>;
 };
 
 export type StringFilter = {
-    equals?: Maybe<Scalars['String']>;
-    in?: Maybe<Array<Scalars['String']>>;
-    notIn?: Maybe<Array<Scalars['String']>>;
-    lt?: Maybe<Scalars['String']>;
-    lte?: Maybe<Scalars['String']>;
-    gt?: Maybe<Scalars['String']>;
-    gte?: Maybe<Scalars['String']>;
-    contains?: Maybe<Scalars['String']>;
-    startsWith?: Maybe<Scalars['String']>;
-    endsWith?: Maybe<Scalars['String']>;
+    equals?: Maybe<Scalars["String"]>;
+    in?: Maybe<Array<Scalars["String"]>>;
+    notIn?: Maybe<Array<Scalars["String"]>>;
+    lt?: Maybe<Scalars["String"]>;
+    lte?: Maybe<Scalars["String"]>;
+    gt?: Maybe<Scalars["String"]>;
+    gte?: Maybe<Scalars["String"]>;
+    contains?: Maybe<Scalars["String"]>;
+    startsWith?: Maybe<Scalars["String"]>;
+    endsWith?: Maybe<Scalars["String"]>;
     mode?: Maybe<QueryMode>;
     not?: Maybe<NestedStringFilter>;
 };
 
 export enum QueryMode {
-    Default = 'default',
-    Insensitive = 'insensitive',
+    Default = "default",
+    Insensitive = "insensitive",
 }
 
 export type NestedStringFilter = {
-    equals?: Maybe<Scalars['String']>;
-    in?: Maybe<Array<Scalars['String']>>;
-    notIn?: Maybe<Array<Scalars['String']>>;
-    lt?: Maybe<Scalars['String']>;
-    lte?: Maybe<Scalars['String']>;
-    gt?: Maybe<Scalars['String']>;
-    gte?: Maybe<Scalars['String']>;
-    contains?: Maybe<Scalars['String']>;
-    startsWith?: Maybe<Scalars['String']>;
-    endsWith?: Maybe<Scalars['String']>;
+    equals?: Maybe<Scalars["String"]>;
+    in?: Maybe<Array<Scalars["String"]>>;
+    notIn?: Maybe<Array<Scalars["String"]>>;
+    lt?: Maybe<Scalars["String"]>;
+    lte?: Maybe<Scalars["String"]>;
+    gt?: Maybe<Scalars["String"]>;
+    gte?: Maybe<Scalars["String"]>;
+    contains?: Maybe<Scalars["String"]>;
+    startsWith?: Maybe<Scalars["String"]>;
+    endsWith?: Maybe<Scalars["String"]>;
     not?: Maybe<NestedStringFilter>;
 };
 
@@ -187,18 +187,18 @@ export type CommentOrderByInput = {
 };
 
 export enum SortOrder {
-    Asc = 'asc',
-    Desc = 'desc',
+    Asc = "asc",
+    Desc = "desc",
 }
 
 export type CommentWhereUniqueInput = {
-    id?: Maybe<Scalars['Int']>;
+    id?: Maybe<Scalars["Int"]>;
 };
 
 export enum CommentDistinctFieldEnum {
-    Id = 'id',
-    Content = 'content',
-    PostId = 'postId',
+    Id = "id",
+    Content = "content",
+    PostId = "postId",
 }
 
 export type PostOrderByInput = {
@@ -208,23 +208,23 @@ export type PostOrderByInput = {
 };
 
 export type PostWhereUniqueInput = {
-    id?: Maybe<Scalars['Int']>;
+    id?: Maybe<Scalars["Int"]>;
 };
 
 export enum PostDistinctFieldEnum {
-    Id = 'id',
-    Content = 'content',
-    CreatorId = 'creatorId',
+    Id = "id",
+    Content = "content",
+    CreatorId = "creatorId",
 }
 
 export type UserInput = {
-    username?: Maybe<Scalars['String']>;
-    email?: Maybe<Scalars['String']>;
-    password?: Maybe<Scalars['String']>;
+    username?: Maybe<Scalars["String"]>;
+    email?: Maybe<Scalars["String"]>;
+    password?: Maybe<Scalars["String"]>;
 };
 
 export type Query = {
-    __typename?: 'Query';
+    __typename?: "Query";
     comment?: Maybe<Comment>;
     findFirstComment?: Maybe<Comment>;
     comments: Array<Comment>;
@@ -249,8 +249,8 @@ export type QueryFindFirstCommentArgs = {
     where?: Maybe<CommentWhereInput>;
     orderBy?: Maybe<Array<CommentOrderByInput>>;
     cursor?: Maybe<CommentWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<CommentDistinctFieldEnum>>;
 };
 
@@ -258,8 +258,8 @@ export type QueryCommentsArgs = {
     where?: Maybe<CommentWhereInput>;
     orderBy?: Maybe<Array<CommentOrderByInput>>;
     cursor?: Maybe<CommentWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<CommentDistinctFieldEnum>>;
 };
 
@@ -267,8 +267,8 @@ export type QueryAggregateCommentArgs = {
     where?: Maybe<CommentWhereInput>;
     orderBy?: Maybe<Array<CommentOrderByInput>>;
     cursor?: Maybe<CommentWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<CommentDistinctFieldEnum>>;
 };
 
@@ -280,8 +280,8 @@ export type QueryFindFirstPostArgs = {
     where?: Maybe<PostWhereInput>;
     orderBy?: Maybe<Array<PostOrderByInput>>;
     cursor?: Maybe<PostWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<PostDistinctFieldEnum>>;
 };
 
@@ -289,8 +289,8 @@ export type QueryPostsArgs = {
     where?: Maybe<PostWhereInput>;
     orderBy?: Maybe<Array<PostOrderByInput>>;
     cursor?: Maybe<PostWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<PostDistinctFieldEnum>>;
 };
 
@@ -298,8 +298,8 @@ export type QueryAggregatePostArgs = {
     where?: Maybe<PostWhereInput>;
     orderBy?: Maybe<Array<PostOrderByInput>>;
     cursor?: Maybe<PostWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<PostDistinctFieldEnum>>;
 };
 
@@ -311,8 +311,8 @@ export type QueryFindFirstUserArgs = {
     where?: Maybe<UserWhereInput>;
     orderBy?: Maybe<Array<UserOrderByInput>>;
     cursor?: Maybe<UserWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<UserDistinctFieldEnum>>;
 };
 
@@ -320,8 +320,8 @@ export type QueryUsersArgs = {
     where?: Maybe<UserWhereInput>;
     orderBy?: Maybe<Array<UserOrderByInput>>;
     cursor?: Maybe<UserWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<UserDistinctFieldEnum>>;
 };
 
@@ -329,19 +329,19 @@ export type QueryAggregateUserArgs = {
     where?: Maybe<UserWhereInput>;
     orderBy?: Maybe<Array<UserOrderByInput>>;
     cursor?: Maybe<UserWhereUniqueInput>;
-    take?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
+    take?: Maybe<Scalars["Int"]>;
+    skip?: Maybe<Scalars["Int"]>;
     distinct?: Maybe<Array<UserDistinctFieldEnum>>;
 };
 
 export type QueryCheckFieldAvailabilityArgs = {
-    value: Scalars['String'];
-    field: Scalars['String'];
+    value: Scalars["String"];
+    field: Scalars["String"];
 };
 
 export type AggregateComment = {
-    __typename?: 'AggregateComment';
-    count: Scalars['Int'];
+    __typename?: "AggregateComment";
+    count: Scalars["Int"];
     avg?: Maybe<CommentAvgAggregate>;
     sum?: Maybe<CommentSumAggregate>;
     min?: Maybe<CommentMinAggregate>;
@@ -349,32 +349,32 @@ export type AggregateComment = {
 };
 
 export type CommentAvgAggregate = {
-    __typename?: 'CommentAvgAggregate';
-    id: Scalars['Float'];
-    postId: Scalars['Float'];
+    __typename?: "CommentAvgAggregate";
+    id: Scalars["Float"];
+    postId: Scalars["Float"];
 };
 
 export type CommentSumAggregate = {
-    __typename?: 'CommentSumAggregate';
-    id: Scalars['Int'];
-    postId: Scalars['Int'];
+    __typename?: "CommentSumAggregate";
+    id: Scalars["Int"];
+    postId: Scalars["Int"];
 };
 
 export type CommentMinAggregate = {
-    __typename?: 'CommentMinAggregate';
-    id: Scalars['Int'];
-    postId: Scalars['Int'];
+    __typename?: "CommentMinAggregate";
+    id: Scalars["Int"];
+    postId: Scalars["Int"];
 };
 
 export type CommentMaxAggregate = {
-    __typename?: 'CommentMaxAggregate';
-    id: Scalars['Int'];
-    postId: Scalars['Int'];
+    __typename?: "CommentMaxAggregate";
+    id: Scalars["Int"];
+    postId: Scalars["Int"];
 };
 
 export type AggregatePost = {
-    __typename?: 'AggregatePost';
-    count: Scalars['Int'];
+    __typename?: "AggregatePost";
+    count: Scalars["Int"];
     avg?: Maybe<PostAvgAggregate>;
     sum?: Maybe<PostSumAggregate>;
     min?: Maybe<PostMinAggregate>;
@@ -382,33 +382,33 @@ export type AggregatePost = {
 };
 
 export type PostAvgAggregate = {
-    __typename?: 'PostAvgAggregate';
-    id: Scalars['Float'];
-    creatorId: Scalars['Float'];
+    __typename?: "PostAvgAggregate";
+    id: Scalars["Float"];
+    creatorId: Scalars["Float"];
 };
 
 export type PostSumAggregate = {
-    __typename?: 'PostSumAggregate';
-    id: Scalars['Int'];
-    creatorId: Scalars['Int'];
+    __typename?: "PostSumAggregate";
+    id: Scalars["Int"];
+    creatorId: Scalars["Int"];
 };
 
 export type PostMinAggregate = {
-    __typename?: 'PostMinAggregate';
-    id: Scalars['Int'];
-    creatorId: Scalars['Int'];
+    __typename?: "PostMinAggregate";
+    id: Scalars["Int"];
+    creatorId: Scalars["Int"];
 };
 
 export type PostMaxAggregate = {
-    __typename?: 'PostMaxAggregate';
-    id: Scalars['Int'];
-    creatorId: Scalars['Int'];
+    __typename?: "PostMaxAggregate";
+    id: Scalars["Int"];
+    creatorId: Scalars["Int"];
 };
 
 export type UserWhereUniqueInput = {
-    id?: Maybe<Scalars['Int']>;
-    username?: Maybe<Scalars['String']>;
-    email?: Maybe<Scalars['String']>;
+    id?: Maybe<Scalars["Int"]>;
+    username?: Maybe<Scalars["String"]>;
+    email?: Maybe<Scalars["String"]>;
 };
 
 export type UserOrderByInput = {
@@ -419,15 +419,15 @@ export type UserOrderByInput = {
 };
 
 export enum UserDistinctFieldEnum {
-    Id = 'id',
-    Username = 'username',
-    Email = 'email',
-    Password = 'password',
+    Id = "id",
+    Username = "username",
+    Email = "email",
+    Password = "password",
 }
 
 export type AggregateUser = {
-    __typename?: 'AggregateUser';
-    count: Scalars['Int'];
+    __typename?: "AggregateUser";
+    count: Scalars["Int"];
     avg?: Maybe<UserAvgAggregate>;
     sum?: Maybe<UserSumAggregate>;
     min?: Maybe<UserMinAggregate>;
@@ -435,27 +435,27 @@ export type AggregateUser = {
 };
 
 export type UserAvgAggregate = {
-    __typename?: 'UserAvgAggregate';
-    id: Scalars['Float'];
+    __typename?: "UserAvgAggregate";
+    id: Scalars["Float"];
 };
 
 export type UserSumAggregate = {
-    __typename?: 'UserSumAggregate';
-    id: Scalars['Int'];
+    __typename?: "UserSumAggregate";
+    id: Scalars["Int"];
 };
 
 export type UserMinAggregate = {
-    __typename?: 'UserMinAggregate';
-    id: Scalars['Int'];
+    __typename?: "UserMinAggregate";
+    id: Scalars["Int"];
 };
 
 export type UserMaxAggregate = {
-    __typename?: 'UserMaxAggregate';
-    id: Scalars['Int'];
+    __typename?: "UserMaxAggregate";
+    id: Scalars["Int"];
 };
 
 export type Mutation = {
-    __typename?: 'Mutation';
+    __typename?: "Mutation";
     createComment: Comment;
     deleteComment?: Maybe<Comment>;
     updateComment?: Maybe<Comment>;
@@ -476,7 +476,7 @@ export type Mutation = {
     upsertUser: User;
     login: UserResponse;
     registerUser: UserResponse;
-    logout: Scalars['Boolean'];
+    logout: Scalars["Boolean"];
 };
 
 export type MutationCreateCommentArgs = {
@@ -564,8 +564,8 @@ export type MutationUpsertUserArgs = {
 };
 
 export type MutationLoginArgs = {
-    password: Scalars['String'];
-    usernameOrEmail: Scalars['String'];
+    password: Scalars["String"];
+    usernameOrEmail: Scalars["String"];
 };
 
 export type MutationRegisterUserArgs = {
@@ -573,7 +573,7 @@ export type MutationRegisterUserArgs = {
 };
 
 export type CommentCreateInput = {
-    content: Scalars['String'];
+    content: Scalars["String"];
     post: PostCreateOneWithoutCommentsInput;
 };
 
@@ -584,7 +584,7 @@ export type PostCreateOneWithoutCommentsInput = {
 };
 
 export type PostCreateWithoutCommentsInput = {
-    content: Scalars['String'];
+    content: Scalars["String"];
     creator: UserCreateOneWithoutPostsInput;
 };
 
@@ -595,9 +595,9 @@ export type UserCreateOneWithoutPostsInput = {
 };
 
 export type UserCreateWithoutPostsInput = {
-    username: Scalars['String'];
-    email: Scalars['String'];
-    password: Scalars['String'];
+    username: Scalars["String"];
+    email: Scalars["String"];
+    password: Scalars["String"];
 };
 
 export type UserCreateOrConnectWithoutpostsInput = {
@@ -616,7 +616,7 @@ export type CommentUpdateInput = {
 };
 
 export type StringFieldUpdateOperationsInput = {
-    set?: Maybe<Scalars['String']>;
+    set?: Maybe<Scalars["String"]>;
 };
 
 export type PostUpdateOneRequiredWithoutCommentsInput = {
@@ -657,8 +657,8 @@ export type PostUpsertWithoutCommentsInput = {
 };
 
 export type BatchPayload = {
-    __typename?: 'BatchPayload';
-    count: Scalars['Int'];
+    __typename?: "BatchPayload";
+    count: Scalars["Int"];
 };
 
 export type CommentUpdateManyMutationInput = {
@@ -666,7 +666,7 @@ export type CommentUpdateManyMutationInput = {
 };
 
 export type PostCreateInput = {
-    content: Scalars['String'];
+    content: Scalars["String"];
     creator: UserCreateOneWithoutPostsInput;
     comments?: Maybe<CommentCreateManyWithoutPostInput>;
 };
@@ -678,7 +678,7 @@ export type CommentCreateManyWithoutPostInput = {
 };
 
 export type CommentCreateWithoutPostInput = {
-    content: Scalars['String'];
+    content: Scalars["String"];
 };
 
 export type CommentCreateOrConnectWithoutpostInput = {
@@ -739,9 +739,9 @@ export type PostUpdateManyMutationInput = {
 };
 
 export type UserCreateInput = {
-    username: Scalars['String'];
-    email: Scalars['String'];
-    password: Scalars['String'];
+    username: Scalars["String"];
+    email: Scalars["String"];
+    password: Scalars["String"];
     posts?: Maybe<PostCreateManyWithoutCreatorInput>;
 };
 
@@ -752,7 +752,7 @@ export type PostCreateManyWithoutCreatorInput = {
 };
 
 export type PostCreateWithoutCreatorInput = {
-    content: Scalars['String'];
+    content: Scalars["String"];
     comments?: Maybe<CommentCreateManyWithoutPostInput>;
 };
 
@@ -818,44 +818,44 @@ export type UserUpdateManyMutationInput = {
 };
 
 export type LoginMutationVariables = Exact<{
-    usernameOrEmail: Scalars['String'];
-    password: Scalars['String'];
+    usernameOrEmail: Scalars["String"];
+    password: Scalars["String"];
 }>;
 
-export type LoginMutation = { __typename?: 'Mutation' } & {
-    login: { __typename?: 'UserResponse' } & Pick<UserResponse, 'successful'>;
+export type LoginMutation = { __typename?: "Mutation" } & {
+    login: { __typename?: "UserResponse" } & Pick<UserResponse, "successful">;
 };
 
 export type RegisterUserMutationVariables = Exact<{
-    username: Scalars['String'];
-    email: Scalars['String'];
-    password: Scalars['String'];
+    username: Scalars["String"];
+    email: Scalars["String"];
+    password: Scalars["String"];
 }>;
 
-export type RegisterUserMutation = { __typename?: 'Mutation' } & {
-    registerUser: { __typename?: 'UserResponse' } & Pick<
+export type RegisterUserMutation = { __typename?: "Mutation" } & {
+    registerUser: { __typename?: "UserResponse" } & Pick<
         UserResponse,
-        'successful'
+        "successful"
     >;
 };
 
 export type CheckFieldAvailabiltyQueryVariables = Exact<{
-    field: Scalars['String'];
-    value: Scalars['String'];
+    field: Scalars["String"];
+    value: Scalars["String"];
 }>;
 
-export type CheckFieldAvailabiltyQuery = { __typename?: 'Query' } & {
-    checkFieldAvailability: { __typename?: 'UserResponse' } & Pick<
+export type CheckFieldAvailabiltyQuery = { __typename?: "Query" } & {
+    checkFieldAvailability: { __typename?: "UserResponse" } & Pick<
         UserResponse,
-        'successful'
+        "successful"
     >;
 };
 
 export type MeQueryVariables = Exact<{ [key: string]: never }>;
 
-export type MeQuery = { __typename?: 'Query' } & {
+export type MeQuery = { __typename?: "Query" } & {
     me?: Maybe<
-        { __typename?: 'User' } & Pick<User, 'username' | 'email' | 'password'>
+        { __typename?: "User" } & Pick<User, "username" | "email" | "password">
     >;
 };
 

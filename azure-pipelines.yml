@@ -5,15 +5,15 @@ resources:
     - repo: self
 
 variables:
-    projectName: 'frontend'
-    nextjsRepository: 'nextjs'
-    nginxRepository: 'nginx'
+    projectName: "frontend"
+    nextjsRepository: "nextjs"
+    nginxRepository: "nginx"
 
-    dockerRegistryServiceConnection: 'e3e6799a-1f72-4998-bfc2-7cdafd464719'
-    containerRegistry: 'ferndocker.azurecr.io'
-    imagePullSecret: 'ferndocker1265143b-auth'
+    dockerRegistryServiceConnection: "e3e6799a-1f72-4998-bfc2-7cdafd464719"
+    containerRegistry: "ferndocker.azurecr.io"
+    imagePullSecret: "ferndocker1265143b-auth"
 
-    vmImageName: 'ubuntu-latest'
+    vmImageName: "ubuntu-latest"
     tag: $(Build.BuildId)
 
 stages:
@@ -28,23 +28,23 @@ stages:
                 - task: DockerCompose@0
                   displayName: Build docker images
                   inputs:
-                      containerregistrytype: 'Azure Container Registry'
-                      azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
+                      containerregistrytype: "Azure Container Registry"
+                      azureSubscription: "Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)"
                       azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
-                      dockerComposeFile: '**/docker-compose.yml'
+                      dockerComposeFile: "**/docker-compose.yml"
                       projectName: $(projectName)
-                      action: 'Build services'
+                      action: "Build services"
                       additionalImageTags: |
                           $(tag)
                 - task: DockerCompose@0
                   displayName: Push docker images
                   inputs:
-                      containerregistrytype: 'Azure Container Registry'
-                      azureSubscription: 'Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)'
+                      containerregistrytype: "Azure Container Registry"
+                      azureSubscription: "Azure subscription 1(f7c1860a-e055-4556-81d2-8c9174ca8021)"
                       azureContainerRegistry: '{"loginServer":"ferndocker.azurecr.io", "id" : "/subscriptions/f7c1860a-e055-4556-81d2-8c9174ca8021/resourceGroups/Fern/providers/Microsoft.ContainerRegistry/registries/FernDocker"}'
-                      dockerComposeFile: '**/docker-compose.yml'
+                      dockerComposeFile: "**/docker-compose.yml"
                       projectName: $(projectName)
-                      action: 'Push services'
+                      action: "Push services"
 
                 - upload: manifests/nextjs
                   displayName: Publish NextJS manifests
@@ -63,7 +63,7 @@ stages:
             displayName: Deploy NextJS and NGINX
             pool:
                 vmImage: $(vmImageName)
-            environment: 'ImStevemmmmmfernfrontend-4579.default'
+            environment: "ImStevemmmmmfernfrontend-4579.default"
             strategy:
                 runOnce:
                     deploy:
