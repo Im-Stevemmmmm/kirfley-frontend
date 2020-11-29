@@ -1,71 +1,71 @@
 #footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
-  position: absolute;
-  bottom: 0;
+    position: absolute;
+    bottom: 0;
 
-  width: 100%;
+    width: 100%;
 
-  height: 300px;
-  margin-top: 50px;
+    height: 300px;
+    margin-top: 50px;
 }
 
 @mixin column-link {
-  font-family: 'Heebo', sans-serif;
-  font-size: 0.85em;
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.85em;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  color: gray;
-  transition: 0.3s color ease;
+    color: gray;
+    transition: 0.3s color ease;
 }
 
 .column {
-  width: 100px;
-  margin: 0 55px;
-  padding: 0;
-  list-style: none;
+    width: 100px;
+    margin: 0 55px;
+    padding: 0;
+    list-style: none;
 
-  li:first-child {
-    font-size: 1.3em;
-    text-decoration: none;
-    color: black;
+    li:first-child {
+        font-size: 1.3em;
+        text-decoration: none;
+        color: black;
 
-    cursor: initial;
-  }
-
-  li:first-child:hover {
-    color: initial;
-  }
-
-  a {
-    @include column-link();
-
-    &:hover {
-      color: #2ca0e7;
+        cursor: initial;
     }
-  }
+
+    li:first-child:hover {
+        color: initial;
+    }
+
+    a {
+        @include column-link();
+
+        &:hover {
+            color: #2ca0e7;
+        }
+    }
 }
 
 #copyright {
-  @include column-link();
+    @include column-link();
 
-  cursor: text;
+    cursor: text;
 
-  :hover {
-    color: gray;
-  }
+    :hover {
+        color: gray;
+    }
 }
 
 @media screen and (max-width: 450px) {
-  #footer {
-    position: static;
-    width: unset;
-  }
+    #footer {
+        position: static;
+        width: unset;
+    }
 
-  .column {
-    width: 100%;
-  }
+    .column {
+        width: 100%;
+    }
 }

@@ -9,90 +9,90 @@ import { AuthFormProps } from './forms/auth-form';
 import AuthFormLabel from './forms/auth-form-label';
 
 export default function LoginForm({
-  formSwapHandler: swapForm,
+    formSwapHandler: swapForm,
 }: AuthFormProps) {
-  const [login] = useLoginMutation();
-  const router = useRouter();
+    const [login] = useLoginMutation();
+    const router = useRouter();
 
-  const LoginSchema = object().shape({
-    usernameOrEmail: string().required('Required'),
-    password: string()
-      .required('Required')
-      .test('password-is-correct', 'Incorrect password', async _ => {
-        const { data } = await login({
-          variables: {
-            usernameOrEmail: values.usernameOrEmail,
-            password: values.password,
-          },
-        });
+    const LoginSchema = object().shape({
+        usernameOrEmail: string().required('Required'),
+        password: string()
+            .required('Required')
+            .test('password-is-correct', 'Incorrect password', async _ => {
+                const { data } = await login({
+                    variables: {
+                        usernameOrEmail: values.usernameOrEmail,
+                        password: values.password,
+                    },
+                });
 
-        return data.login.successful;
-      }),
-  });
+                return data.login.successful;
+            }),
+    });
 
-  const { handleSubmit, handleChange, values, errors } = useFormik({
-    initialValues: {
-      usernameOrEmail: '',
-      password: '',
-    },
-    onSubmit: async _ => {
-      router.push('/home');
-    },
-    validationSchema: LoginSchema,
-    validateOnChange: false,
-    validateOnBlur: false,
-  });
+    const { handleSubmit, handleChange, values, errors } = useFormik({
+        initialValues: {
+            usernameOrEmail: '',
+            password: '',
+        },
+        onSubmit: async _ => {
+            router.push('/home');
+        },
+        validationSchema: LoginSchema,
+        validateOnChange: false,
+        validateOnBlur: false,
+    });
 
-  return (
-    <div id={styles['container']}>
-      <form className={styles['form']} onSubmit={handleSubmit}>
-        <AuthFormLabel name={'usernameOrEmail'} errors={errors}>
-          Username or Email
-        </AuthFormLabel>
-        <input
-          id='usernameOrEmail'
-          name='usernameOrEmail'
-          type='text'
-          onChange={handleChange}
-          value={values.usernameOrEmail}
-        />
+    return (
+        <div id={styles['container']}>
+            <form className={styles['form']} onSubmit={handleSubmit}>
+                <AuthFormLabel name={'usernameOrEmail'} errors={errors}>
+                    Username or Email
+                </AuthFormLabel>
+                <input
+                    id='usernameOrEmail'
+                    name='usernameOrEmail'
+                    type='text'
+                    onChange={handleChange}
+                    value={values.usernameOrEmail}
+                />
 
-        <AuthFormLabel name={'password'} errors={errors}>
-          Password
-        </AuthFormLabel>
-        <input
-          id='password'
-          name='password'
-          type='password'
-          onChange={handleChange}
-          value={values.password}
-        />
+                <AuthFormLabel name={'password'} errors={errors}>
+                    Password
+                </AuthFormLabel>
+                <input
+                    id='password'
+                    name='password'
+                    type='password'
+                    onChange={handleChange}
+                    value={values.password}
+                />
 
-        <div className={styles['button-container']}>
-          <button
-            type='submit'
-            className={classNames(
-              styles['form__button'],
-              buttonStyles['inverted']
-            )}
-          >
-            Log In
-          </button>
+                <div className={styles['button-container']}>
+                    <button
+                        type='submit'
+                        className={classNames(
+                            styles['form__button'],
+                            buttonStyles['inverted']
+                        )}
+                    >
+                        Log In
+                    </button>
 
-          <p>or</p>
+                    <p>or</p>
 
-          <button
-            type='button'
-            className={classNames(
-              styles['form__button'],
-              buttonStyles['inverted']
-            )}
-            onClick={swapForm}
-          >
-            Create an Account
-          </button>
+                    <button
+                        type='button'
+                        className={classNames(
+                            styles['form__button'],
+                            buttonStyles['inverted']
+                        )}
+                        onClick={swapForm}
+                    >
+                        Create an Account
+                    </button>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-  );
+    );
 }

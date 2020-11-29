@@ -4,18 +4,18 @@ import ReactDOM from 'react-dom';
 import AuthForm from '../../components/forms/auth-form';
 
 describe('login form', () => {
-  it('renders properly', () => {
-    const container = document.createElement('div');
+    it('renders properly', () => {
+        const container = document.createElement('div');
 
-    act(() => {
-      ReactDOM.render(
-        <MockedProvider addTypename={false}>
-          <AuthForm />
-        </MockedProvider>,
-        container
-      );
+        act(() => {
+            ReactDOM.render(
+                <MockedProvider addTypename={false}>
+                    <AuthForm />
+                </MockedProvider>,
+                container
+            );
+        });
+
+        expect(container).toMatchSnapshot();
     });
-
-    expect(container).toMatchSnapshot();
-  });
 });
