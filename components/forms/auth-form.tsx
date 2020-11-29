@@ -4,43 +4,48 @@ import styles from '../../styles/auth-form.module.scss';
 import LoginForm from '../login-form';
 import SignupForm from '../signup-form';
 
+export interface AuthFormProps {
+    formSwapHandler: () => void;
+}
+
 export default function AuthForm() {
-  const [isSigningUp, setSigningUp] = useState(false);
-  const animationTimeout = 500;
+    const [isSigningUp, setSigningUp] = useState(false);
+    const [animationIsPlaying, setAnimationIsPlaying] = useState(false);
 
-  return (
-    <div id={styles['animation-container']}>
-      <CSSTransition
-        in={isSigningUp}
-        classNames={{
-          enter: styles['form-primary-enter'],
-          enterActive: styles['form-enter-active'],
-          exit: styles['form-exit'],
-          exitActive: styles['form-primary-exit-active'],
-        }}
-        unmountOnExit
-        timeout={animationTimeout}
-      >
-        <SignupForm />
-      </CSSTransition>
+    function handleFormSwap() {
+        if (animationIsPlaying) return;
 
-      <CSSTransition
-        in={!isSigningUp}
-        classNames={{
-          enter: styles['form-secondary-enter'],
-          enterActive: styles['form-enter-active'],
-          exit: styles['form-exit'],
-          exitActive: styles['form-secondary-exit-active'],
-        }}
-        unmountOnExit
-        timeout={animationTimeout}
-      >
-        <LoginForm
-          registerButtonClickCallback={(value: boolean) => {
-            setSigningUp(value);
-          }}
-        />
-      </CSSTransition>
-    </div>
-  );
+        setSigningUp(!isSigningUp);
+    }
+
+    function animationProps(id: 'primary' | 'secondary') {
+        const timeout = 500;
+
+        return {
+            in: id === 'primary' ? isSigningUp : !isSigningUp,
+            classNames: {
+                enter: styles[`form-${id}-enter`],
+                enterActive: styles['form-enter-active'],
+                exit: styles['form-exit'],
+                exitActive: styles[`form-${id}-exit-active`],
+            },
+            unmountOnExit: true,
+            timeout,
+            onEnter: () => setAnimationIsPlaying(true),
+            onExit: () =>
+                setTimeout(() => setAnimationIsPlaying(false), timeout),
+        };
+    }
+
+    return (
+        <div id={styles['animation-container']}>
+            <CSSTransition {...animationProps('primary')}>
+                <SignupForm formSwapHandler={handleFormSwap} />
+            </CSSTransition>
+
+            <CSSTransition {...animationProps('secondary')}>
+                <LoginForm formSwapHandler={handleFormSwap} />
+            </CSSTransition>
+        </div>
+    );
 }
