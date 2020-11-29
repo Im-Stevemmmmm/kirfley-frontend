@@ -5,13 +5,12 @@ import { object, string } from 'yup';
 import { useLoginMutation } from '../generated/graphql-types';
 import styles from '../styles/auth-form.module.scss';
 import buttonStyles from '../styles/buttons.module.scss';
-import AuthFormLabel from './forms/auth-form';
+import { AuthFormProps } from './forms/auth-form';
+import AuthFormLabel from './forms/auth-form-label';
 
 export default function LoginForm({
-  registerButtonClickCallback,
-}: {
-  registerButtonClickCallback: (value: boolean) => void;
-}) {
+  formSwapHandler: swapForm,
+}: AuthFormProps) {
   const [login] = useLoginMutation();
   const router = useRouter();
 
@@ -88,9 +87,7 @@ export default function LoginForm({
               styles['form__button'],
               buttonStyles['inverted']
             )}
-            onClick={() => {
-              registerButtonClickCallback(true);
-            }}
+            onClick={swapForm}
           >
             Create an Account
           </button>

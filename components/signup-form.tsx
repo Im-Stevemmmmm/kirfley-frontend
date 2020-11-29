@@ -11,9 +11,12 @@ import {
 } from '../generated/graphql-types';
 import styles from '../styles/auth-form.module.scss';
 import buttonStyles from '../styles/buttons.module.scss';
-import AuthFormLabel from './forms/auth-form';
+import { AuthFormProps } from './forms/auth-form';
+import AuthFormLabel from './forms/auth-form-label';
 
-export default function SignupForm() {
+export default function SignupForm({
+  formSwapHandler: swapForm,
+}: AuthFormProps) {
   const client = useApolloClient();
   const [registerUser] = useRegisterUserMutation();
 
@@ -150,6 +153,7 @@ export default function SignupForm() {
               styles['form__button'],
               buttonStyles['inverted']
             )}
+            onClick={swapForm}
           >
             Sign Up
           </button>
