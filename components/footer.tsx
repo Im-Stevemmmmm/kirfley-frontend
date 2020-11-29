@@ -3,7 +3,7 @@ import styles from "../styles/footer.module.scss";
 
 export default function Footer() {
     return (
-        <footer id={styles["footer"]}>
+        <footer id={styles.footer}>
             <ul className={styles.column}>
                 <li>About</li>
                 <li title="About the company behind Fern">

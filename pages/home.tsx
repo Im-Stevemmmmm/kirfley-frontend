@@ -5,7 +5,7 @@ export default function Home() {
     useSessionAuth();
 
     return (
-        <div id={styles["container"]}>
+        <div id={styles.container}>
             <h1>Welcome to Fern!</h1>
             <p>Recent posts...</p>
         </div>

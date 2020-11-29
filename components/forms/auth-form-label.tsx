@@ -12,8 +12,8 @@ export default function AuthFormLabel({
 }) {
     return (
         <label
-            className={classNames(styles["form__label"], {
-                [styles["form__label--error"]]: errors[name],
+            className={classNames(styles.form_label, {
+                [styles.form_label__error]: errors[name],
             })}
             htmlFor={name}
         >

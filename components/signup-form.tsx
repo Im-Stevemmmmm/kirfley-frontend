@@ -101,8 +101,8 @@ export default function SignupForm({
     });
 
     return (
-        <div id={styles["container"]}>
-            <form className={styles["form"]} onSubmit={handleSubmit}>
+        <div id={styles.container}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <AuthFormLabel name={"username"} errors={errors}>
                     Username or Email
                 </AuthFormLabel>
@@ -150,12 +150,12 @@ export default function SignupForm({
                     value={values.confirmPassword}
                 />
 
-                <div className={styles["button-container"]}>
+                <div className={styles.buttonContainer}>
                     <button
                         type="submit"
                         className={classNames(
-                            styles["form__button"],
-                            buttonStyles["inverted"]
+                            styles.form_button,
+                            buttonStyles.inverted
                         )}
                         onClick={swapForm}
                     >

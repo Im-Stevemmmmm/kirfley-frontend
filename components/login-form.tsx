@@ -14,6 +14,9 @@ export default function LoginForm({
     const [login] = useLoginMutation();
     const router = useRouter();
 
+    const getButtonStyles = () =>
+        classNames(styles.form_button, buttonStyles.inverted);
+
     const LoginSchema = object().shape({
         usernameOrEmail: string().required("Required"),
         password: string()
@@ -44,8 +47,8 @@ export default function LoginForm({
     });
 
     return (
-        <div id={styles["container"]}>
-            <form className={styles["form"]} onSubmit={handleSubmit}>
+        <div id={styles.container}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <AuthFormLabel name={"usernameOrEmail"} errors={errors}>
                     Username or Email
                 </AuthFormLabel>
@@ -68,14 +71,8 @@ export default function LoginForm({
                     value={values.password}
                 />
 
-                <div className={styles["button-container"]}>
-                    <button
-                        type="submit"
-                        className={classNames(
-                            styles["form__button"],
-                            buttonStyles["inverted"]
-                        )}
-                    >
+                <div className={styles.buttonContainer}>
+                    <button type="submit" className={getButtonStyles()}>
                         Log In
                     </button>
 
@@ -83,10 +80,7 @@ export default function LoginForm({
 
                     <button
                         type="button"
-                        className={classNames(
-                            styles["form__button"],
-                            buttonStyles["inverted"]
-                        )}
+                        className={getButtonStyles()}
                         onClick={swapForm}
                     >
                         Create an Account

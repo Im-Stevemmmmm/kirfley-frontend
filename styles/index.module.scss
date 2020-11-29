@@ -7,29 +7,29 @@
     height: 100%;
 }
 
-.title {
-    font-size: 5.5em;
-    font-weight: 800 !important;
-    text-align: center;
-
-    &__logo {
-        margin-left: 25px;
-    }
-}
-
 #content {
     height: 700px;
     padding: 20px 0px;
 }
 
-@mixin column-container {
+.title {
+    font-size: 5.5em;
+    font-weight: 800 !important;
+    text-align: center;
+
+    &_logo {
+        margin-left: 25px;
+    }
+}
+
+@mixin columnContainer {
     display: flex;
     justify-content: center;
     width: 50%;
 }
 
-#right-column {
-    @include column-container();
+#rightColumn {
+    @include columnContainer();
 
     align-items: center;
     float: right;
@@ -37,14 +37,14 @@
     height: 100%;
 }
 
-#left-column-container {
-    @include column-container();
+#leftColumnContainer {
+    @include columnContainer();
 
     height: 100%;
     float: left;
 }
 
-#left-column {
+#leftColumn {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -53,7 +53,7 @@
     width: 500px;
 }
 
-#auth-card {
+#formBackground {
     $transition-time: 0.75s;
     $easing: cubic-bezier(0.075, 0.82, 0.165, 1);
     $size: 425px;
@@ -83,8 +83,8 @@
         height: auto;
     }
 
-    #right-column,
-    #left-column-container {
+    #rightColumn,
+    #leftColumnContainer {
         width: 100%;
         float: none;
     }

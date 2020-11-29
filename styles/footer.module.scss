@@ -12,7 +12,7 @@
     margin-top: 50px;
 }
 
-@mixin column-link {
+@mixin columnLink {
     font-family: "Heebo", sans-serif;
     font-size: 0.85em;
 
@@ -41,7 +41,7 @@
     }
 
     a {
-        @include column-link();
+        @include columnLink();
 
         &:hover {
             color: #2ca0e7;
@@ -50,7 +50,7 @@
 }
 
 #copyright {
-    @include column-link();
+    @include columnLink();
 
     cursor: text;
 

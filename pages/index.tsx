@@ -5,23 +5,23 @@ import styles from "../styles/index.module.scss";
 
 export default function Homepage() {
     return (
-        <div id={styles["container"]}>
+        <div id={styles.container}>
             <Head>
                 <title>Fern</title>
             </Head>
 
-            <div id={styles["content"]}>
-                <div id={styles["right-column"]}>
-                    <div id={styles["auth-card"]}>
+            <div id={styles.content}>
+                <div id={styles.rightColumn}>
+                    <div id={styles.formBackground}>
                         <AuthForm />
                     </div>
                 </div>
 
-                <div id={styles["left-column-container"]}>
-                    <div id={styles["left-column"]}>
-                        <h1 className={styles["title"]}>
+                <div id={styles.leftColumnContainer}>
+                    <div id={styles.leftColumn}>
+                        <h1 className={styles.title}>
                             Fern
-                            <span className={styles["title__logo"]}>
+                            <span className={styles.title_logo}>
                                 <img
                                     src="/fern.svg"
                                     width="27.5%"

@@ -18,16 +18,16 @@ export default function AuthForm() {
         setSigningUp(!isSigningUp);
     }
 
-    function animationProps(id: "primary" | "secondary") {
+    function animationProps(id: "Primary" | "Secondary") {
         const timeout = 500;
 
         return {
-            in: id === "primary" ? isSigningUp : !isSigningUp,
+            in: id === "Primary" ? isSigningUp : !isSigningUp,
             classNames: {
-                enter: styles[`form-${id}-enter`],
-                enterActive: styles["form-enter-active"],
-                exit: styles["form-exit"],
-                exitActive: styles[`form-${id}-exit-active`],
+                enter: styles[`form${id}Enter`],
+                enterActive: styles["formEnterActive"],
+                exit: styles["formExit"],
+                exitActive: styles[`form${id}ExitActive`],
             },
             unmountOnExit: true,
             timeout,
@@ -38,12 +38,12 @@ export default function AuthForm() {
     }
 
     return (
-        <div id={styles["animation-container"]}>
-            <CSSTransition {...animationProps("primary")}>
+        <div id={styles.animationContainer}>
+            <CSSTransition {...animationProps("Primary")}>
                 <SignupForm formSwapHandler={handleFormSwap} />
             </CSSTransition>
 
-            <CSSTransition {...animationProps("secondary")}>
+            <CSSTransition {...animationProps("Secondary")}>
                 <LoginForm formSwapHandler={handleFormSwap} />
             </CSSTransition>
         </div>

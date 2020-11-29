@@ -1,4 +1,4 @@
-#animation-container {
+#animationContainer {
     display: flex;
     justify-content: center;
 
@@ -19,15 +19,15 @@
 .form {
     width: 275px;
 
-    &__label {
+    &_label {
         font-size: 1.1em;
 
-        &--error {
+        &__error {
             color: red;
         }
     }
 
-    &__button {
+    &_button {
         width: 100%;
     }
 }
@@ -36,7 +36,7 @@
     margin-bottom: 25px;
 }
 
-.button-container {
+.buttonContainer {
     @extend .form;
 
     margin-top: 20px;
@@ -51,37 +51,37 @@
 $distance: 110%;
 $time: 500ms;
 
-@mixin form-enter($direction) {
+@mixin formEnter($direction) {
     position: absolute;
     transform: translateX($direction * $distance);
 }
 
-@mixin form-exit-active($direction) {
+@mixin formExitActive($direction) {
     transform: translateX($direction * $distance);
     transition: transform $time ease;
 }
 
-.form-primary-enter {
-    @include form-enter(1);
+.formPrimaryEnter {
+    @include formEnter(1);
 }
 
-.form-primary-exit-active {
-    @include form-exit-active(1);
+.formPrimaryExitActive {
+    @include formExitActive(1);
 }
 
-.form-secondary-enter {
-    @include form-enter(-1);
+.formSecondaryEnter {
+    @include formEnter(-1);
 }
 
-.form-secondary-exit-active {
-    @include form-exit-active(-1);
+.formSecondaryExitActive {
+    @include formExitActive(-1);
 }
 
-.form-enter-active {
+.formEnterActive {
     transform: translateX(0);
     transition: transform $time ease;
 }
 
-.form-exit {
+.formExit {
     position: absolute;
 }
