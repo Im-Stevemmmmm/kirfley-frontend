@@ -1,9 +1,7 @@
 @mixin button {
-    display: block;
     font-size: 1em;
 
     border: none;
-    border-radius: 32px;
     padding: 10px 20px;
 
     transition: 0.15s background-color ease-in, 0.15s color ease-in;
@@ -13,25 +11,26 @@
 .standard {
     @include button();
 
-    background-color: transparent;
-    color: black;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
 
-    :hover {
-        background-color: black;
-        color: white;
+    &:hover {
+        background-color: transparent;
+        color: black;
     }
 }
 
 .inverted {
     @include button();
 
-    background-color: black;
-    color: white;
+    background-color: transparent;
+    color: black;
     border: 1px solid black;
 
-    :hover {
-        background-color: transparent;
-        color: black;
+    &:hover {
+        background-color: black;
+        color: white;
     }
 }
 
@@ -42,7 +41,7 @@
     transform: scale(1);
     transition: 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    :hover {
+    &:hover {
         transform: scale(1.05);
     }
 }
