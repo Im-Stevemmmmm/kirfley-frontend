@@ -1,7 +1,26 @@
-mutation RegisterUser($username: String!, $email: String!, $password: String!) {
+mutation RegisterUser(
+    $year: Float!
+    $month: Float!
+    $day: Float!
+    $username: String!
+    $email: String!
+    $password: String!
+) {
     registerUser(
-        options: { username: $username, email: $email, password: $password }
+        options: {
+            year: $year
+            month: $month
+            day: $day
+            username: $username
+            email: $email
+            password: $password
+        }
     ) {
         successful
+
+        error {
+            field
+            message
+        }
     }
 }
