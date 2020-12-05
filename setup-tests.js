@@ -1,13 +1,9 @@
-import "jest";
+import "@testing-library/jest-dom/extend-expect";
 
-const getChildren = () => {
-    return ({ children }) => {
-        return children;
-    };
-};
+const children = () => ({ children }) => children;
 
-jest.mock("next/link", () => getChildren());
-jest.mock("next/head", () => getChildren());
+jest.mock("next/link", () => children());
+jest.mock("next/head", () => children());
 
 process.env = {
     ...process.env,
