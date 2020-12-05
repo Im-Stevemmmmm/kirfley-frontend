@@ -46,11 +46,11 @@ const LoginForm = () => {
             <StandardForm.Title>Log in</StandardForm.Title>
 
             <StandardForm.Label forField="usernameOrEmail">
-                Username Or Email
+                Username or Email
             </StandardForm.Label>
             <StandardForm.FieldInput
                 field="usernameOrEmail"
-                placeholder="Username"
+                placeholder="Username or email"
                 handleChange={handleChange}
                 value={values.usernameOrEmail}
                 error={errors.usernameOrEmail}
