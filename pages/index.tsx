@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import LoginForm from "components/auth-forms/login-form/login-form";
 import Footer from "components/footer/footer";
 import Head from "next/head";
@@ -39,7 +40,12 @@ const Index = () => {
                         </p>
                     </div>
 
-                    <div className={styles.banner__column}>
+                    <div
+                        className={classNames(
+                            styles.banner__column,
+                            styles.banner__column___form
+                        )}
+                    >
                         <LoginForm />
                     </div>
                 </div>

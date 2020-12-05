@@ -4,7 +4,6 @@
     justify-items: center;
 
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-template-rows: auto;
 
     height: 700px;
 
@@ -22,5 +21,11 @@
 
     &__logo {
         margin-left: 25px;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    .banner__column___form {
+        grid-row: 1;
     }
 }
