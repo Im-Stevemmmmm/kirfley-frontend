@@ -9,18 +9,18 @@ exports[`footer renders correctly 1`] = `
       class="column"
     >
       <li
-        class="column_title"
+        class="column__title"
       >
         About
       </li>
       <li
-        class="column_link"
+        class="column__link"
         title="About the company behind Fern"
       >
         Company
       </li>
       <li
-        class="column_link"
+        class="column__link"
         title="About the company behind Fern"
       >
         Business
@@ -30,12 +30,12 @@ exports[`footer renders correctly 1`] = `
       class="column"
     >
       <li
-        class="column_title"
+        class="column__title"
       >
         Support
       </li>
       <li
-        class="column_link"
+        class="column__link"
         title="Get help with any problems"
       >
         Contact Us
@@ -45,24 +45,24 @@ exports[`footer renders correctly 1`] = `
       class="column"
     >
       <li
-        class="column_title"
+        class="column__title"
       >
         Legal
       </li>
       <li
-        class="column_link"
+        class="column__link"
         title="Our privacy policy"
       >
         Privacy Policy
       </li>
       <li
-        class="column_link"
+        class="column__link"
         title="Our cookie policy"
       >
         Cookie Policy
       </li>
       <li
-        class="column_link column_link__copyright"
+        class="column__link column__link___copyright"
       >
         © Fern 
         2020

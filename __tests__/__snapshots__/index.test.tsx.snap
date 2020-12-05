@@ -2,124 +2,114 @@
 
 exports[`renders correctly 1`] = `
 <div>
-  <div
-    id="backgroundImage"
-  >
+  <div>
     <title>
       Fern
     </title>
     <main>
       <div
-        id="banner"
+        class="banner"
       >
         <div
-          class="rightColumn"
+          class="banner__column"
         >
-          <div
-            class="rightColumn_form"
+          <h1
+            class="title"
           >
-            <form
-              class="form"
+            Fern
+            <span
+              class="title__logo"
             >
-              <h1
-                class="form_header"
-              >
-                Log in
-              </h1>
-              <label
-                class="form_label"
-                for="usernameOrEmail"
-              >
-                Username Or Email
-              </label>
-              <input
-                class="form_input"
-                id="usernameOrEmail"
-                name="usernameOrEmail"
-                placeholder="Username"
-                type="text"
-                value=""
-              />
-              <label
-                class="form_label"
-                for="password"
-              >
-                Password
-              </label>
-              <input
-                class="form_input"
-                id="password"
-                name="password"
-                placeholder="Password"
-                type="password"
-                value=""
-              />
               <div
-                class="buttonContainer"
-              >
-                <button
-                  class="form_button standard"
-                  type="submit"
-                >
-                  Log in
-                </button>
-                <p>
-                  or
-                </p>
-                <button
-                  class="form_button standard"
-                  type="button"
-                >
-                  Create an account
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div
-          class="leftColumn"
-        >
-          <div
-            class="leftColumn_container"
-          >
-            <h1
-              class="leftColumn_title"
-            >
-              Fern
-              <span
-                class="leftColumn_logo"
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
               >
                 <div
-                  style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
                 >
-                  <div
-                    style="box-sizing: border-box; display: block; max-width: 100%;"
-                  >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,<svg width=\\"75\\" height=\\"75\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
-                      style="max-width: 100%; display: block;"
-                    />
-                  </div>
                   <img
-                    alt="Fern picture"
-                    decoding="async"
-                    src="/_next/image?url=%2Ffern.svg&w=320&q=75"
-                    srcset="/_next/image?url=%2Ffern.svg&w=320&q=75 1x"
-                    style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;charset=utf-8,<svg width=\\"100\\" height=\\"75\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                    style="max-width: 100%; display: block;"
                   />
                 </div>
-              </span>
+                <img
+                  alt="Fern picture"
+                  decoding="async"
+                  src="/_next/image?url=%2Ffern.svg&w=320&q=75"
+                  srcset="/_next/image?url=%2Ffern.svg&w=320&q=75 1x"
+                  style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+              </div>
+            </span>
+          </h1>
+          <h2>
+            The #1 Video Sharing Platform
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies semper sagittis. Proin vitae est augue. Duis commodo, leo sed scelerisque porttitor, erat arcu lobortis velit.
+          </p>
+        </div>
+        <div
+          class="banner__column banner__column___form"
+        >
+          <form
+            class="form"
+          >
+            <h1
+              class="form__title"
+            >
+              Log in
             </h1>
-            <h1>
-              The #1 Video Sharing Platform
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies semper sagittis. Proin vitae est augue. Duis commodo, leo sed scelerisque porttitor, erat arcu lobortis velit.
-            </p>
-          </div>
+            <label
+              class="form__label"
+              for="usernameOrEmail"
+            >
+              Username Or Email
+            </label>
+            <input
+              class="form__input"
+              id="usernameOrEmail"
+              name="usernameOrEmail"
+              placeholder="Username"
+              type="text"
+              value=""
+            />
+            <label
+              class="form__label"
+              for="password"
+            >
+              Password
+            </label>
+            <input
+              class="form__input"
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <div
+              class="buttonContainer"
+            >
+              <button
+                class="form__button standard"
+                type="submit"
+              >
+                Log In
+              </button>
+              <p>
+                or
+              </p>
+              <button
+                class="form__button standard"
+                type="button"
+              >
+                Create an account
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
@@ -130,18 +120,18 @@ exports[`renders correctly 1`] = `
         class="column"
       >
         <li
-          class="column_title"
+          class="column__title"
         >
           About
         </li>
         <li
-          class="column_link"
+          class="column__link"
           title="About the company behind Fern"
         >
           Company
         </li>
         <li
-          class="column_link"
+          class="column__link"
           title="About the company behind Fern"
         >
           Business
@@ -151,12 +141,12 @@ exports[`renders correctly 1`] = `
         class="column"
       >
         <li
-          class="column_title"
+          class="column__title"
         >
           Support
         </li>
         <li
-          class="column_link"
+          class="column__link"
           title="Get help with any problems"
         >
           Contact Us
@@ -166,24 +156,24 @@ exports[`renders correctly 1`] = `
         class="column"
       >
         <li
-          class="column_title"
+          class="column__title"
         >
           Legal
         </li>
         <li
-          class="column_link"
+          class="column__link"
           title="Our privacy policy"
         >
           Privacy Policy
         </li>
         <li
-          class="column_link"
+          class="column__link"
           title="Our cookie policy"
         >
           Cookie Policy
         </li>
         <li
-          class="column_link column_link__copyright"
+          class="column__link column__link___copyright"
         >
           © Fern 
           2020
