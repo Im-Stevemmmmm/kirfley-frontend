@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <form
+    class="form"
+  >
+    <h1
+      class="form_header"
+    >
+      Log in
+    </h1>
+    <label
+      class="form_label"
+      for="usernameOrEmail"
+    >
+      Username Or Email
+    </label>
+    <input
+      class="form_input"
+      id="usernameOrEmail"
+      name="usernameOrEmail"
+      placeholder="Username"
+      type="text"
+      value=""
+    />
+    <label
+      class="form_label"
+      for="password"
+    >
+      Password
+    </label>
+    <input
+      class="form_input"
+      id="password"
+      name="password"
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <div
+      class="buttonContainer"
+    >
+      <button
+        class="form_button standard"
+        type="submit"
+      >
+        Log in
+      </button>
+      <p>
+        or
+      </p>
+      <button
+        class="form_button standard"
+        type="button"
+      >
+        Create an account
+      </button>
+    </div>
+  </form>
+</div>
+`;
