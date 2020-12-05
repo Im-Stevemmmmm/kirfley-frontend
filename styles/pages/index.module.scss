@@ -1,31 +1,76 @@
+$minWidth: 500px;
+$marginSize: 40px;
+
 .banner {
     display: grid;
     align-items: center;
     justify-items: center;
 
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax($minWidth, 1fr));
 
-    height: 700px;
+    height: minmax(auto, 700px);
 
     &__column {
         width: 500px;
 
-        padding: 40px;
+        padding: $marginSize;
     }
-}
-
-.title {
-    font-size: 5.5em;
-    font-weight: 800;
-    text-align: center;
 
     &__logo {
         margin-left: 25px;
     }
+
+    &__title {
+        font-size: 5.5em;
+        font-weight: 800;
+        text-align: center;
+    }
 }
 
-@media screen and (max-width: 999px) {
-    .banner__column___form {
-        grid-row: 1;
+.trendingContainer {
+    text-align: center;
+    margin: 0 $marginSize;
+
+    &__title {
+        @extend .banner__title;
+
+        font-size: 3.5em;
+    }
+
+    &__trendingCards {
+        display: flex;
+        margin: $marginSize auto;
+
+        justify-content: center;
+        flex-wrap: wrap;
+
+        max-width: 960px;
+        max-height: 960px;
+        overflow: hidden;
+    }
+}
+
+.trendingCard {
+    width: 300px;
+    height: 300px;
+
+    background-color: white;
+    border: 1px solid #3333;
+    border-radius: 8px;
+
+    margin: 10px;
+
+    padding: 10px;
+
+    transform: scale(1);
+
+    $time: 0.2s;
+
+    transition: $time transform ease, $time border-color ease;
+
+    &:hover {
+        transform: scale(1.01);
+        border-color: rgb(176, 127, 255);
+        cursor: pointer;
     }
 }
