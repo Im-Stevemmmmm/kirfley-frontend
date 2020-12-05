@@ -1,40 +1,36 @@
 import classNames from "classnames";
 import { default as NextLink } from "next/link";
+import { ComponentChildren } from "utils/component-children/component-children";
 import styles from "./footer.module.scss";
 
+interface ColumnProps extends ComponentChildren {
+    title: string;
+}
+
+interface LinkProps extends ComponentChildren {
+    href: string;
+    tooltip: string;
+}
+
+const Column = ({ title, children }: ColumnProps) => {
+    return (
+        <ul className={styles.column}>
+            <li className={styles.column__title}>{title}</li>
+
+            {children}
+        </ul>
+    );
+};
+
+const Link = ({ href, tooltip, children }: LinkProps) => {
+    return (
+        <li className={styles.column__link} title={tooltip}>
+            <NextLink href={href}>{children}</NextLink>
+        </li>
+    );
+};
+
 const Footer = () => {
-    const Column = ({
-        title,
-        children,
-    }: {
-        title: string;
-        children: React.ReactNode;
-    }) => {
-        return (
-            <ul className={styles.column}>
-                <li className={styles.column__title}>{title}</li>
-
-                {children}
-            </ul>
-        );
-    };
-
-    const Link = ({
-        href: location,
-        tooltip,
-        children,
-    }: {
-        href: string;
-        tooltip: string;
-        children: React.ReactNode;
-    }) => {
-        return (
-            <li className={styles.column__link} title={tooltip}>
-                <NextLink href={location}>{children}</NextLink>
-            </li>
-        );
-    };
-
     return (
         <footer id={styles.footer}>
             <Column title="About">
