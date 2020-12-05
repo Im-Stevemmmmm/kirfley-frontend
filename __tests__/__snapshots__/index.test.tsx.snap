@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    id="backgroundImage"
+  >
+    <title>
+      Fern
+    </title>
+    <main>
+      <div
+        id="banner"
+      >
+        <div
+          class="rightColumn"
+        >
+          <div
+            class="rightColumn_form"
+          >
+            <form
+              class="form"
+            >
+              <h1
+                class="form_header"
+              >
+                Log in
+              </h1>
+              <label
+                class="form_label"
+                for="usernameOrEmail"
+              >
+                Username Or Email
+              </label>
+              <input
+                class="form_input"
+                id="usernameOrEmail"
+                name="usernameOrEmail"
+                placeholder="Username"
+                type="text"
+                value=""
+              />
+              <label
+                class="form_label"
+                for="password"
+              >
+                Password
+              </label>
+              <input
+                class="form_input"
+                id="password"
+                name="password"
+                placeholder="Password"
+                type="password"
+                value=""
+              />
+              <div
+                class="buttonContainer"
+              >
+                <button
+                  class="form_button standard"
+                  type="submit"
+                >
+                  Log in
+                </button>
+                <p>
+                  or
+                </p>
+                <button
+                  class="form_button standard"
+                  type="button"
+                >
+                  Create an account
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          class="leftColumn"
+        >
+          <div
+            class="leftColumn_container"
+          >
+            <h1
+              class="leftColumn_title"
+            >
+              Fern
+              <span
+                class="leftColumn_logo"
+              >
+                <div
+                  style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+                >
+                  <div
+                    style="box-sizing: border-box; display: block; max-width: 100%;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,<svg width=\\"75\\" height=\\"75\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                      style="max-width: 100%; display: block;"
+                    />
+                  </div>
+                  <img
+                    alt="Fern picture"
+                    decoding="async"
+                    src="/_next/image?url=%2Ffern.svg&w=320&q=75"
+                    srcset="/_next/image?url=%2Ffern.svg&w=320&q=75 1x"
+                    style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                  />
+                </div>
+              </span>
+            </h1>
+            <h1>
+              The #1 Video Sharing Platform
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies semper sagittis. Proin vitae est augue. Duis commodo, leo sed scelerisque porttitor, erat arcu lobortis velit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      id="footer"
+    >
+      <ul
+        class="column"
+      >
+        <li
+          class="column_title"
+        >
+          About
+        </li>
+        <li
+          class="column_link"
+          title="About the company behind Fern"
+        >
+          Company
+        </li>
+        <li
+          class="column_link"
+          title="About the company behind Fern"
+        >
+          Business
+        </li>
+      </ul>
+      <ul
+        class="column"
+      >
+        <li
+          class="column_title"
+        >
+          Support
+        </li>
+        <li
+          class="column_link"
+          title="Get help with any problems"
+        >
+          Contact Us
+        </li>
+      </ul>
+      <ul
+        class="column"
+      >
+        <li
+          class="column_title"
+        >
+          Legal
+        </li>
+        <li
+          class="column_link"
+          title="Our privacy policy"
+        >
+          Privacy Policy
+        </li>
+        <li
+          class="column_link"
+          title="Our cookie policy"
+        >
+          Cookie Policy
+        </li>
+        <li
+          class="column_link column_link__copyright"
+        >
+          © Fern 
+          2020
+        </li>
+      </ul>
+    </footer>
+  </div>
+</div>
+`;
