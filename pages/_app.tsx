@@ -1,12 +1,20 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import "../styles/global.scss";
+import {
+    ApolloClient,
+    ApolloProvider,
+    HttpLink,
+    InMemoryCache,
+} from "@apollo/client";
+import "styles/global.scss";
 
 const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: "http://localhost:4000/graphql",
+    link: new HttpLink({
+        uri: process.env.API_URI,
+        credentials: "include",
+    }),
 });
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
     return (
         <div>
             <ApolloProvider client={client}>
@@ -14,4 +22,6 @@ export default function App({ Component, pageProps }) {
             </ApolloProvider>
         </div>
     );
-}
+};
+
+export default App;
