@@ -14,7 +14,7 @@ const Index = () => {
 
             <main>
                 <div className={styles.banner}>
-                    <div className={styles.banner__child}>
+                    <div className={styles.banner__column}>
                         <h1 className={styles.title}>
                             {websiteName}
 
@@ -39,7 +39,7 @@ const Index = () => {
                         </p>
                     </div>
 
-                    <div className={styles.banner__child}>
+                    <div className={styles.banner__column}>
                         <LoginForm />
                     </div>
                 </div>
