@@ -2,16 +2,15 @@ import classNames from "classnames";
 import { ChangeEvent, FormEvent } from "react";
 import buttonStyles from "styles/misc/buttons.module.scss";
 import { capatilizeString } from "utils/capatilize-sring/capatilize-string";
+import { ComponentChildren } from "utils/component-children/component-children";
 import styles from "./auth-form.module.scss";
 
-interface StandardFormProps {
+interface StandardFormProps extends ComponentChildren {
     handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
-    children: React.ReactNode;
 }
 
-interface LabelProps {
+interface LabelProps extends ComponentChildren {
     forField: string;
-    children: React.ReactNode;
 }
 
 interface FieldInputProps {
@@ -32,8 +31,7 @@ interface DateInputProps {
     handleChange: (e: ChangeEvent<any>) => void;
 }
 
-interface ButtonProps {
-    children: React.ReactNode;
+interface ButtonProps extends ComponentChildren {
     type?: "button" | "submit" | "reset";
     handleClick?: () => void;
 }
@@ -46,7 +44,7 @@ export const StandardForm = ({ handleSubmit, children }: StandardFormProps) => {
     );
 };
 
-StandardForm.Title = ({ children }: { children: React.ReactNode }) => {
+StandardForm.Title = ({ children }: ComponentChildren) => {
     return <h1 className={styles.form__title}>{children}</h1>;
 };
 
@@ -126,7 +124,7 @@ StandardForm.DateInput = ({ values, handleChange }: DateInputProps) => {
     );
 };
 
-StandardForm.Buttons = ({ children }: { children: React.ReactNode }) => {
+StandardForm.Buttons = ({ children }: ComponentChildren) => {
     return <div className={styles.buttonContainer}>{children}</div>;
 };
 
