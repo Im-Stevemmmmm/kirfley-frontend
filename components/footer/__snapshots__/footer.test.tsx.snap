@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`footer renders correctly 1`] = `
+<div>
+  <footer
+    id="footer"
+  >
+    <ul
+      class="column"
+    >
+      <li
+        class="column_title"
+      >
+        About
+      </li>
+      <li
+        class="column_link"
+        title="About the company behind Fern"
+      >
+        Company
+      </li>
+      <li
+        class="column_link"
+        title="About the company behind Fern"
+      >
+        Business
+      </li>
+    </ul>
+    <ul
+      class="column"
+    >
+      <li
+        class="column_title"
+      >
+        Support
+      </li>
+      <li
+        class="column_link"
+        title="Get help with any problems"
+      >
+        Contact Us
+      </li>
+    </ul>
+    <ul
+      class="column"
+    >
+      <li
+        class="column_title"
+      >
+        Legal
+      </li>
+      <li
+        class="column_link"
+        title="Our privacy policy"
+      >
+        Privacy Policy
+      </li>
+      <li
+        class="column_link"
+        title="Our cookie policy"
+      >
+        Cookie Policy
+      </li>
+      <li
+        class="column_link column_link__copyright"
+      >
+        © Fern 
+        2020
+      </li>
+    </ul>
+  </footer>
+</div>
+`;
