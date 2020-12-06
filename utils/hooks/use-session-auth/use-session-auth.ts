@@ -7,7 +7,7 @@ export const useSessionAuth = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if (!loading && !data.me) {
+        if (!loading && !data?.me) {
             router.replace("/");
         }
     }, [loading, data, router]);
