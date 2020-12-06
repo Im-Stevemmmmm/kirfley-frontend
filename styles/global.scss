@@ -5,6 +5,11 @@
     --text-color: black;
 }
 
+@font-face {
+    font-family: "Modern Sans";
+    src: url("./fonts/ModernSans-Light.otf");
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

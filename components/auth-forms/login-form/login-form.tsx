@@ -71,7 +71,7 @@ const LoginForm = () => {
             <StandardForm.Buttons>
                 <StandardForm.Button type="submit">Log In</StandardForm.Button>
 
-                <p>or</p>
+                <StandardForm.Text>or</StandardForm.Text>
 
                 <StandardForm.Button handleClick={() => router.push("/signup")}>
                     Create an account

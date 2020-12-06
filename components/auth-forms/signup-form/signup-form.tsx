@@ -168,7 +168,7 @@ const SignupForm = () => {
             <StandardForm.Buttons>
                 <StandardForm.Button type="submit">Sign Up</StandardForm.Button>
 
-                <p>or</p>
+                <StandardForm.Text>or</StandardForm.Text>
 
                 <StandardForm.Button handleClick={() => router.push("/")}>
                     Back to log in

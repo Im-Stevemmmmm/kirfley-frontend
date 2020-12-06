@@ -5,6 +5,10 @@ import { capatilizeString } from "utils/capatilize-sring/capatilize-string";
 import { ComponentChildren } from "utils/component-children/component-children";
 import styles from "./auth-form.module.scss";
 
+interface InputProps {
+    handleChange: (e: ChangeEvent<any>) => void;
+}
+
 interface StandardFormProps extends ComponentChildren {
     handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
@@ -13,22 +17,20 @@ interface LabelProps extends ComponentChildren {
     forField: string;
 }
 
-interface FieldInputProps {
+interface FieldInputProps extends InputProps {
     value: string | number;
     field: string;
     error?: string;
     type?: string;
     placeholder?: string;
-    handleChange: (e: ChangeEvent<any>) => void;
 }
 
-interface DateInputProps {
+interface DateInputProps extends InputProps {
     values: {
         month: number;
         day: number;
         year: number;
     };
-    handleChange: (e: ChangeEvent<any>) => void;
 }
 
 interface ButtonProps extends ComponentChildren {
@@ -138,4 +140,8 @@ StandardForm.Button = ({ type, handleClick, children }: ButtonProps) => {
             {children}
         </button>
     );
+};
+
+StandardForm.Text = ({ children }: ComponentChildren) => {
+    return <p className={styles.buttonContainer__text}>{children}</p>;
 };

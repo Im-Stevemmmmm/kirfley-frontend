@@ -19,6 +19,7 @@
         font-weight: 600;
 
         margin: 12px 0;
+        color: inherit;
     }
 
     &__label {
@@ -26,6 +27,7 @@
         font-size: 1.1em;
 
         width: 100%;
+        color: inherit;
     }
 
     &__input {
@@ -79,7 +81,10 @@
     width: 100%;
     margin-top: 20px;
 
-    text-align: center;
+    &__text {
+        text-align: center;
+        color: inherit;
+    }
 }
 
 .dobContainer {
