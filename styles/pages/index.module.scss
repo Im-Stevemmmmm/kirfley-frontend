@@ -1,19 +1,15 @@
-$minWidth: 500px;
-$marginSize: 40px;
+$gutterSize: 40px;
 
 .banner {
-    display: grid;
+    display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
 
-    grid-template-columns: repeat(auto-fit, minmax($minWidth, 1fr));
-
-    height: minmax(auto, 700px);
-
-    &__column {
+    &__child {
         width: 500px;
 
-        padding: $marginSize;
+        padding: $gutterSize;
     }
 
     &__logo {
@@ -29,7 +25,7 @@ $marginSize: 40px;
 
 .trendingContainer {
     text-align: center;
-    margin: 0 $marginSize;
+    margin: 0 $gutterSize;
 
     &__title {
         @extend .banner__title;
@@ -39,7 +35,7 @@ $marginSize: 40px;
 
     &__trendingCards {
         display: flex;
-        margin: $marginSize auto;
+        margin: $gutterSize auto;
 
         justify-content: center;
         flex-wrap: wrap;
@@ -59,8 +55,9 @@ $marginSize: 40px;
     border-radius: 8px;
 
     margin: 10px;
+    text-align: left;
 
-    padding: 10px;
+    padding: 10px 25px;
 
     transform: scale(1);
 
@@ -72,5 +69,9 @@ $marginSize: 40px;
         transform: scale(1.01);
         border-color: rgb(176, 127, 255);
         cursor: pointer;
+    }
+
+    &__title {
+        font-size: 1.5em;
     }
 }
