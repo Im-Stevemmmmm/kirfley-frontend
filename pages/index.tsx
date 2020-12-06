@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import LoginForm from "components/auth-forms/login-form/login-form";
 import Head from "next/head";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "styles/pages/index.module.scss";
 import { websiteName } from "utils/constants/constants";
@@ -94,22 +93,10 @@ const Index = () => {
                 <title>{websiteName}</title>
             </Head>
 
-            <main>
+            <main id={styles.container}>
                 <div className={styles.banner}>
                     <div className={styles.banner__child}>
-                        <h1 className={styles.banner__title}>
-                            {websiteName}
-
-                            <span className={styles.banner__logo}>
-                                <Image
-                                    src="/fern.svg"
-                                    width="100%"
-                                    height="75px"
-                                    alt="Fern picture"
-                                    priority
-                                />
-                            </span>
-                        </h1>
+                        <h1 className={styles.banner__title}>The Fern</h1>
                     </div>
 
                     <div
