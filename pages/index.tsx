@@ -14,62 +14,12 @@ interface TrendingCardProps {
 
 const dummyCards: TrendingCardProps[] = [
     {
-        title: "#Geat",
-        content: "HIII XD",
+        title: "@Stevemmmmm",
+        content: `Some text`,
         url: "/signup",
     },
     {
-        title: "#YEET",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "YEET",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "YKEET",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "#G3ieeat",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "#YEE93T",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "YEET39",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "YKEET93",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "#Geat38207y5",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "#YEET10",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "YEET1",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "YKEET2",
+        title: "@Someone",
         content: "HIII XD",
         url: "/signup",
     },
@@ -80,7 +30,7 @@ const TrendingCard = ({ title, content, url }: TrendingCardProps) => {
 
     return (
         <div className={styles.trendingCard} onClick={() => router.push(url)}>
-            <h1>{title}</h1>
+            <h1 className={styles.trendingCard__title}>{title}</h1>
 
             <p>{content}</p>
         </div>
@@ -94,9 +44,9 @@ const Index = () => {
                 <title>{websiteName}</title>
             </Head>
 
-            <main id={styles.container}>
+            <main>
                 <div className={styles.banner}>
-                    <div className={styles.banner__column}>
+                    <div className={styles.banner__child}>
                         <h1 className={styles.banner__title}>
                             {websiteName}
 
@@ -110,21 +60,12 @@ const Index = () => {
                                 />
                             </span>
                         </h1>
-
-                        <h2>The #1 Video Sharing Platform</h2>
-
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Vivamus ultricies semper sagittis. Proin vitae
-                            est augue. Duis commodo, leo sed scelerisque
-                            porttitor, erat arcu lobortis velit.
-                        </p>
                     </div>
 
                     <div
                         className={classNames(
-                            styles.banner__column,
-                            styles.banner__column___form
+                            styles.banner__child,
+                            styles.banner__child___form
                         )}
                     >
                         <LoginForm />
@@ -133,10 +74,10 @@ const Index = () => {
 
                 <div className={styles.trendingContainer}>
                     <h1 className={styles.trendingContainer__title}>
-                        Connect with the world.
+                        The Latest Trends
                     </h1>
 
-                    <h2>Be the first to find out about the world.</h2>
+                    <h2>See what the world is talking about</h2>
 
                     <div className={styles.trendingContainer__trendingCards}>
                         {dummyCards.map(({ content, title, url }) => (
@@ -150,8 +91,6 @@ const Index = () => {
                     </div>
                 </div>
             </main>
-
-            {/* <Footer /> */}
         </div>
     );
 };
