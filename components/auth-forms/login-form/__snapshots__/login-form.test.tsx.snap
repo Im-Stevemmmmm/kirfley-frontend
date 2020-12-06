@@ -14,13 +14,13 @@ exports[`renders correctly 1`] = `
       class="form__label"
       for="usernameOrEmail"
     >
-      Username Or Email
+      Username or Email
     </label>
     <input
       class="form__input"
       id="usernameOrEmail"
       name="usernameOrEmail"
-      placeholder="Username"
+      placeholder="Username or email"
       type="text"
       value=""
     />

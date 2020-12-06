@@ -11,14 +11,14 @@ exports[`renders correctly 1`] = `
         class="banner"
       >
         <div
-          class="banner__column"
+          class="banner__child"
         >
           <h1
-            class="title"
+            class="banner__title"
           >
             Fern
             <span
-              class="title__logo"
+              class="banner__logo"
             >
               <div
                 style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -44,15 +44,9 @@ exports[`renders correctly 1`] = `
               </div>
             </span>
           </h1>
-          <h2>
-            The #1 Video Sharing Platform
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultricies semper sagittis. Proin vitae est augue. Duis commodo, leo sed scelerisque porttitor, erat arcu lobortis velit.
-          </p>
         </div>
         <div
-          class="banner__column banner__column___form"
+          class="banner__child banner__child___form"
         >
           <form
             class="form"
@@ -66,13 +60,13 @@ exports[`renders correctly 1`] = `
               class="form__label"
               for="usernameOrEmail"
             >
-              Username Or Email
+              Username or Email
             </label>
             <input
               class="form__input"
               id="usernameOrEmail"
               name="usernameOrEmail"
-              placeholder="Username"
+              placeholder="Username or email"
               type="text"
               value=""
             />
@@ -112,74 +106,167 @@ exports[`renders correctly 1`] = `
           </form>
         </div>
       </div>
+      <div
+        class="trendingContainer"
+      >
+        <h1
+          class="trendingContainer__title"
+        >
+          The Latest Trends
+        </h1>
+        <h2>
+          See what the world is talking about
+        </h2>
+        <div
+          class="trendingContainer__trendingCards"
+        >
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Stevemmmmm
+            </h1>
+            <p>
+              Some text
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Someone
+            </h1>
+            <p>
+              HIII XD
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Stevemmmmm
+            </h1>
+            <p>
+              Some text
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Someone
+            </h1>
+            <p>
+              HIII XD
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Stevemmmmm
+            </h1>
+            <p>
+              Some text
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Someone
+            </h1>
+            <p>
+              HIII XD
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Stevemmmmm
+            </h1>
+            <p>
+              Some text
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Someone
+            </h1>
+            <p>
+              HIII XD
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Stevemmmmm
+            </h1>
+            <p>
+              Some text
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Someone
+            </h1>
+            <p>
+              HIII XD
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Stevemmmmm
+            </h1>
+            <p>
+              Some text
+            </p>
+          </div>
+          <div
+            class="trendingCard"
+          >
+            <h1
+              class="trendingCard__title"
+            >
+              @Someone
+            </h1>
+            <p>
+              HIII XD
+            </p>
+          </div>
+        </div>
+      </div>
     </main>
-    <footer
-      id="footer"
-    >
-      <ul
-        class="column"
-      >
-        <li
-          class="column__title"
-        >
-          About
-        </li>
-        <li
-          class="column__link"
-          title="About the company behind Fern"
-        >
-          Company
-        </li>
-        <li
-          class="column__link"
-          title="About the company behind Fern"
-        >
-          Business
-        </li>
-      </ul>
-      <ul
-        class="column"
-      >
-        <li
-          class="column__title"
-        >
-          Support
-        </li>
-        <li
-          class="column__link"
-          title="Get help with any problems"
-        >
-          Contact Us
-        </li>
-      </ul>
-      <ul
-        class="column"
-      >
-        <li
-          class="column__title"
-        >
-          Legal
-        </li>
-        <li
-          class="column__link"
-          title="Our privacy policy"
-        >
-          Privacy Policy
-        </li>
-        <li
-          class="column__link"
-          title="Our cookie policy"
-        >
-          Cookie Policy
-        </li>
-        <li
-          class="column__link column__link___copyright"
-        >
-          © Fern 
-          2020
-        </li>
-      </ul>
-    </footer>
   </div>
 </div>
 `;
