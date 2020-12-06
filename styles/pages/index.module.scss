@@ -6,10 +6,14 @@ $gutterSize: 40px;
     justify-content: space-around;
     flex-wrap: wrap-reverse;
 
+    background-color: #a4508b;
+    background-image: linear-gradient(326deg, #3743f3, #6530e2);
+
     &__child {
         width: 500px;
 
         padding: $gutterSize;
+        color: white;
     }
 
     &__logo {
@@ -19,29 +23,32 @@ $gutterSize: 40px;
     &__title {
         font-size: 5.5em;
         font-weight: 800;
+        color: white;
         text-align: center;
     }
 }
 
 .trendingContainer {
+    background-color: #f3b137;
     text-align: center;
-    margin: 0 $gutterSize;
 
     &__title {
         @extend .banner__title;
+        color: black;
 
         font-size: 3.5em;
     }
 
     &__trendingCards {
         display: flex;
-        margin: $gutterSize auto;
+        margin: 0 auto;
+
+        padding: $gutterSize;
 
         justify-content: center;
         flex-wrap: wrap;
 
-        max-width: 960px;
-        max-height: 960px;
+        max-width: 1040px;
         overflow: hidden;
     }
 }
@@ -77,6 +84,10 @@ $gutterSize: 40px;
 }
 
 @media screen and (max-width: 800px) {
+    .trendingContainer__trendingCards {
+        padding: 0;
+    }
+
     .trendingCard {
         flex: 1 0 auto;
     }
