@@ -75,3 +75,9 @@ $gutterSize: 40px;
         font-size: 1.5em;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .trendingCard {
+        flex: 1 0 auto;
+    }
+}
