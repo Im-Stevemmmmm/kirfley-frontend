@@ -23,6 +23,56 @@ const dummyCards: TrendingCardProps[] = [
         content: "HIII XD",
         url: "/signup",
     },
+    {
+        title: "@Stevemmmmm",
+        content: `Some text`,
+        url: "/signup",
+    },
+    {
+        title: "@Someone",
+        content: "HIII XD",
+        url: "/signup",
+    },
+    {
+        title: "@Stevemmmmm",
+        content: `Some text`,
+        url: "/signup",
+    },
+    {
+        title: "@Someone",
+        content: "HIII XD",
+        url: "/signup",
+    },
+    {
+        title: "@Stevemmmmm",
+        content: `Some text`,
+        url: "/signup",
+    },
+    {
+        title: "@Someone",
+        content: "HIII XD",
+        url: "/signup",
+    },
+    {
+        title: "@Stevemmmmm",
+        content: `Some text`,
+        url: "/signup",
+    },
+    {
+        title: "@Someone",
+        content: "HIII XD",
+        url: "/signup",
+    },
+    {
+        title: "@Stevemmmmm",
+        content: `Some text`,
+        url: "/signup",
+    },
+    {
+        title: "@Someone",
+        content: "HIII XD",
+        url: "/signup",
+    },
 ];
 
 const TrendingCard = ({ title, content, url }: TrendingCardProps) => {
