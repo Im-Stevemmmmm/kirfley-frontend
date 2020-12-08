@@ -112,7 +112,9 @@ exports[`renders correctly 1`] = `
           >
             Sign Up
           </button>
-          <p>
+          <p
+            class="buttonContainer__text"
+          >
             or
           </p>
           <button

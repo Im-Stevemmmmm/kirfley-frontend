@@ -14,7 +14,7 @@ exports[`renders correctly 1`] = `
       class="form__label"
       for="usernameOrEmail"
     >
-      Username or Email
+      Username or email
     </label>
     <input
       class="form__input"
@@ -47,7 +47,9 @@ exports[`renders correctly 1`] = `
       >
         Log In
       </button>
-      <p>
+      <p
+        class="buttonContainer__text"
+      >
         or
       </p>
       <button
