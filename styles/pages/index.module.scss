@@ -4,21 +4,18 @@ $gutterSize: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
+
+    height: 800px;
+    background-color: rgb(24, 24, 29);
 
     &__child {
         padding: $gutterSize;
-        color: white;
-
         width: max-content;
-
-        background-color: rgb(255, 255, 255);
-        // box-shadow: 0 4px 30px rgba(11, 33, 74, 0.11),
-        //     0 -2px 5px rgba(11, 33, 74, 0.03);
 
         &___form {
             width: 500px;
-            color: black;
+            color: white;
         }
     }
 
@@ -27,39 +24,50 @@ $gutterSize: 40px;
     }
 
     &__title {
-        font-size: 5.5em;
+        font-size: 4.5em;
         font-weight: 800;
-        color: black;
-        text-align: left;
+        color: rgb(127, 255, 238);
 
         &___subtitle {
-            font-size: 2em;
+            color: white;
+            font-size: 1.5em;
         }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        height: max-content;
+        color: white;
     }
 }
 
 .trendingContainer {
+    background-color: rgb(16, 16, 19);
+
     text-align: center;
-    margin: $gutterSize;
+    padding: $gutterSize;
 
     &__title {
         @extend .banner__title;
 
         text-align: center;
-        color: black;
+        color: #a3ddff;
 
-        font-size: 3.5em;
+        font-size: 2.5em;
     }
 }
 
 #trendingCards {
     display: flex;
-    margin: 0 auto;
-
-    padding: $gutterSize;
-
     justify-content: center;
     flex-wrap: wrap;
+
+    margin: 0 auto;
+    padding: $gutterSize;
 
     max-width: 1040px;
     overflow: hidden;
