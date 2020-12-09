@@ -1,9 +1,0 @@
-.git/
-.gitignore
-.next/
-node_modules/
-nginx/
-azure-pipelines.yml
-.babelrc
-.test.ts
-.test.tsx
