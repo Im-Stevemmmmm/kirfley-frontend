@@ -1,10 +1,7 @@
-import { MockedResponse } from "@apollo/client/testing";
-import { cleanup } from "@testing-library/react";
+import { MockedProvider, MockedResponse } from "@apollo/client/testing";
+import { render, waitFor } from "@testing-library/react";
+import { MeDocument, MeQuery } from "generated/graphql-types";
 import { useSessionAuth } from "./use-session-auth";
-
-afterEach(cleanup);
-
-type ApolloMock = MockedResponse<Record<string, any>>;
 
 const TestComponent = () => {
     useSessionAuth();
@@ -12,29 +9,34 @@ const TestComponent = () => {
     return <div>Authenticated</div>;
 };
 
-test.todo("Fix error");
+test("redirects the user to index if not logged in", async () => {
+    const useRouter = jest.spyOn(require("next/router"), "useRouter");
+    const routerReplace = jest.fn();
 
-// test("redirects the user to index if not logged in", () => {
-//     const mocks: ApolloMock[] = [
-//         {
-//             request: {
-//                 query: MeDocument,
-//             },
-//             result: {
-//                 data: {
-//                     me: null,
-//                 } as MeQuery,
-//             },
-//         },
-//     ];
+    useRouter.mockImplementation(() => ({
+        replace: routerReplace,
+    }));
 
-//     act(() => {
-//         render(
-//             <MockedProvider mocks={mocks}>
-//                 <TestComponent />
-//             </MockedProvider>
-//         );
-//     });
+    const mocks: MockedResponse<Record<string, any>>[] = [
+        {
+            request: {
+                query: MeDocument,
+            },
+            result: {
+                data: {
+                    me: null,
+                } as MeQuery,
+            },
+        },
+    ];
 
-//     expect(screen.findByText(/authenticated/i)).not.toBeInTheDocument;
-// });
+    render(
+        <MockedProvider mocks={mocks}>
+            <TestComponent />
+        </MockedProvider>
+    );
+
+    await waitFor(() => {
+        expect(routerReplace).toHaveBeenCalledWith("/");
+    });
+});
