@@ -34,8 +34,7 @@
         background-color: #f0f0f0;
         font-size: 14px;
         border: none;
-        border-bottom: 1.5px solid rgb(135, 114, 255);
-        border-radius: 0;
+        border-radius: 4px;
 
         margin: 10px 0;
         padding: 0 15px;
@@ -45,10 +44,6 @@
 
         transition: 0.3s border-bottom-color ease;
         caret-color: rgba(122, 224, 130);
-
-        &:focus {
-            border-bottom-color: rgb(250, 108, 162);
-        }
 
         &___error {
             color: red;
