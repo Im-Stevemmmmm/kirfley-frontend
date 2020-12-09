@@ -1,5 +1,5 @@
 import { websiteName } from "./constants";
 
-test("fern is the website name", () => {
+test("website name is Fern", () => {
     expect(websiteName).toBe("Fern");
 });
