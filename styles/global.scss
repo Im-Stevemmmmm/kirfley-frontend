@@ -2,7 +2,6 @@
 
 :root {
     --gradient: linear-gradient(45deg, #aae7df, #83e9a5);
-    --text-color: black;
 }
 
 @font-face {
@@ -24,7 +23,7 @@ a {
 h1,
 h2,
 p {
-    color: var(--text-color);
+    color: inherit;
 }
 
 h1,
@@ -37,7 +36,7 @@ li,
 img {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    color: var(--text-color);
+    color: inherit;
 }
 
 input,
