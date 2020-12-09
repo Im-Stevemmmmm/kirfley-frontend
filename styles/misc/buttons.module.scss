@@ -2,9 +2,12 @@
     font-size: 1em;
 
     border: none;
+    border-radius: 4px;
     padding: 10px 20px;
 
-    transition: 0.15s background-color ease-in, 0.15s color ease-in;
+    $time: 0.15s;
+
+    transition: $time background-color ease-in, $time color ease-in;
     cursor: pointer;
 }
 
@@ -12,12 +15,15 @@
     @include button();
 
     background-color: black;
-    border: 1px solid black;
     color: white;
+    border: 1px solid black;
+
+    transform: scale(1);
+
+    transition: 0.2s transform ease;
 
     &:hover {
-        background-color: transparent;
-        color: black;
+        transform: scale(1.01);
     }
 }
 
@@ -35,14 +41,18 @@
 }
 
 .inline {
-    background-image: var(--gradient);
-    border-radius: 32px;
+    @include button();
+
+    background-color: rgb(105, 71, 255);
+    border-radius: 4px;
+
+    color: white;
 
     transform: scale(1);
     transition: 0.5s transform cubic-bezier(0.075, 0.82, 0.165, 1);
 
     &:hover {
-        transform: scale(1.05);
+        transform: scale(1.01);
     }
 }
 
