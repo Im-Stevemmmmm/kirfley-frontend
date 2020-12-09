@@ -46,7 +46,7 @@ const LoginForm = () => {
             <StandardForm.Title>Log in</StandardForm.Title>
 
             <StandardForm.Label forField="usernameOrEmail">
-                Username or Email
+                Username or email
             </StandardForm.Label>
             <StandardForm.FieldInput
                 field="usernameOrEmail"
