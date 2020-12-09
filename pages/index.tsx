@@ -1,90 +1,8 @@
 import classNames from "classnames";
 import LoginForm from "components/auth-forms/login-form/login-form";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import styles from "styles/pages/index.module.scss";
 import { websiteName } from "utils/constants/constants";
-
-interface TrendingCardProps {
-    title: string;
-    content: string;
-    url: string;
-}
-
-const dummyCards: TrendingCardProps[] = [
-    {
-        title: "@Stevemmmmm",
-        content: `Some text`,
-        url: "/signup",
-    },
-    {
-        title: "@Someone",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "@Stevemmmmm",
-        content: `Some text`,
-        url: "/signup",
-    },
-    {
-        title: "@Someone",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "@Stevemmmmm",
-        content: `Some text`,
-        url: "/signup",
-    },
-    {
-        title: "@Someone",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "@Stevemmmmm",
-        content: `Some text`,
-        url: "/signup",
-    },
-    {
-        title: "@Someone",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "@Stevemmmmm",
-        content: `Some text`,
-        url: "/signup",
-    },
-    {
-        title: "@Someone",
-        content: "HIII XD",
-        url: "/signup",
-    },
-    {
-        title: "@Stevemmmmm",
-        content: `Some text`,
-        url: "/signup",
-    },
-    {
-        title: "@Someone",
-        content: "HIII XD",
-        url: "/signup",
-    },
-];
-
-const TrendingCard = ({ title, content, url }: TrendingCardProps) => {
-    const router = useRouter();
-
-    return (
-        <div className={styles.trendingCard} onClick={() => router.push(url)}>
-            <h1 className={styles.trendingCard__title}>{title}</h1>
-
-            <p>{content}</p>
-        </div>
-    );
-};
 
 const Index = () => {
     return (
@@ -96,7 +14,16 @@ const Index = () => {
             <main id={styles.container}>
                 <div className={styles.banner}>
                     <div className={styles.banner__child}>
-                        <h1 className={styles.banner__title}>The Fern</h1>
+                        <h1 className={styles.banner__title}>Yttrium</h1>
+
+                        <h2
+                            className={classNames(
+                                styles.banner__title,
+                                styles.banner__title___subtitle
+                            )}
+                        >
+                            Connect. Speak. Something.
+                        </h2>
                     </div>
 
                     <div
@@ -114,18 +41,9 @@ const Index = () => {
                         The Latest Trends
                     </h1>
 
-                    <h2>See what the world is talking about</h2>
+                    <h2>See What the World is Talking About</h2>
 
-                    <div className={styles.trendingContainer__trendingCards}>
-                        {dummyCards.map(({ content, title, url }) => (
-                            <TrendingCard
-                                key={title}
-                                title={title}
-                                content={content}
-                                url={url}
-                            />
-                        ))}
-                    </div>
+                    <div id={styles.trendingCards}></div>
                 </div>
             </main>
         </div>
