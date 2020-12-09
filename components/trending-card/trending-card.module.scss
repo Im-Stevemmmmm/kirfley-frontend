@@ -1,38 +1,36 @@
 .trendingCard {
-    width: 300px;
-    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    background-color: white;
-    border: 1px solid #3333;
-    border-radius: 8px;
+    width: 300px;
+    height: 75px;
+
+    $color: #1a191f;
+
+    background-color: $color;
+    border: 1px solid $color;
+    border-radius: 4px;
 
     margin: 10px;
-    text-align: left;
-
     padding: 10px 25px;
 
     transform: scale(1);
 
-    $time: 0.2s;
-
+    $time: 0.15s;
     transition: $time transform ease, $time border-color ease;
 
+    cursor: pointer;
+
     &:hover {
-        border-color: rgb(127, 161, 255);
-        cursor: pointer;
+        border-color: rgb(127, 204, 255);
     }
 
     &__title {
-        font-size: 1.5em;
-    }
+        text-align: center;
+        font-size: 1.3em;
 
-    &__button {
-        position: absolute;
-
-        margin: 5px;
-
-        bottom: 0;
-        right: 0;
+        color: rgb(156, 204, 248);
     }
 }
 
