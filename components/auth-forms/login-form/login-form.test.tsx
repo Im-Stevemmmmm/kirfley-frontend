@@ -1,5 +1,5 @@
 import { MockedProvider, MockedResponse } from "@apollo/client/testing";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import {
     LoginDocument,
     LoginMutation,
@@ -39,27 +39,12 @@ test("password input is displayed", () => {
     expect(passwordInput).toBeInTheDocument;
 });
 
-test("logs user in on submit and redirects to /home", () => {
+test("logs user in on submit and redirects to /home", async () => {
     const useRouter = jest.spyOn(require("next/router"), "useRouter");
+    const routerPush = jest.fn();
 
     useRouter.mockImplementation(() => ({
-        route: "",
-        basePath: "",
-        pathname: "e",
-        query: {},
-        asPath: "",
-        push: async () => true,
-        replace: async () => true,
-        reload: () => null,
-        back: () => null,
-        prefetch: async () => undefined,
-        beforePopState: () => null,
-        isFallback: false,
-        events: {
-            on: () => null,
-            off: () => null,
-            emit: () => null,
-        },
+        push: routerPush,
     }));
 
     const usernameOrEmail = "Steve";
@@ -96,9 +81,12 @@ test("logs user in on submit and redirects to /home", () => {
     fireEvent.change(usernameOrEmailInput, {
         target: { value: usernameOrEmail },
     });
+
     fireEvent.change(passwordInput, { target: { value: password } });
 
     fireEvent.click(submitButton);
 
-    expect(useRouter).toHaveBeenCalled();
+    await waitFor(() => {
+        expect(routerPush).toHaveBeenCalledWith("/home");
+    });
 });
