@@ -1,20 +1,28 @@
 import classNames from "classnames";
-import LoginForm from "components/auth-forms/login-form/login-form";
+import {
+    mockTrends,
+    TrendingCard,
+} from "components/trending-card/trending-card";
 import Head from "next/head";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import buttonStyles from "styles/misc/buttons.module.scss";
 import styles from "styles/pages/index.module.scss";
 import { websiteName } from "utils/constants/constants";
 
 const Index = () => {
+    const router = useRouter();
+
     return (
         <div>
             <Head>
                 <title>{websiteName}</title>
             </Head>
 
-            <main id={styles.container}>
+            <main>
                 <div className={styles.banner}>
                     <div className={styles.banner__child}>
-                        <h1 className={styles.banner__title}>Yttrium</h1>
+                        <h1 className={styles.banner__title}>{websiteName}</h1>
 
                         <h2
                             className={classNames(
@@ -22,8 +30,26 @@ const Index = () => {
                                 styles.banner__title___subtitle
                             )}
                         >
-                            Connect. Speak. Something.
+                            Connect. Share. Do it again.
                         </h2>
+
+                        <div className={styles.banner__buttons}>
+                            <button
+                                className={buttonStyles.inline}
+                                onClick={() => router.push("/login")}
+                            >
+                                Log in
+                            </button>
+
+                            <p>or</p>
+
+                            <button
+                                className={buttonStyles.inline}
+                                onClick={() => router.push("/signup")}
+                            >
+                                Create an account
+                            </button>
+                        </div>
                     </div>
 
                     <div
@@ -32,18 +58,25 @@ const Index = () => {
                             styles.banner__child___form
                         )}
                     >
-                        <LoginForm />
+                        <Image
+                            src="/klogo.svg"
+                            alt={websiteName}
+                            width={500}
+                            height={500}
+                        />
                     </div>
                 </div>
 
                 <div className={styles.trendingContainer}>
                     <h1 className={styles.trendingContainer__title}>
-                        The Latest Trends
+                        What the World is Talking About
                     </h1>
 
-                    <h2>See What the World is Talking About</h2>
-
-                    <div id={styles.trendingCards}></div>
+                    <div id={styles.trendingCards}>
+                        {mockTrends.map(({ title, url }) => (
+                            <TrendingCard title={title} url={url} />
+                        ))}
+                    </div>
                 </div>
             </main>
         </div>
