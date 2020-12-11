@@ -74,7 +74,7 @@ const Index = () => {
 
                     <div id={styles.trendingCards}>
                         {mockTrends.map(({ title, url }) => (
-                            <TrendingCard title={title} url={url} />
+                            <TrendingCard key={title} title={title} url={url} />
                         ))}
                     </div>
                 </div>

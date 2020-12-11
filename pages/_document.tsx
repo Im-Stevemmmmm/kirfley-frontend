@@ -1,4 +1,10 @@
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, {
+    DocumentContext,
+    Head,
+    Html,
+    Main,
+    NextScript,
+} from "next/document";
 
 const AppDocument = () => {
     return (
@@ -14,7 +20,7 @@ const AppDocument = () => {
     );
 };
 
-AppDocument.getInitialProps = async (ctx: any) => {
+AppDocument.getInitialProps = async (ctx: DocumentContext) => {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
 };
