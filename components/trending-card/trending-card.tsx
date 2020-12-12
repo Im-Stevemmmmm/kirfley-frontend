@@ -18,19 +18,19 @@ export const TrendingCard = ({ title, url }: TrendingCardProps) => {
 
 export const mockTrends: TrendingCardProps[] = [
     {
-        title: "#COVID-19",
+        title: "#SomeTrend",
         url: "/signup",
     },
     {
-        title: "#GalacticFederation",
+        title: "#SomeTrend",
         url: "/signup",
     },
     {
-        title: "#GithubDarkTheme",
+        title: "#SomeTrend",
         url: "/signup",
     },
     {
-        title: "#Prisma",
+        title: "#SomeTrend",
         url: "/signup",
     },
 ];
