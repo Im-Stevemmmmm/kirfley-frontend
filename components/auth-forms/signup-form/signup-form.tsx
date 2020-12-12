@@ -1,4 +1,4 @@
-import { ApolloClient, useApolloClient } from "@apollo/client";
+import { useApolloClient } from "@apollo/client";
 import { useFormik } from "formik";
 import {
     CheckFieldAvailabiltyDocument,
@@ -11,30 +11,27 @@ import { useRouter } from "next/router";
 import { object, string } from "yup";
 import { StandardForm } from "../form-builder";
 
-const checkFieldAvailability = async (
-    client: ApolloClient<object>,
-    field: InputField,
-    value: string
-): Promise<boolean> => {
-    const { data } = await client.query<
-        CheckFieldAvailabiltyQuery,
-        CheckFieldAvailabiltyQueryVariables
-    >({
-        query: CheckFieldAvailabiltyDocument,
-        variables: {
-            field,
-            value,
-        },
-    });
-
-    return data.checkFieldAvailability;
-};
-
 const SignupForm = () => {
     const client = useApolloClient();
     const [registerUser] = useRegisterUserMutation();
 
     const router = useRouter();
+
+    const checkFieldAvailability = async (field: InputField, value: string) => {
+        const { data } = await client.query<
+            CheckFieldAvailabiltyQuery,
+            CheckFieldAvailabiltyQueryVariables
+        >({
+            query: CheckFieldAvailabiltyDocument,
+            variables: {
+                field,
+                value,
+            },
+        });
+
+        return data.checkFieldAvailability;
+    };
+
     const SignupSchema = object().shape({
         username: string()
             .required("Required")
@@ -45,7 +42,6 @@ const SignupForm = () => {
                 "Username is already taken",
                 async (username) => {
                     return await checkFieldAvailability(
-                        client,
                         InputField.Username,
                         username
                     );
@@ -59,7 +55,6 @@ const SignupForm = () => {
                 "Email is already registered",
                 async (email) => {
                     return await checkFieldAvailability(
-                        client,
                         InputField.Email,
                         email
                     );

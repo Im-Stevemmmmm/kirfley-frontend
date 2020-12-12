@@ -9,12 +9,17 @@ import "styles/global.scss";
 const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-        uri: process.env.API_URI,
+        uri: process.env.NEXT_PUBLIC_API_URI,
         credentials: "include",
     }),
 });
 
-const App = ({ Component, pageProps }) => {
+interface AppProps {
+    Component: React.ComponentType;
+    pageProps: unknown;
+}
+
+const App = ({ Component, pageProps }: AppProps) => {
     return (
         <div>
             <ApolloProvider client={client}>
