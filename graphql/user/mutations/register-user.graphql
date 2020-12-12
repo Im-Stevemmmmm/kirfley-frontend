@@ -1,13 +1,13 @@
 mutation RegisterUser(
-    $year: Float!
-    $month: Float!
-    $day: Float!
+    $year: Int!
+    $month: Int!
+    $day: Int!
     $username: String!
     $email: String!
     $password: String!
 ) {
     registerUser(
-        options: {
+        data: {
             year: $year
             month: $month
             day: $day
