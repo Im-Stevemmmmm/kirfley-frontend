@@ -10,7 +10,7 @@ const AppDocument = () => {
     return (
         <Html lang="en">
             <Head>
-                <link rel="shortcut icon" href="/circle.svg" />
+                <link rel="shortcut icon" href="/sec.svg" />
             </Head>
             <body>
                 <Main />
