@@ -55,14 +55,14 @@ const Index = () => {
                     <div
                         className={classNames(
                             styles.banner__child,
-                            styles.banner__child___form
+                            styles.banner__child___logo
                         )}
                     >
                         <Image
-                            src="/klogo.svg"
+                            src="/sec.svg"
                             alt={websiteName}
-                            width={500}
-                            height={500}
+                            width={375}
+                            height={375}
                         />
                     </div>
                 </div>

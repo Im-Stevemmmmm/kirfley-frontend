@@ -12,23 +12,28 @@ $gutterSize: 40px;
     &__child {
         padding: $gutterSize;
         width: max-content;
-
-        &___form {
-            width: 500px;
-            color: white;
-        }
-    }
-
-    &__logo {
-        margin-left: 25px;
     }
 
     &__title {
         font-size: 4.5em;
         font-weight: 800;
-        color: rgb(127, 255, 238);
+
+        background: linear-gradient(
+            to right,
+            rgb(236, 215, 157),
+            rgb(245, 173, 173)
+        );
+
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 
         &___subtitle {
+            background: unset;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+
             color: white;
             font-size: 1.5em;
         }
