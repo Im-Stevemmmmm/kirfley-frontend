@@ -25,6 +25,7 @@ module.exports = {
         semi: ["error", "always"],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
+        "react/display-name": [disabled, { ignoreTranspilerName: true }],
     },
     settings: {
         react: {
