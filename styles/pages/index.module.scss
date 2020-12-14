@@ -1,4 +1,8 @@
-$gutterSize: 40px;
+@import "/styles/variables.scss";
+
+@mixin sidebarPadding {
+    padding: 40px;
+}
 
 .banner {
     display: flex;
@@ -7,36 +11,24 @@ $gutterSize: 40px;
     flex-wrap: wrap;
 
     height: 800px;
-    background-color: rgb(24, 24, 29);
+    background-color: $bgLight;
 
     &__child {
-        padding: $gutterSize;
+        @include sidebarPadding();
+
         width: max-content;
     }
 
     &__title {
+        @include gradientText();
+
         font-size: 4.5em;
         font-weight: 800;
+    }
 
-        background: linear-gradient(
-            to right,
-            rgb(236, 215, 157),
-            rgb(245, 173, 173)
-        );
-
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        &___subtitle {
-            background: unset;
-            background-clip: unset;
-            -webkit-background-clip: unset;
-            -webkit-text-fill-color: unset;
-
-            color: white;
-            font-size: 1.5em;
-        }
+    &__subtitle {
+        color: white;
+        font-size: 1.5em;
     }
 
     &__buttons {
@@ -51,10 +43,11 @@ $gutterSize: 40px;
 }
 
 .trendingContainer {
-    background-color: rgb(16, 16, 19);
+    @include sidebarPadding();
+
+    background-color: $bgDark;
 
     text-align: center;
-    padding: $gutterSize;
 
     &__title {
         @extend .banner__title;
@@ -64,16 +57,15 @@ $gutterSize: 40px;
 
         font-size: 2.5em;
     }
-}
 
-#trendingCards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    &__cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
 
-    margin: 0 auto;
-    padding: $gutterSize;
+        margin: 0 auto;
 
-    max-width: 1040px;
-    overflow: hidden;
+        max-width: 1040px;
+        overflow: hidden;
+    }
 }

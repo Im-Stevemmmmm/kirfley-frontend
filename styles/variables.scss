@@ -1,0 +1,14 @@
+$bgLight: rgb(24, 24, 29);
+$bgDark: rgb(16, 16, 19);
+
+@mixin gradientText() {
+    background: linear-gradient(
+        to right,
+        rgb(236, 215, 157),
+        rgb(245, 173, 173)
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
