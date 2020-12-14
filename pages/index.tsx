@@ -19,7 +19,7 @@ const Index = () => {
                 <title>{websiteName}</title>
             </Head>
 
-            <main id={styles.container}>
+            <main>
                 <div className={styles.banner}>
                     <div className={styles.banner__child}>
                         <h1 className={styles.banner__title}>{websiteName}</h1>
