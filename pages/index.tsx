@@ -19,17 +19,12 @@ const Index = () => {
                 <title>{websiteName}</title>
             </Head>
 
-            <main>
+            <main id={styles.container}>
                 <div className={styles.banner}>
                     <div className={styles.banner__child}>
                         <h1 className={styles.banner__title}>{websiteName}</h1>
 
-                        <h2
-                            className={classNames(
-                                styles.banner__title,
-                                styles.banner__title___subtitle
-                            )}
-                        >
+                        <h2 className={classNames(styles.banner__subtitle)}>
                             Connect. Share. Do it again.
                         </h2>
 
@@ -72,7 +67,7 @@ const Index = () => {
                         What the World is Talking About
                     </h1>
 
-                    <div id={styles.trendingCards}>
+                    <div className={styles.trendingContainer__cards}>
                         {mockTrends.map(({ title, url }) => (
                             <TrendingCard key={title} title={title} url={url} />
                         ))}
