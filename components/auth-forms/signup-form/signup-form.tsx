@@ -108,15 +108,6 @@ const SignupForm = () => {
         <StandardForm handleSubmit={handleSubmit}>
             <StandardForm.Title>Sign Up</StandardForm.Title>
 
-            <StandardForm.DateInput
-                values={{
-                    day: values.day,
-                    month: values.month,
-                    year: values.year,
-                }}
-                handleChange={handleChange}
-            />
-
             <StandardForm.Label forField="username">
                 Username
             </StandardForm.Label>
