@@ -40,7 +40,7 @@ const SignupForm = () => {
             .test(
                 "username-available",
                 "Username is already taken",
-                async (username) => {
+                async username => {
                     return await checkFieldAvailability(
                         InputField.Username,
                         username
@@ -53,7 +53,7 @@ const SignupForm = () => {
             .test(
                 "email-available",
                 "Email is already registered",
-                async (email) => {
+                async email => {
                     return await checkFieldAvailability(
                         InputField.Email,
                         email
@@ -85,7 +85,7 @@ const SignupForm = () => {
             password: "",
             confirmPassword: "",
         },
-        onSubmit: async (values) => {
+        onSubmit: async values => {
             await registerUser({
                 variables: {
                     year: values.year,

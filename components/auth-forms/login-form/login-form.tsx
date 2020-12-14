@@ -18,7 +18,7 @@ const LoginForm = () => {
             usernameOrEmail: "",
             password: "",
         },
-        onSubmit: async (values) => {
+        onSubmit: async values => {
             const { data } = await login({
                 variables: {
                     usernameOrEmail: values.usernameOrEmail,
