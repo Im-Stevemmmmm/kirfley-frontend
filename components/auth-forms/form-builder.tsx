@@ -134,7 +134,7 @@ StandardForm.Button = ({ type, handleClick, children }: ButtonProps) => {
     return (
         <button
             type={type || "button"}
-            className={classNames(styles.form__button, buttonStyles.standard)}
+            className={classNames(styles.form__button, buttonStyles.inline)}
             onClick={handleClick}
         >
             {children}
