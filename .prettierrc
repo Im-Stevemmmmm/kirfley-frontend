@@ -2,7 +2,7 @@
     "tabWidth": 4,
     "jsxBracketSameLine": false,
     "singleQuote": false,
-    "arrowParens": "always",
+    "arrowParens": "avoid",
     "jsxSingleQuote": false,
     "bracketSpacing": true,
     "htmlWhitespaceSensitivity": "css",
