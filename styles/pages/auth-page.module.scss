@@ -1,0 +1,18 @@
+@import "/styles/variables.scss";
+
+#container {
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    background-color: $bgLight;
+    min-height: 100vh;
+    height: auto;
+}
+
+#form {
+    margin-top: 80px;
+
+    width: 90%;
+    max-width: 500px;
+}

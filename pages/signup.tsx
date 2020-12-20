@@ -1,6 +1,6 @@
 import SignupForm from "components/auth-forms/signup-form/signup-form";
 import Head from "next/head";
-import styles from "styles/pages/signup.module.scss";
+import styles from "styles/pages/auth-page.module.scss";
 import { websiteName } from "utils/constants/constants";
 
 const Signup = () => {
