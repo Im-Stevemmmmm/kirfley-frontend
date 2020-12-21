@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+    height: 55px;
+    background-color: white;
+
+    &__items {
+        list-style: none;
+    }
+
+    &__item {
+        margin: 0 5px;
+
+        &___logo {
+            // margin-right: auto;
+        }
+    }
+}
