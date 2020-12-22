@@ -3,25 +3,25 @@ import Image from "next/image";
 import styles from "./card.module.scss";
 
 interface HomeContentCardProps {
+    title: string;
     imgPath: string;
-    description: string;
     href: string;
 }
 
 export const HomeContentCard = ({
-    description,
+    title,
     imgPath,
     href,
 }: HomeContentCardProps) => {
     return (
         <Link href={href}>
             <div className={styles.card}>
-                <div>
-                    <Image src={imgPath} width="100%" height="100%" alt="" />
+                <div className={styles.card__child}>
+                    <Image src={imgPath} width="auto" height="auto" alt="" />
                 </div>
 
-                <div>
-                    <h1 className={styles.card__title}>{description}</h1>
+                <div className={styles.cardInfo}>
+                    <h1 className={styles.cardInfo__title}>{title}</h1>
                 </div>
             </div>
         </Link>

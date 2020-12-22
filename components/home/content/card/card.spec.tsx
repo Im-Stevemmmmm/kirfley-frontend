@@ -15,7 +15,8 @@ describe("home content card", () => {
 
         const { getByText } = render(
             <HomeContentCard
-                description="description"
+                title="OAuth 2.0 Update"
+                description="A new"
                 href="/uuid"
                 imgPath="/img.png"
             />
