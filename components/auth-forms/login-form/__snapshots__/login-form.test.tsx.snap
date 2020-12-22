@@ -42,7 +42,7 @@ exports[`renders correctly 1`] = `
       class="buttonContainer"
     >
       <button
-        class="form__button standard"
+        class="form__button inline"
         type="submit"
       >
         Log In
@@ -53,7 +53,7 @@ exports[`renders correctly 1`] = `
         or
       </p>
       <button
-        class="form__button standard"
+        class="form__button inline"
         type="button"
       >
         Create an account

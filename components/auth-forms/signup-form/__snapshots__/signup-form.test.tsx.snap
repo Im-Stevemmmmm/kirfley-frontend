@@ -10,34 +10,6 @@ exports[`renders correctly 1`] = `
     >
       Sign Up
     </h1>
-    <div
-      class="dobContainer"
-    >
-      <input
-        class="form__input dobContainer__month"
-        id="month"
-        name="month"
-        placeholder="Month"
-        type="number"
-        value="0"
-      />
-      <input
-        class="form__input dobContainer__day"
-        id="day"
-        name="day"
-        placeholder="Day"
-        type="number"
-        value="0"
-      />
-      <input
-        class="form__input dobContainer__year"
-        id="year"
-        name="year"
-        placeholder="Year"
-        type="number"
-        value="0"
-      />
-    </div>
     <label
       class="form__label"
       for="username"
@@ -97,7 +69,7 @@ exports[`renders correctly 1`] = `
       class="buttonContainer"
     >
       <button
-        class="form__button standard"
+        class="form__button inline"
         type="submit"
       >
         Sign Up
@@ -108,7 +80,7 @@ exports[`renders correctly 1`] = `
         or
       </p>
       <button
-        class="form__button standard"
+        class="form__button inline"
         type="button"
       >
         Back to log in

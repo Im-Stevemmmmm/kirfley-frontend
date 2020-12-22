@@ -4,105 +4,90 @@ exports[`renders correctly 1`] = `
 <div>
   <div>
     <title>
-      Fern
+      Kirfley
     </title>
-    <main
-      id="container"
-    >
+    <main>
       <div
-        class="banner"
+        class="grid"
       >
         <div
-          class="banner__child"
-        >
-          <h1
-            class="banner__title"
-          >
-            Yttrium
-          </h1>
-          <h2
-            class="banner__title banner__title___subtitle"
-          >
-            Connect. Speak. Something.
-          </h2>
-        </div>
+          class="grid__sidebar"
+        />
         <div
-          class="banner__child banner__child___form"
+          class="grid__child"
         >
-          <form
-            class="form"
+          <div
+            class="titleCard"
           >
             <h1
-              class="form__title"
+              class="titleCard__title"
             >
-              Log in
+              Kirfley
             </h1>
-            <label
-              class="form__label"
-              for="usernameOrEmail"
+            <h2
+              class="titleCard__subtitle"
             >
-              Username or email
-            </label>
-            <input
-              class="form__input"
-              id="usernameOrEmail"
-              name="usernameOrEmail"
-              placeholder="Username or email"
-              type="text"
-              value=""
-            />
-            <label
-              class="form__label"
-              for="password"
-            >
-              Password
-            </label>
-            <input
-              class="form__input"
-              id="password"
-              name="password"
-              placeholder="Password"
-              type="password"
-              value=""
-            />
+              Experience it. Share it. Repeat.
+            </h2>
             <div
-              class="buttonContainer"
+              class="titleCard__buttons"
             >
               <button
-                class="form__button standard"
-                type="submit"
+                class="inline"
               >
-                Log In
+                Log in
               </button>
-              <p
-                class="buttonContainer__text"
-              >
+              <p>
                 or
               </p>
               <button
-                class="form__button standard"
-                type="button"
+                class="inline"
               >
-                Create an account
+                Create an Account
               </button>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <div
-        class="trendingContainer"
-      >
-        <h1
-          class="trendingContainer__title"
-        >
-          The Latest Trends
-        </h1>
-        <h2>
-          See what the world is talking about
-        </h2>
         <div
-          id="trendingCards"
-        />
+          class="grid__child grid__child___noMargin"
+        >
+          <div
+            class="grid__logo"
+          >
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;charset=utf-8,<svg width=\\"375\\" height=\\"375\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                  style="max-width: 100%; display: block;"
+                />
+              </div>
+              <img
+                alt="Kirfley"
+                decoding="async"
+                src="/_next/image?url=%2Flogoblue.svg&w=1200&q=75"
+                srcset="/_next/image?url=%2Flogoblue.svg&w=420&q=75 1x, /_next/image?url=%2Flogoblue.svg&w=768&q=75 2x, /_next/image?url=%2Flogoblue.svg&w=1200&q=75 3x"
+                style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="grid__child grid__description"
+        >
+          <h1>
+            Share Your Experiences with the World
+          </h1>
+          <p>
+            Kirfley is a social media platform where you can share your experiences or something. By doing this you can become known and popular. This is good because more people can know you. Furthermore, everyone can know you.
+          </p>
+        </div>
       </div>
     </main>
   </div>
