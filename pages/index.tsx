@@ -20,7 +20,7 @@ const Index = () => {
                     <div className={styles.grid__sidebar} />
 
                     <div className={styles.grid__child}>
-                        <div className={styles.grid__titleCardContainer}>
+                        <div className={styles.titleCard}>
                             <h1 className={styles.titleCard__title}>
                                 {websiteName}
                             </h1>
@@ -71,7 +71,11 @@ const Index = () => {
                             styles.grid__description
                         )}
                     >
+<<<<<<< HEAD
                         <h1>Share Your Experiences to the World</h1>
+=======
+                        <h1>Share Your Experiences with the World</h1>
+>>>>>>> convert-to-css-grids
 
                         <p>
                             Kirfley is a social media platform where you can
