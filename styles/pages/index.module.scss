@@ -1,79 +1,67 @@
 @import "/styles/variables.scss";
 
-.content {
-    display: flex;
-    flex-direction: row;
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: 2;
 
-    &__sidebarImage {
-        width: 15%;
-        height: 100vh;
-        // background-image: url("/orange.jpg");
+    &__child {
+        margin: 200px;
+
+        &___noMargin {
+            margin: 0 !important;
+        }
+    }
+
+    &__sidebar {
+        grid-column-start: 1;
+        grid-column-end: 1;
+
+        grid-row-start: 1;
+        grid-row-end: 5;
+
         background-image: linear-gradient(240deg, #3d88db, #4035e8);
     }
 
-    &__banner {
-        padding: 0 16.5%;
-        width: 85%;
-    }
-}
-
-.banner {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-
-    height: 800px;
-    background-color: $bgLight;
-
-    color: black;
-
-    &__child {
-        width: max-content;
-
-        &___last {
-            margin-left: auto;
-        }
-
-        &___boxShadow {
-            // border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            padding: 65px;
-            // box-shadow: 25px 25px #3d88db;
-            box-shadow: 0 4px 25px rgba(11, 33, 74, 0.11),
-                0 -2px 5px rgba(11, 33, 74, 0.03);
-        }
-    }
-
-    &__title {
-        font-size: 4.5em;
-        // font-weight: 500;
-        font-weight: bold;
-        font-family: "Jost", sans-serif;
-    }
-
-    &__subtitle {
-        font-size: 1.5em;
-    }
-
-    &__buttons {
+    &__logo {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-
-        height: max-content;
+        height: 100%;
     }
-}
 
-.description {
-    &__dot {
-        & * {
-            margin-right: 5px;
+    &__titleCardContainer {
+        width: 500px;
+
+        border-radius: 4px;
+        padding: 65px;
+        box-shadow: 0 4px 25px rgba(11, 33, 74, 0.11),
+            0 -2px 5px rgba(11, 33, 74, 0.03);
+    }
+
+    &__description {
+        margin-top: 0px !important;
+        max-width: 74ch;
+    }
+
+    .titleCard {
+        &__title {
+            font-size: 4.5em;
+            font-weight: bold;
+            font-family: "Jost", sans-serif;
         }
-    }
 
-    &__text {
-        max-width: 57ch;
+        &__subtitle {
+            font-size: 1.5em;
+        }
+
+        &__buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            height: max-content;
+        }
     }
 }
