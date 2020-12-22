@@ -43,15 +43,18 @@
 .inline {
     @include button();
 
-    background-color: rgb(84, 57, 235);
+    background-color: #385ef2;
     color: white;
 
     border-radius: 2px;
     margin: 15px 0;
 
+    filter: brightness(1);
+
+    transition: 0.3s filter ease;
+
     &:hover {
-        background-color: white;
-        color: black;
+        filter: brightness(1.125);
     }
 }
 

@@ -20,57 +20,95 @@ const Index = () => {
             </Head>
 
             <main>
-                <div className={styles.banner}>
-                    <div className={styles.banner__child}>
-                        <h1 className={styles.banner__title}>{websiteName}</h1>
+                <div className={styles.content}>
+                    <div className={styles.content__sidebarImage} />
 
-                        <h2 className={classNames(styles.banner__subtitle)}>
-                            Connect. Share. Do it again.
-                        </h2>
-
-                        <div className={styles.banner__buttons}>
-                            <button
-                                className={buttonStyles.inline}
-                                onClick={() => router.push("/login")}
+                    <div className={styles.content__banner}>
+                        <div className={styles.banner}>
+                            <div
+                                className={classNames(
+                                    styles.banner__child,
+                                    styles.banner__child___boxShadow
+                                )}
                             >
-                                Log in
-                            </button>
+                                <h1 className={styles.banner__title}>
+                                    {websiteName}
+                                </h1>
 
-                            <p>or</p>
+                                <h2
+                                    className={classNames(
+                                        styles.banner__subtitle
+                                    )}
+                                >
+                                    Experience it. Share it. Repeat.
+                                </h2>
 
-                            <button
-                                className={buttonStyles.inline}
-                                onClick={() => router.push("/signup")}
+                                <div className={styles.banner__buttons}>
+                                    <button
+                                        className={buttonStyles.inline}
+                                        onClick={() => router.push("/login")}
+                                    >
+                                        Log in
+                                    </button>
+
+                                    <p>or</p>
+
+                                    <button
+                                        className={buttonStyles.inline}
+                                        onClick={() => router.push("/signup")}
+                                    >
+                                        Create an Account
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div
+                                className={classNames(
+                                    styles.banner__child,
+                                    styles.banner__child___last
+                                )}
                             >
-                                Create an account
-                            </button>
+                                <Image
+                                    src="/logoblue.svg"
+                                    alt={websiteName}
+                                    width={375}
+                                    height={375}
+                                />
+                            </div>
                         </div>
-                    </div>
 
-                    <div
-                        className={classNames(
-                            styles.banner__child,
-                            styles.banner__child___logo
-                        )}
-                    >
-                        <Image
-                            src="/sec.svg"
-                            alt={websiteName}
-                            width={375}
-                            height={375}
-                        />
-                    </div>
-                </div>
+                        <div className={styles.description}>
+                            {/* <div className={styles.description__dot}>
+                                <Image
+                                    src="/graydot.svg"
+                                    width={25}
+                                    height={25}
+                                    alt=""
+                                />
+                                <Image
+                                    src="/graydot.svg"
+                                    width={25}
+                                    height={25}
+                                    alt=""
+                                />
+                                <Image
+                                    src="/graydot.svg"
+                                    width={25}
+                                    height={25}
+                                    alt=""
+                                />
+                            </div> */}
 
-                <div className={styles.trendingContainer}>
-                    <h1 className={styles.trendingContainer__title}>
-                        What the World is Talking About
-                    </h1>
+                            <h1>Share Your Experiences to the World</h1>
 
-                    <div className={styles.trendingContainer__cards}>
-                        {mockTrends.map(({ title, url }) => (
-                            <TrendingCard key={title} title={title} url={url} />
-                        ))}
+                            <p className={styles.description__text}>
+                                Kirfley is a social media platform where you can
+                                share your experiences or something. By doing
+                                this you can become known and popular. This is
+                                good because more people can know you.
+                                Furthermore, everyone can know you.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </main>
