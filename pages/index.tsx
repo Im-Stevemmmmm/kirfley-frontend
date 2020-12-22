@@ -71,11 +71,7 @@ const Index = () => {
                             styles.grid__description
                         )}
                     >
-<<<<<<< HEAD
-                        <h1>Share Your Experiences to the World</h1>
-=======
                         <h1>Share Your Experiences with the World</h1>
->>>>>>> convert-to-css-grids
 
                         <p>
                             Kirfley is a social media platform where you can
