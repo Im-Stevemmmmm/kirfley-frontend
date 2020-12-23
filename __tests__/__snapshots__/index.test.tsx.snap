@@ -8,85 +8,122 @@ exports[`renders correctly 1`] = `
     </title>
     <main>
       <div
-        class="grid"
+        class="layoutGrid"
       >
-        <div
-          class="grid__sidebar"
+        <aside
+          class="layoutGrid__sideGradient"
         />
         <div
-          class="grid__child"
+          class="content"
         >
           <div
-            class="titleCard"
+            class="content__topBoxes"
           >
-            <h1
-              class="titleCard__title"
-            >
-              Kirfley
-            </h1>
-            <h2
-              class="titleCard__subtitle"
-            >
-              Experience it. Share it. Repeat.
-            </h2>
             <div
-              class="titleCard__buttons"
+              class="titleCard"
             >
-              <button
-                class="inline"
+              <h1
+                class="titleCard__title"
               >
-                Log in
-              </button>
-              <p>
-                or
-              </p>
-              <button
-                class="inline"
+                Kirfley
+              </h1>
+              <h2
+                class="titleCard__subtitle"
               >
-                Create an Account
-              </button>
+                Experience it. Share it. Repeat.
+              </h2>
+              <div
+                class="titleCard__buttons"
+              >
+                <a
+                  class="inline"
+                >
+                  Log in
+                </a>
+                <a
+                  class="inline"
+                >
+                  Create an Account
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="grid__child grid__child___noMargin"
-        >
           <div
-            class="grid__logo"
+            class="content__topBoxes"
           >
             <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              class="content__logo"
             >
               <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
               >
+                <div
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;charset=utf-8,<svg width=\\"375\\" height=\\"375\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                    style="max-width: 100%; display: block;"
+                  />
+                </div>
                 <img
                   alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;charset=utf-8,<svg width=\\"375\\" height=\\"375\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
-                  style="max-width: 100%; display: block;"
+                  decoding="async"
+                  src="/_next/image?url=%2Flogoblue.svg&w=1200&q=75"
+                  srcset="/_next/image?url=%2Flogoblue.svg&w=420&q=75 1x, /_next/image?url=%2Flogoblue.svg&w=768&q=75 2x, /_next/image?url=%2Flogoblue.svg&w=1200&q=75 3x"
+                  style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
               </div>
-              <img
-                alt="Kirfley"
-                decoding="async"
-                src="/_next/image?url=%2Flogoblue.svg&w=1200&q=75"
-                srcset="/_next/image?url=%2Flogoblue.svg&w=420&q=75 1x, /_next/image?url=%2Flogoblue.svg&w=768&q=75 2x, /_next/image?url=%2Flogoblue.svg&w=1200&q=75 3x"
-                style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
             </div>
           </div>
-        </div>
-        <div
-          class="grid__child grid__description"
-        >
-          <h1>
-            Share Your Experiences with the World
-          </h1>
-          <p>
-            Kirfley is a social media platform where you can share your experiences or something. By doing this you can become known and popular. This is good because more people can know you. Furthermore, everyone can know you.
-          </p>
+          <div
+            class="content__content content__description"
+          >
+            <h1>
+              Share Your Experiences with the World
+            </h1>
+            <p>
+              Kirfley offers a simple way to share your experiences with the world. Share your commentary on any world event without fear of your opinions being discriminated against.
+            </p>
+            <br />
+            <a
+              class="inline"
+            >
+              Learn More
+            </a>
+          </div>
+          <div
+            class="content__content content__description"
+          >
+            <h1>
+              All of Your Memories in One Place
+            </h1>
+            <p>
+              Your memories will be in one place.
+            </p>
+          </div>
+          <div
+            class="content__content content__description"
+          >
+            <h1>
+              Share Your Experiences with the World
+            </h1>
+            <p>
+              Kirfley offers a simple way to share your experiences with the world. Share your commentary on any world event without fear of your opinions being discriminated against.
+            </p>
+          </div>
+          <div
+            class="content__content content__description"
+          >
+            <h1>
+              Share Your Experiences with the World
+            </h1>
+            <p>
+              Kirfley offers a simple way to share your experiences with the world. Share your commentary on any world event without fear of your opinions being discriminated against.
+            </p>
+          </div>
         </div>
       </div>
     </main>
