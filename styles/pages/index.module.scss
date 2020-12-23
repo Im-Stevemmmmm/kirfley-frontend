@@ -13,29 +13,28 @@
 
 .content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(485px, 1fr));
+    grid-template-rows: repeat(2, max-content);
 
-    $padding: 125px;
+    padding: 100px;
+    gap: 125px;
 
-    padding: $padding;
-    gap: $padding;
+    $maxWidth: 650px;
 
     &__logo {
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 100%;
+
+        max-width: $maxWidth;
     }
 
-    &__description {
-        & > p {
-            // margin-right: 50px;
-            max-width: 76ch;
-        }
+    .description {
+        max-width: $maxWidth;
     }
 
     .titleCard {
-        max-width: 500px;
+        width: 100%;
+        max-width: $maxWidth;
 
         border-radius: 4px;
         padding: 65px;
