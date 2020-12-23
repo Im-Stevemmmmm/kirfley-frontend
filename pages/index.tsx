@@ -15,7 +15,7 @@ interface CardProps {
 const Card = ({ title, children, iconPath }: CardProps) => {
     return (
         <div className={styles.card}>
-            <Image src={iconPath} width={40} height={40} />
+            <Image src={iconPath} width={40} height={40} alt="" />
 
             <h1 className={styles.card__title}>{title}</h1>
 
@@ -84,12 +84,14 @@ const Index = () => {
                         inventore quisquam impedit assumenda harum aliquam et
                         temporibus quos reiciendis.
                     </Card>
+
                     <Card title="Share" iconPath="/share-lines.svg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Quas alias, possimus ipsum repellendus animi ad
                         inventore quisquam impedit assumenda harum aliquam et
                         temporibus quos reiciendis.
                     </Card>
+
                     <Card title="Repeat" iconPath="/slow.svg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Quas alias, possimus ipsum repellendus animi ad
@@ -101,84 +103,5 @@ const Index = () => {
         </div>
     );
 };
-
-// const Index = () => {
-//     return (
-//         <div>
-//             <Head>
-//                 <title>{WEBSITE_NAME}</title>
-//             </Head>
-
-//             <main>
-//                 <div className={styles.content}>
-//                     <div className={styles.titleCard}>
-//                         <h1 className={styles.titleCard__title}>
-//                             {WEBSITE_NAME}
-//                         </h1>
-
-//                         <h2 className={styles.titleCard__subtitle}>
-//                             Experience it. Share it. Repeat.
-//                         </h2>
-
-//                         <div className={styles.titleCard__buttons}>
-//                             <Link href="/login">
-//                                 <a className={buttonStyles.inline}>Log in</a>
-//                             </Link>
-
-//                             <Link href="/signup">
-//                                 <a className={buttonStyles.inline}>
-//                                     Create an Account
-//                                 </a>
-//                             </Link>
-//                         </div>
-//                     </div>
-
-//                     <div className={styles.content__logo}>
-//                         <Image
-//                             src="/logoblue.svg"
-//                             width="400px"
-//                             height="400px"
-//                             alt=""
-//                         />
-//                     </div>
-
-//                     <div className={styles.description}>
-//                         <h1>Share Your Experiences with the World</h1>
-
-//                         <p className={styles.description__text}>
-//                             Kirfley offers a simple way to share your
-//                             experiences with the world. Share your commentary on
-//                             any world event without fear of your opinions being
-//                             discriminated against.
-//                         </p>
-
-//                         <br />
-
-//                         <Link href="/learn-more">
-//                             <a className={buttonStyles.inline}>Learn More</a>
-//                         </Link>
-//                     </div>
-
-//                     <div className={styles.description}>
-//                         <h1>All of Your Commentary in One Place</h1>
-
-//                         <p className={styles.description__text}>
-//                             Kirfley offers a simple way to share your
-//                             experiences with the world. Share your commentary on
-//                             any world event without fear of your opinions being
-//                             discriminated against.
-//                         </p>
-
-//                         <br />
-
-//                         <Link href="/learn-more">
-//                             <a className={buttonStyles.inline}>Learn More</a>
-//                         </Link>
-//                     </div>
-//                 </div>
-//             </main>
-//         </div>
-//     );
-// };
 
 export default Index;
