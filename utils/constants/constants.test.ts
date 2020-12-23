@@ -1,5 +1,5 @@
-import { websiteName } from "./constants";
+import { WEBSITE_NAME } from "./constants";
 
 test("website name is Kirfley", () => {
-    expect(websiteName).toBe("Kirfley");
+    expect(WEBSITE_NAME).toBe("Kirfley");
 });

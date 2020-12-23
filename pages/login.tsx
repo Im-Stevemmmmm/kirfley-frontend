@@ -1,13 +1,13 @@
 import LoginForm from "components/auth-forms/login-form/login-form";
 import Head from "next/head";
 import styles from "styles/pages/auth-page.module.scss";
-import { websiteName } from "utils/constants/constants";
+import { WEBSITE_NAME } from "utils/constants/constants";
 
 const Login = () => {
     return (
         <div>
             <Head>
-                <title>Log in | {websiteName}</title>
+                <title>Log in | {WEBSITE_NAME}</title>
             </Head>
 
             <div id={styles.container}>
