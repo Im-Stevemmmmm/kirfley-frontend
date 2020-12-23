@@ -18,52 +18,43 @@ const Index = () => {
                     <aside className={styles.layoutGrid__sideGradient} />
 
                     <div className={styles.content}>
-                        <div className={styles.content__topBoxes}>
-                            <div className={styles.titleCard}>
-                                <h1 className={styles.titleCard__title}>
-                                    {WEBSITE_NAME}
-                                </h1>
+                        <div className={styles.titleCard}>
+                            <h1 className={styles.titleCard__title}>
+                                {WEBSITE_NAME}
+                            </h1>
 
-                                <h2 className={styles.titleCard__subtitle}>
-                                    Experience it. Share it. Repeat.
-                                </h2>
+                            <h2 className={styles.titleCard__subtitle}>
+                                Experience it. Share it. Repeat.
+                            </h2>
 
-                                <div className={styles.titleCard__buttons}>
-                                    <Link href="/login">
-                                        <a className={buttonStyles.inline}>
-                                            Log in
-                                        </a>
-                                    </Link>
+                            <div className={styles.titleCard__buttons}>
+                                <Link href="/login">
+                                    <a className={buttonStyles.inline}>
+                                        Log in
+                                    </a>
+                                </Link>
 
-                                    <Link href="/signup">
-                                        <a className={buttonStyles.inline}>
-                                            Create an Account
-                                        </a>
-                                    </Link>
-                                </div>
+                                <Link href="/signup">
+                                    <a className={buttonStyles.inline}>
+                                        Create an Account
+                                    </a>
+                                </Link>
                             </div>
                         </div>
 
-                        <div className={styles.content__topBoxes}>
-                            <div className={styles.content__logo}>
-                                <Image
-                                    src="/logoblue.svg"
-                                    width={375}
-                                    height={375}
-                                    alt=""
-                                />
-                            </div>
+                        <div className={styles.content__logo}>
+                            <Image
+                                src="/logoblue.svg"
+                                width="400px"
+                                height="400px"
+                                alt=""
+                            />
                         </div>
 
-                        <div
-                            className={classNames(
-                                styles.content__content,
-                                styles.content__description
-                            )}
-                        >
+                        <div className={styles.description}>
                             <h1>Share Your Experiences with the World</h1>
 
-                            <p>
+                            <p className={styles.description__text}>
                                 Kirfley offers a simple way to share your
                                 experiences with the world. Share your
                                 commentary on any world event without fear of
@@ -79,47 +70,23 @@ const Index = () => {
                             </Link>
                         </div>
 
-                        <div
-                            className={classNames(
-                                styles.content__content,
-                                styles.content__description
-                            )}
-                        >
-                            <h1>All of Your Memories in One Place</h1>
+                        <div className={styles.description}>
+                            <h1>All of Your Commentary in One Place</h1>
 
-                            <p>Your memories will be in one place.</p>
-                        </div>
-
-                        <div
-                            className={classNames(
-                                styles.content__content,
-                                styles.content__description
-                            )}
-                        >
-                            <h1>Share Your Experiences with the World</h1>
-
-                            <p>
+                            <p className={styles.description__text}>
                                 Kirfley offers a simple way to share your
                                 experiences with the world. Share your
                                 commentary on any world event without fear of
                                 your opinions being discriminated against.
                             </p>
-                        </div>
 
-                        <div
-                            className={classNames(
-                                styles.content__content,
-                                styles.content__description
-                            )}
-                        >
-                            <h1>Share Your Experiences with the World</h1>
+                            <br />
 
-                            <p>
-                                Kirfley offers a simple way to share your
-                                experiences with the world. Share your
-                                commentary on any world event without fear of
-                                your opinions being discriminated against.
-                            </p>
+                            <Link href="/learn-more">
+                                <a className={buttonStyles.inline}>
+                                    Learn More
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
