@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`signup form renders correctly 1`] = `
 <div>
   <form
     class="form"
@@ -8,19 +8,33 @@ exports[`renders correctly 1`] = `
     <h1
       class="form__title"
     >
-      Log in
+      Sign Up
     </h1>
     <label
       class="form__label"
-      for="usernameOrEmail"
+      for="username"
     >
-      Username or email
+      Username
     </label>
     <input
       class="form__input"
-      id="usernameOrEmail"
-      name="usernameOrEmail"
-      placeholder="Username or email"
+      id="username"
+      name="username"
+      placeholder="Atleast 4 characters long"
+      type="text"
+      value=""
+    />
+    <label
+      class="form__label"
+      for="email"
+    >
+      Email
+    </label>
+    <input
+      class="form__input"
+      id="email"
+      name="email"
+      placeholder="example@email.com"
       type="text"
       value=""
     />
@@ -34,7 +48,20 @@ exports[`renders correctly 1`] = `
       class="form__input"
       id="password"
       name="password"
-      placeholder="Password"
+      placeholder="Atleast 4 characters long"
+      type="password"
+      value=""
+    />
+    <label
+      class="form__label"
+      for="confirmPassword"
+    >
+      Confirm Password
+    </label>
+    <input
+      class="form__input"
+      id="confirmPassword"
+      name="confirmPassword"
       type="password"
       value=""
     />
@@ -45,7 +72,7 @@ exports[`renders correctly 1`] = `
         class="form__button inline"
         type="submit"
       >
-        Log In
+        Sign Up
       </button>
       <p
         class="buttonContainer__text"
@@ -56,7 +83,7 @@ exports[`renders correctly 1`] = `
         class="form__button inline"
         type="button"
       >
-        Create an account
+        Back to log in
       </button>
     </div>
   </form>

@@ -1,14 +1,16 @@
 import { render } from "@testing-library/react";
 import Footer from "components/footer/footer";
 
-test("footer renders correctly", () => {
-    const { container } = render(<Footer />);
+describe("footer", () => {
+    it("renders correctly", () => {
+        const { container } = render(<Footer />);
 
-    expect(container).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
+    });
 });
 
 describe("about column", () => {
-    it("is in the footer", () => {
+    it("exists in the footer", () => {
         const { getByText } = render(<Footer />);
         const aboutColumn = getByText(/About/).parentElement;
 
@@ -32,7 +34,7 @@ describe("about column", () => {
 });
 
 describe("support column", () => {
-    it("is in the footer", () => {
+    it("exists in the footer", () => {
         const { getByText } = render(<Footer />);
         const supportColumn = getByText(/Support/).parentElement;
 
@@ -48,7 +50,7 @@ describe("support column", () => {
 });
 
 describe("legal column", () => {
-    it("is in the footer", () => {
+    it("exists in the footer", () => {
         const { getByText } = render(<Footer />);
         const legalColumn = getByText(/Legal/).parentElement;
 
