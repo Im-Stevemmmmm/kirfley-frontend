@@ -6,7 +6,7 @@ import styles from "styles/pages/home.module.scss";
 import { useSessionAuth } from "utils/hooks/use-session-auth/use-session-auth";
 
 const Home = () => {
-    // useSessionAuth();
+    useSessionAuth();
 
     return (
         <div>
