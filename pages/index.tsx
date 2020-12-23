@@ -87,7 +87,7 @@ const Index = () => {
                         >
                             <h1>All of Your Memories in One Place</h1>
 
-                            <p>Your memories will be stored or something.</p>
+                            <p>Your memories will be in one place.</p>
                         </div>
 
                         <div
@@ -99,11 +99,10 @@ const Index = () => {
                             <h1>Share Your Experiences with the World</h1>
 
                             <p>
-                                Kirfley is a social media platform where you can
-                                share your experiences or something. By doing
-                                this you can become known and popular. This is
-                                good because more people can know you.
-                                Furthermore, everyone can know you.
+                                Kirfley offers a simple way to share your
+                                experiences with the world. Share your
+                                commentary on any world event without fear of
+                                your opinions being discriminated against.
                             </p>
                         </div>
 
@@ -116,11 +115,10 @@ const Index = () => {
                             <h1>Share Your Experiences with the World</h1>
 
                             <p>
-                                Kirfley is a social media platform where you can
-                                share your experiences or something. By doing
-                                this you can become known and popular. This is
-                                good because more people can know you.
-                                Furthermore, everyone can know you.
+                                Kirfley offers a simple way to share your
+                                experiences with the world. Share your
+                                commentary on any world event without fear of
+                                your opinions being discriminated against.
                             </p>
                         </div>
                     </div>
