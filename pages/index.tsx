@@ -1,10 +1,12 @@
 import classNames from "classnames";
-import { Card } from "components/pages/index/card";
+import { EnterFromXAxis } from "components/pages/index/animations/enter-from-x-axis";
+import { Card } from "components/pages/index/card/card";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import buttonStyles from "styles/misc/buttons.module.scss";
 import styles from "styles/pages/index.module.scss";
+import { FadeIn } from "utils/animations/fade-in";
 import { WEBSITE_NAME } from "utils/constants/constants";
 
 const Index = () => {
@@ -16,11 +18,15 @@ const Index = () => {
 
             <main>
                 <div className={styles.banner}>
-                    <h1 className={styles.banner__title}>Kirfley</h1>
+                    <FadeIn>
+                        <h1 className={styles.banner__title}>Kirfley</h1>
+                    </FadeIn>
 
-                    <h2 className={styles.banner__subtitle}>
-                        Experience it. Share it. Repeat it.
-                    </h2>
+                    <FadeIn delay={400}>
+                        <h2 className={styles.banner__subtitle}>
+                            Experience it. Share it. Repeat it.
+                        </h2>
+                    </FadeIn>
 
                     <div className={styles.buttons}>
                         <Link href="/login">
@@ -62,26 +68,30 @@ const Index = () => {
                     </div>
 
                     <div className={styles.boxImage}>
-                        <div className={styles.boxImage__image}>
-                            <Image
-                                src="/index/phone-taking-image.svg"
-                                width={400}
-                                height={600}
-                                alt=""
-                            />
-                        </div>
+                        <EnterFromXAxis direction="left">
+                            <div className={styles.boxImage__image}>
+                                <Image
+                                    src="/index/phone-taking-image.svg"
+                                    width={400}
+                                    height={600}
+                                    alt=""
+                                />
+                            </div>
+                        </EnterFromXAxis>
 
                         <div>
-                            <h1 className={styles.boxImage__title}>
-                                Capture that Moment
-                            </h1>
+                            <EnterFromXAxis direction="right">
+                                <h1 className={styles.boxImage__title}>
+                                    Capture that Moment
+                                </h1>
 
-                            <p className={styles.boxImage__text}>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Dolores perspiciatis
-                                architecto sint esse alias doloribus aspernatur
-                                optio voluptate in.
-                            </p>
+                                <p className={styles.boxImage__text}>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Dolores perspiciatis
+                                    architecto sint esse alias doloribus
+                                    aspernatur optio voluptate in.
+                                </p>
+                            </EnterFromXAxis>
                         </div>
                     </div>
 
