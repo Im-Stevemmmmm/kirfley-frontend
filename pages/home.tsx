@@ -1,6 +1,6 @@
-import { HomeContent } from "components/home/content/content";
-import { HomeNavbar } from "components/home/navbar/navbar";
-import { HomeSidebar } from "components/home/sidebar/sidebar";
+import { HomeContent } from "components/pages/home/content/content";
+import { HomeNavbar } from "components/pages/home/navbar/navbar";
+import { HomeSidebar } from "components/pages/home/sidebar/sidebar";
 import Head from "next/head";
 import styles from "styles/pages/home.module.scss";
 import { useSessionAuth } from "utils/hooks/use-session-auth/use-session-auth";
