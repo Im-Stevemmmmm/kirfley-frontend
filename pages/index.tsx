@@ -49,7 +49,7 @@ const Index = () => {
 
                     <div className={styles.banner__child}>
                         <Image
-                            src="/index/phone-taking-image.svg"
+                            src="/art/index/phone-taking-image.svg"
                             width={400}
                             height={600}
                             alt=""
