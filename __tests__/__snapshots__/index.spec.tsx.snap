@@ -6,57 +6,12 @@ exports[`index page renders correctly 1`] = `
     <title>
       Kirfley
     </title>
-    <div
-      class="banner"
-    >
-      <h1
-        class="banner__title"
-      >
-        Kirfley
-      </h1>
-      <h2
-        class="banner__subtitle"
-      >
-        Experience it. Share it. Repeat it.
-      </h2>
-      <div
-        class="buttons"
-      >
-        <a
-          class="inline buttons__button"
-        >
-          Log in
-        </a>
-        <a
-          class="inline buttons__button"
-        >
-          Create an Account
-        </a>
-      </div>
-    </div>
-    <div
-      class="content"
-    >
-      <h1
-        class="description__title"
-      >
-        Share Your Experiences with the World
-      </h1>
-      <p
-        class="description__text"
-      >
-        Kirfley is a social media platform where you can share your experiences with the world. Share your commentary on any world event without fear of your opinions being discriminated against.
-      </p>
-      <h1
-        class="description__title"
-      >
-        3 Simple Steps
-      </h1>
-      <div
-        id="cardContainer"
+    <main>
+      <nav
+        class="navbar"
       >
         <div
-          class="card"
+          class="navbar__icon"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -68,31 +23,70 @@ exports[`index page renders correctly 1`] = `
                 alt=""
                 aria-hidden="true"
                 role="presentation"
-                src="data:image/svg+xml;charset=utf-8,<svg width=\\"40\\" height=\\"40\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                src="data:image/svg+xml;charset=utf-8,<svg width=\\"35\\" height=\\"35\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
                 style="max-width: 100%; display: block;"
               />
             </div>
             <img
-              alt=""
+              alt="Navbar Icon"
               decoding="async"
-              src="/_next/image?url=%2Fglobe-line.svg&w=320&q=75"
-              srcset="/_next/image?url=%2Fglobe-line.svg&w=320&q=75 1x"
+              src="/_next/image?url=%2Ficons%2Fnav-icon.svg&w=320&q=75"
+              srcset="/_next/image?url=%2Ficons%2Fnav-icon.svg&w=320&q=75 1x"
               style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
+        </div>
+        <ul
+          class="navbar__navItems"
+        >
+          <li
+            class="navbar__nav"
+          >
+            Support
+          </li>
+          <li
+            class="navbar__nav"
+          >
+            Log In
+          </li>
+          <li
+            class="navbar__nav"
+          >
+            Sign Up
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="banner"
+      >
+        <div
+          class="banner__child"
+        >
           <h1
-            class="card__title"
+            class="banner__title"
           >
-            Experience
+            Kirfley
           </h1>
-          <p
-            class="card__text"
+          <h2>
+            Share Your Opinions With the World
+          </h2>
+          <div
+            class="banner__buttons"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas alias, possimus ipsum repellendus animi ad inventore quisquam impedit assumenda harum aliquam et temporibus quos reiciendis.
-          </p>
+            <a
+              class="inline buttons__button"
+            >
+              Log In
+            </a>
+            <a
+              class="inline buttons__button"
+            >
+              Create an Account
+            </a>
+          </div>
         </div>
         <div
-          class="card"
+          class="banner__child"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -104,67 +98,21 @@ exports[`index page renders correctly 1`] = `
                 alt=""
                 aria-hidden="true"
                 role="presentation"
-                src="data:image/svg+xml;charset=utf-8,<svg width=\\"40\\" height=\\"40\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                src="data:image/svg+xml;charset=utf-8,<svg width=\\"400\\" height=\\"600\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
                 style="max-width: 100%; display: block;"
               />
             </div>
             <img
               alt=""
               decoding="async"
-              src="/_next/image?url=%2Fshare-lines.svg&w=320&q=75"
-              srcset="/_next/image?url=%2Fshare-lines.svg&w=320&q=75 1x"
+              src="/_next/image?url=%2Fart%2Findex%2Fphone-taking-image.svg&w=1200&q=75"
+              srcset="/_next/image?url=%2Fart%2Findex%2Fphone-taking-image.svg&w=420&q=75 1x, /_next/image?url=%2Fart%2Findex%2Fphone-taking-image.svg&w=1024&q=75 2x, /_next/image?url=%2Fart%2Findex%2Fphone-taking-image.svg&w=1200&q=75 3x"
               style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
-          <h1
-            class="card__title"
-          >
-            Share
-          </h1>
-          <p
-            class="card__text"
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas alias, possimus ipsum repellendus animi ad inventore quisquam impedit assumenda harum aliquam et temporibus quos reiciendis.
-          </p>
-        </div>
-        <div
-          class="card"
-        >
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-          >
-            <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;charset=utf-8,<svg width=\\"40\\" height=\\"40\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
-                style="max-width: 100%; display: block;"
-              />
-            </div>
-            <img
-              alt=""
-              decoding="async"
-              src="/_next/image?url=%2Fslow.svg&w=320&q=75"
-              srcset="/_next/image?url=%2Fslow.svg&w=320&q=75 1x"
-              style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-          </div>
-          <h1
-            class="card__title"
-          >
-            Repeat
-          </h1>
-          <p
-            class="card__text"
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas alias, possimus ipsum repellendus animi ad inventore quisquam impedit assumenda harum aliquam et temporibus quos reiciendis.
-          </p>
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </div>
 `;
