@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 
 * {
     box-sizing: border-box;
@@ -15,6 +18,7 @@ a {
 h1,
 h2,
 p {
+    font-family: "Open-sans", sans-serif;
     color: inherit;
 }
 
@@ -28,6 +32,9 @@ input,
 li,
 img {
     font-family: "Poppins", sans-serif;
+    // font-family: "Roboto", sans-serif;
+    // font-family: "Noto Sans JP", sans-serif;
+    // font-family: "Opensans", sans-serif;
     font-weight: 400;
     color: inherit;
 }
