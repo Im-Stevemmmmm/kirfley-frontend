@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import { animated, useTransition } from "react-spring";
-import styles from "styles/pages/index2.module.scss";
+import styles from "styles/pages/index.module.scss";
 
 interface ItemProps {
     items: React.ReactNode;
