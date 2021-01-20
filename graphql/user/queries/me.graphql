@@ -1,7 +1,7 @@
 query Me {
-    me {
-        username
-        email
-        password
-    }
+  me {
+    username
+    email
+    password
+  }
 }

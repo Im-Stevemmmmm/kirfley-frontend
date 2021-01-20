@@ -4,17 +4,17 @@ import styles from "styles/pages/auth-page.module.scss";
 import { WEBSITE_NAME } from "utils/constants/constants";
 
 const Signup = () => {
-    return (
-        <div id={styles.container}>
-            <Head>
-                <title>Sign up | {WEBSITE_NAME}</title>
-            </Head>
+  return (
+    <div id={styles.container}>
+      <Head>
+        <title>Sign up | {WEBSITE_NAME}</title>
+      </Head>
 
-            <main id={styles.form}>
-                <SignupForm />
-            </main>
-        </div>
-    );
+      <main id={styles.form}>
+        <SignupForm />
+      </main>
+    </div>
+  );
 };
 
 export default Signup;

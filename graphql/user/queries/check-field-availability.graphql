@@ -1,3 +1,3 @@
 query CheckFieldAvailabilty($field: InputField!, $value: String!) {
-    checkFieldAvailability(field: $field, value: $value)
+  checkFieldAvailability(field: $field, value: $value)
 }

@@ -1,10 +1,10 @@
 mutation Login($usernameOrEmail: String!, $password: String!) {
-    login(data: { usernameOrEmail: $usernameOrEmail, password: $password }) {
-        successful
+  login(data: { usernameOrEmail: $usernameOrEmail, password: $password }) {
+    successful
 
-        error {
-            field
-            message
-        }
+    error {
+      field
+      message
     }
+  }
 }
