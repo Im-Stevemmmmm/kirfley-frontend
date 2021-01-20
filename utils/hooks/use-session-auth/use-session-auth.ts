@@ -1,14 +1,19 @@
-import { useMeQuery } from "generated/graphql-types";
+import { MeDocument } from "generated/graphql-types";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useQuery } from "react-query";
+import { serverClient } from "utils/server-client";
 
 export const useSessionAuth = () => {
-    const { data, loading } = useMeQuery();
-    const router = useRouter();
+  const { data, isLoading } = useQuery(
+    "me",
+    async () => await serverClient.request(MeDocument)
+  );
+  const router = useRouter();
 
-    useEffect(() => {
-        if (!loading && !data?.me) {
-            router.replace("/");
-        }
-    }, [loading, data, router]);
+  useEffect(() => {
+    if (!isLoading && !data?.me) {
+      router.replace("/");
+    }
+  }, [isLoading, data, router]);
 };
