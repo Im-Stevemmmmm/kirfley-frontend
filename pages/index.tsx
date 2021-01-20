@@ -1,64 +1,55 @@
-import classNames from "classnames";
-import { Navbar } from "components/pages/index/navbar/navbar";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-import buttonStyles from "styles/misc/buttons.module.scss";
-import styles from "styles/pages/index.module.scss";
 
 const Index = () => {
-    return (
-        <div>
-            <Head>
-                <title>Kirfley</title>
-            </Head>
+  return (
+    <div>
+      <Head>
+        <title>Kirfley</title>
+      </Head>
 
-            <main>
-                <Navbar />
+      <main>
+        <div className="flex flex-row justify-evenly items-center w-full bg-red-500 h-96 p-5">
+          <div>
+            <h1 className="text-white text-7xl font-bold">Kirfley</h1>
 
-                <div className={styles.banner}>
-                    <div className={styles.banner__child}>
-                        <h1 className={styles.banner__title}>Kirfley</h1>
+            <h2 className="text-white text-4xl font-bold">
+              Powering <br /> Free <br /> Speech for all
+            </h2>
+          </div>
 
-                        <h2>Share Your Opinions With the World</h2>
+          <form className="flex flex-col max-w-sm w-full bg-white p-6 shadow-lg">
+            <h1 className="text-2xl font-bold">Log In</h1>
 
-                        <div className={styles.banner__buttons}>
-                            <Link href="/login">
-                                <a
-                                    className={classNames(
-                                        buttonStyles.inline,
-                                        styles.buttons__button
-                                    )}
-                                >
-                                    Log In
-                                </a>
-                            </Link>
+            <input
+              className="my-2 border border-gray-200 py-2 px-3 outline-none transition focus:border-red-500"
+              name="email"
+              type="text"
+              placeholder="Email"
+            />
+            <input
+              className="my-2 border border-gray-200 py-2 px-3 outline-none transition focus:border-red-500"
+              name="email"
+              type="password"
+              placeholder="Password"
+            />
 
-                            <Link href="/signup">
-                                <a
-                                    className={classNames(
-                                        buttonStyles.inline,
-                                        styles.buttons__button
-                                    )}
-                                >
-                                    Create an Account
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
+            <Link href="/log-in">
+              <a className="bg-black py-2 my-2 text-center text-white transition hover:bg-gray-900 outline-none">
+                Log In
+              </a>
+            </Link>
 
-                    <div className={styles.banner__child}>
-                        <Image
-                            src="/art/index/phone-taking-image.svg"
-                            width={400}
-                            height={600}
-                            alt=""
-                        />
-                    </div>
-                </div>
-            </main>
+            <Link href="/sign-up">
+              <a className="bg-black py-2 my-2 text-center text-white transition hover:bg-gray-900 outline-none">
+                Sign Up
+              </a>
+            </Link>
+          </form>
         </div>
-    );
+      </main>
+    </div>
+  );
 };
 
 export default Index;
