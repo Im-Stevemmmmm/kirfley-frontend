@@ -1,26 +1,12 @@
-mutation RegisterUser(
-    $year: Int!
-    $month: Int!
-    $day: Int!
-    $username: String!
-    $email: String!
-    $password: String!
-) {
-    registerUser(
-        data: {
-            year: $year
-            month: $month
-            day: $day
-            username: $username
-            email: $email
-            password: $password
-        }
-    ) {
-        successful
+mutation RegisterUser($username: String!, $email: String!, $password: String!) {
+  registerUser(
+    data: { username: $username, email: $email, password: $password }
+  ) {
+    successful
 
-        error {
-            field
-            message
-        }
+    error {
+      field
+      message
     }
+  }
 }
