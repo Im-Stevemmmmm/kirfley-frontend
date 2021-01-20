@@ -51,19 +51,19 @@ const Home = () => {
 
               <div className="flex flex-col space-y-5">
                 <PreviewPost
-                  title="Welcome to Kirfley!"
+                  title="Hello World"
                   user="Stevemmmmm"
-                  body="Hey everyone! Thanks for coming onto Kirfley"
+                  body="Hey everyone! Thanks for signing on to Kirfley."
                 />
                 <PreviewPost
-                  title="Welcome to Kirfley!"
+                  title="Hello World"
                   user="Stevemmmmm"
-                  body="Hey everyone! Thanks for coming onto Kirfley"
+                  body="Hey everyone! Thanks for signing on to Kirfley."
                 />
                 <PreviewPost
-                  title="Welcome to Kirfley!"
+                  title="Hello World"
                   user="Stevemmmmm"
-                  body="Hey everyone! Thanks for coming onto Kirfley"
+                  body="Hey everyone! Thanks for signing on to Kirfley."
                 />
               </div>
             </div>
